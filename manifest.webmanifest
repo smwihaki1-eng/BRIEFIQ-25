@@ -1,0 +1,16 @@
+{
+  "name": "BriefIQ — Creative Intelligence OS",
+  "short_name": "BriefIQ",
+  "description": "Paste any client brief. Get the real problem, sharp insights, production plans and the evidence to defend all of it.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#1b4bff",
+  "background_color": "#f0eee9",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

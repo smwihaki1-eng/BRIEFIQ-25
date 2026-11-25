@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>BriefIQ — Research Inbox (admin)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#0d0d0d; --bone:#f0eee9; --blue:#1b4bff; --orange:#FF4D00; --amber:#FFB800; --lime:#00A651; --red:#E8262B; --mute:#7a776f; --line:#e6e2d8; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bone);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.5}
+  .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 80px}
+  header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+  h1{font-family:Anton;font-weight:400;text-transform:uppercase;font-size:30px;letter-spacing:.5px;margin:0}
+  .mono{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)}
+  .btn{border:2px solid var(--ink);background:#fff;border-radius:100px;padding:9px 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
+  .btn.primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+  .btn.small{padding:6px 12px;font-size:12px}
+  .btn.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .panel{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:18px 20px;margin-bottom:18px}
+  input,textarea,select{width:100%;border:2px solid var(--ink);border-radius:12px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fff}
+  label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);display:block;margin:0 0 4px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+  .card{border:2px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .thumb{height:120px;background:#111 center/cover no-repeat;border-bottom:2px solid var(--ink);display:flex;align-items:center;justify-content:center;color:#fff;font-family:Anton;font-size:28px}
+  .card .body{padding:12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .badge{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:100px;border:1.5px solid var(--ink)}
+  .b-pending{background:var(--amber)} .b-published{background:var(--lime);color:#fff} .b-rejected{background:var(--red);color:#fff} .b-archived{background:#ddd}
+  .tagchip{font-family:'Space Mono',monospace;font-size:10px;background:var(--bone);border:1px solid var(--line);border-radius:100px;padding:2px 7px}
+  a{color:var(--blue)}
+  .muted{color:var(--mute);font-size:12px}
+  .hide{display:none}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:100px;font-size:13px;z-index:50;opacity:0;transition:opacity .2s}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Research Inbox</h1>
+      <div class="mono">BriefIQ · owner-only · approval workflow</div>
+    </div>
+    <div class="row" id="whoami"></div>
+  </header>
+
+  <!-- AUTH GATE -->
+  <div class="panel" id="authPanel">
+    <div id="authState" class="mono" style="margin-bottom:10px">Checking session…</div>
+    <div id="signinBox" class="hide">
+      <label>Owner email — we'll send a magic sign-in link</label>
+      <div class="row">
+        <input type="email" id="email" placeholder="you@example.com" style="max-width:320px">
+        <button class="btn primary" id="btnMagic">Send link</button>
+      </div>
+      <div class="muted" style="margin-top:8px">You must be the account whose <code>profiles.role='owner'</code>. Add this page's URL to Supabase → Auth → URL configuration (redirect allow-list) first.</div>
+    </div>
+  </div>
+
+  <!-- SUBMIT A URL -->
+  <div class="panel hide" id="submitPanel">
+    <div class="mono" style="margin-bottom:10px;color:var(--blue)">✳ Add research by URL</div>
+    <div class="row" style="align-items:flex-end">
+      <div style="flex:2 1 320px"><label>URL</label><input id="sUrl" placeholder="https://…"></div>
+      <div style="flex:1 1 160px"><label>Category (optional)</label><input id="sCat" placeholder="Advertising"></div>
+      <div style="flex:1 1 160px"><label>Market (optional)</label><input id="sMarket" placeholder="Kenya"></div>
+      <button class="btn" id="btnPreview">Preview OG</button>
+      <button class="btn primary" id="btnSubmit">Add → pending</button>
+    </div>
+    <div id="ogPreview" class="muted" style="margin-top:10px"></div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="row hide" id="filters" style="margin-bottom:14px">
+    <button class="btn small on" data-f="pending">Pending</button>
+    <button class="btn small" data-f="published">Published</button>
+    <button class="btn small" data-f="rejected">Rejected</button>
+    <button class="btn small" data-f="">All</button>
+    <button class="btn small" data-f="ai" title="Items the monthly AI top-up proposed (any status) — review and approve">🤖 AI-proposed</button>
+    <button class="btn small" id="btnRuns" style="margin-left:auto">Ingestion log</button>
+    <button class="btn small" id="btnReload">↻ Reload</button>
+  </div>
+
+  <div id="items" class="grid"></div>
+  <div id="runs" class="panel hide"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="js/backend.js"></script>
+<script>
+(function(){
+  "use strict";
+  var CFG = (window.BriefIQBackend && BriefIQBackend.config) || {};
+  var FN = CFG.SUPABASE_URL ? CFG.SUPABASE_URL.replace(/\/+$/,'') + '/functions/v1' : '';
+  var TOKKEY = 'briefiq_sb_token';
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function toast(m){ var t=$('toast'); t.textContent=m; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},2600); }
+  function token(){ try{ return sessionStorage.getItem(TOKKEY)||''; }catch(e){ return ''; } }
+  function setToken(t){ try{ t?sessionStorage.setItem(TOKKEY,t):sessionStorage.removeItem(TOKKEY); }catch(e){} }
+
+  // capture a magic-link token from the URL hash on return
+  (function(){
+    if(location.hash.indexOf('access_token')>=0){
+      var p=new URLSearchParams(location.hash.slice(1));
+      var t=p.get('access_token');
+      if(t){ setToken(t); history.replaceState(null,'',location.pathname); }
+    }
+  })();
+
+  function notConfigured(){
+    return !CFG.SUPABASE_URL || !CFG.SUPABASE_ANON_KEY;
+  }
+
+  async function api(fn, body){
+    var res = await fetch(FN+'/'+fn, { method:'POST',
+      headers:{ 'content-type':'application/json', 'apikey':CFG.SUPABASE_ANON_KEY, 'authorization':'Bearer '+token() },
+      body: JSON.stringify(body||{}) });
+    var data = await res.json().catch(function(){return {};});
+    return { ok:res.ok, status:res.status, data:data };
+  }
+
+  async function sendMagicLink(email){
+    var redirect = location.href.split('#')[0];
+    var res = await fetch(CFG.SUPABASE_URL.replace(/\/+$/,'')+'/auth/v1/otp?redirect_to='+encodeURIComponent(redirect), {
+      method:'POST', headers:{ 'content-type':'application/json', 'apikey':CFG.SUPABASE_ANON_KEY },
+      body: JSON.stringify({ email: email, create_user:false })
+    });
+    return res.ok;
+  }
+
+  // ---- boot ----
+  async function boot(){
+    if(notConfigured()){
+      $('authState').innerHTML = 'Backend not configured. Fill <code>SUPABASE_URL</code> + <code>SUPABASE_ANON_KEY</code> in <code>js/backend.js</code> and set <code>ENABLED</code>, then reload.';
+      return;
+    }
+    if(!token()){ showSignin(); return; }
+    // verify owner by attempting a list
+    var r = await api('research-admin', { action:'list', status:'pending', limit:1 });
+    if(r.status===401){ showSignin('Session expired — sign in again.'); return; }
+    if(r.status===403){ $('authState').innerHTML='Signed in, but this account is not an <b>owner</b>. In Supabase: <code>update profiles set role=\'owner\' where email=\'you@…\';</code>'; showSignin(); return; }
+    if(!r.ok){ $('authState').textContent = 'Error: '+((r.data&&r.data.error)||r.status); showSignin(); return; }
+    onSignedIn();
+  }
+
+  function showSignin(msg){
+    $('authState').textContent = msg || 'Sign in as the owner to manage research.';
+    $('signinBox').classList.remove('hide');
+  }
+  function onSignedIn(){
+    $('authPanel').classList.add('hide');
+    $('submitPanel').classList.remove('hide');
+    $('filters').classList.remove('hide');
+    $('whoami').innerHTML = '<button class="btn small" id="btnOut">Sign out</button>';
+    $('btnOut').onclick = function(){ setToken(''); location.reload(); };
+    load('pending');
+  }
+
+  // ---- rendering ----
+  var current = 'pending';
+  function statusBadge(s){ return '<span class="badge b-'+esc(s)+'">'+esc(s)+'</span>'; }
+  function card(it){
+    var thumb = it.thumbnail
+      ? '<div class="thumb" style="background-image:url('+esc(it.thumbnail).replace(/'/g,'')+')"></div>'
+      : '<div class="thumb">'+esc((it.source||it.title||'?').charAt(0).toUpperCase())+'</div>';
+    var tags = (it.tags||[]).map(function(t){return '<span class="tagchip">'+esc(t)+'</span>';}).join(' ');
+    var d = function(x){ return x? new Date(x).toISOString().slice(0,10):'—'; };
+    return '<div class="card" data-id="'+esc(it.id)+'">'+thumb+
+      '<div class="body">'+
+        '<div class="row" style="justify-content:space-between">'+statusBadge(it.status)+(it.featured?'<span class="badge" style="background:var(--amber)">★ featured</span>':'')+'</div>'+
+        '<b style="font-size:15px;line-height:1.25">'+esc(it.title)+'</b>'+
+        '<div class="muted">'+esc(it.source||'')+(it.category?' · '+esc(it.category):'')+(it.market?' · '+esc(it.market):'')+'</div>'+
+        (it.description?'<div style="font-size:12.5px;color:#444;line-height:1.5">'+esc(it.description.slice(0,180))+'</div>':'')+
+        (tags?'<div class="row" style="gap:5px">'+tags+'</div>':'')+
+        '<div class="muted" style="font-size:11px">discovered '+esc(it.discovered_via||'—')+' · added '+d(it.date_added)+' · checked '+d(it.last_checked_at)+'</div>'+
+        '<a href="'+esc(it.source_url)+'" target="_blank" rel="noopener" style="font-size:12px">open source →</a>'+
+        '<div class="row" style="margin-top:6px;gap:6px">'+
+          (it.status!=='published'?'<button class="btn small primary" data-act="approve">✓ Approve</button>':'')+
+          (it.status!=='rejected'?'<button class="btn small" data-act="reject">✕ Reject</button>':'')+
+          '<button class="btn small" data-act="feature">'+(it.featured?'Unfeature':'★ Feature')+'</button>'+
+          '<button class="btn small" data-act="edit">✎ Edit</button>'+
+        '</div>'+
+      '</div></div>';
+  }
+
+  async function load(filter){
+    current = filter;
+    document.querySelectorAll('#filters .btn[data-f]').forEach(function(b){ b.classList.toggle('on', b.dataset.f===filter); });
+    $('runs').classList.add('hide');
+    $('items').innerHTML = '<div class="muted">Loading…</div>';
+    var body = { action:'list', limit:150 };
+    if(filter==='ai') body.via = 'ingest:ai';        // AI top-up items, any status
+    else if(filter) body.status = filter;            // status tabs; '' (All) sends neither
+    var r = await api('research-admin', body);
+    if(!r.ok){ $('items').innerHTML='<div class="muted">Error: '+esc((r.data&&r.data.error)||r.status)+'</div>'; return; }
+    var items = (r.data.items)||[];
+    $('items').innerHTML = items.length ? items.map(card).join('') : '<div class="muted">Nothing here.</div>';
+    wireCards();
+  }
+
+  function wireCards(){
+    document.querySelectorAll('#items .card').forEach(function(c){
+      var id = c.dataset.id;
+      c.querySelectorAll('[data-act]').forEach(function(btn){
+        btn.onclick = function(){ act(id, btn.dataset.act, c); };
+      });
+    });
+  }
+
+  async function act(id, action, cardEl){
+    if(action==='edit') return editItem(id, cardEl);
+    var body = { action: action, id: id };
+    if(action==='feature'){ body.featured = !/Unfeature/.test(cardEl.innerHTML); }
+    var r = await api('research-admin', body);
+    if(r.ok){ toast(action+' ✓'); load(current); } else { toast('Failed: '+((r.data&&r.data.error)||r.status)); }
+  }
+
+  function editItem(id, cardEl){
+    var title = prompt('Title:', cardEl.querySelector('b').textContent);
+    if(title===null) return;
+    var category = prompt('Category:', '');
+    var tags = prompt('Tags (comma-separated):', '');
+    var patch = { title: title };
+    if(category) patch.category = category;
+    if(tags) patch.tags = tags.split(',').map(function(s){return s.trim();}).filter(Boolean);
+    api('research-admin', { action:'update', id:id, patch:patch }).then(function(r){
+      if(r.ok){ toast('Saved ✓'); load(current); } else { toast('Failed: '+((r.data&&r.data.error)||r.status)); }
+    });
+  }
+
+  async function showRuns(){
+    $('items').innerHTML=''; $('runs').classList.remove('hide');
+    $('runs').innerHTML='<div class="muted">Loading log…</div>';
+    var r = await api('research-admin', { action:'runs', limit:40 });
+    if(!r.ok){ $('runs').innerHTML='<div class="muted">Error: '+esc((r.data&&r.data.error)||r.status)+'</div>'; return; }
+    var rows=(r.data.runs)||[];
+    $('runs').innerHTML='<div class="mono" style="margin-bottom:10px">Ingestion log (newest first)</div>'+
+      (rows.length? rows.map(function(x){
+        return '<div class="row" style="justify-content:space-between;border-bottom:1px solid var(--line);padding:7px 0;font-size:12.5px">'+
+          '<span><b>'+esc(x.source_id||x.kind)+'</b> · '+esc(x.kind)+' · <span class="badge b-'+(x.status==='ok'?'published':x.status==='error'?'rejected':'pending')+'">'+esc(x.status||'—')+'</span></span>'+
+          '<span class="muted">found '+(x.found||0)+' · +'+(x.inserted||0)+' · dup '+(x.duplicates||0)+' · err '+(x.errors||0)+' · '+new Date(x.started_at).toISOString().slice(0,16).replace('T',' ')+(x.message?' · '+esc(x.message):'')+'</span></div>';
+      }).join('') : '<div class="muted">No runs yet.</div>');
+  }
+
+  // ---- submit / preview ----
+  async function preview(){
+    var url = $('sUrl').value.trim(); if(!url){ toast('Paste a URL'); return; }
+    $('ogPreview').textContent='Fetching OG metadata…';
+    var r = await api('og-fetch', { url:url });
+    if(r.ok && r.data && r.data.ok && r.data.meta){
+      var m=r.data.meta;
+      $('ogPreview').innerHTML='<b>'+esc(m.title||'(no title)')+'</b> · '+esc(m.siteName||'')+'<br>'+esc((m.description||'').slice(0,160))+(m.image?'<br><img src="'+esc(m.image)+'" style="max-height:80px;border-radius:8px;margin-top:6px">':'');
+    } else {
+      $('ogPreview').textContent = 'No OG metadata: '+((r.data&&r.data.error)||'unavailable')+' (you can still add it).';
+    }
+  }
+  async function submit(){
+    var url=$('sUrl').value.trim(); if(!url){ toast('Paste a URL'); return; }
+    var body={ url:url };
+    if($('sCat').value.trim()) body.category=$('sCat').value.trim();
+    if($('sMarket').value.trim()) body.market=$('sMarket').value.trim();
+    var r=await api('research-submit', body);
+    if(r.ok){ toast(r.data.duplicate?'Already in library':'Added → pending ✓'); $('sUrl').value=''; $('ogPreview').textContent=''; load('pending'); }
+    else { toast('Failed: '+((r.data&&r.data.error)||r.status)); }
+  }
+
+  // ---- wire ----
+  $('btnMagic').onclick = async function(){
+    var e=$('email').value.trim(); if(!e){ toast('Enter your email'); return; }
+    var ok = await sendMagicLink(e);
+    toast(ok?'Magic link sent — check your email':'Could not send link');
+  };
+  $('btnPreview').onclick = preview;
+  $('btnSubmit').onclick = submit;
+  $('btnReload').onclick = function(){ load(current); };
+  $('btnRuns').onclick = showRuns;
+  document.querySelectorAll('#filters .btn[data-f]').forEach(function(b){ b.onclick=function(){ load(b.dataset.f); }; });
+
+  boot();
+})();
+</script>
+</body>
+</html>

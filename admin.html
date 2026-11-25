@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BriefIQ Research Admin</title>
+<link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#111; --ink2:#262522; --mute:#3b3a36; --line:#e4e1d9; --bg:#f6f5f2; --card:#fff; --orange:#FF4D00; --green:#0A6E35; --red:#B3141B; --amber:#7A5300; }
+  * { box-sizing: border-box; }
+  .tbl { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; font-size:14px; }
+  .tbl th, .tbl td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); color:var(--ink); }
+  .tbl th { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--mute); }
+  #mForm input, #mForm select { padding:10px 12px; border:1.5px solid var(--line); border-radius:10px; font:inherit; color:var(--ink); background:#fff; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 "Space Grotesk", system-ui, sans-serif; }
+  a { color: var(--ink); }
+  header { background:#111; color:#fff; padding:14px 22px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; position:sticky; top:0; z-index:5; }
+  header b { font-family:Anton, sans-serif; font-weight:400; font-size:22px; letter-spacing:.5px; }
+  header .upd { font-family:"Space Mono", monospace; font-size:12px; opacity:.85; margin-left:auto; }
+  nav { display:flex; gap:6px; flex-wrap:wrap; padding:12px 22px; border-bottom:1px solid var(--line); background:#fff; position:sticky; top:52px; z-index:4; }
+  nav button { font:600 13.5px "Space Grotesk"; border:2px solid var(--ink); background:#fff; color:var(--ink); border-radius:100px; padding:7px 14px; cursor:pointer; }
+  nav button.on { background:var(--ink); color:#fff; }
+  nav .count { font-family:"Space Mono"; font-size:11px; margin-left:6px; background:var(--orange); color:#111; border-radius:100px; padding:1px 7px; }
+  main { max-width:1200px; margin:0 auto; padding:20px 22px 60px; }
+  h1 { font-family:Anton, sans-serif; font-weight:400; font-size:30px; margin:6px 0 4px; letter-spacing:.3px; }
+  .lede { color:var(--ink2); margin:0 0 16px; max-width:760px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+  .stat { background:#fff; border:2px solid var(--ink); border-radius:14px; padding:14px 16px; }
+  .stat .k { font-family:"Space Mono"; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--mute); }
+  .stat .v { font-family:Anton; font-size:32px; line-height:1.1; margin-top:4px; }
+  .btn { font:700 13.5px "Space Grotesk"; border:2px solid var(--ink); background:#fff; color:var(--ink); border-radius:10px; padding:8px 14px; cursor:pointer; }
+  .btn.primary { background:var(--orange); color:#111; }
+  .btn.dark { background:var(--ink); color:#fff; }
+  .btn.ok { background:var(--green); border-color:var(--green); color:#fff; }
+  .btn.no { background:#fff; border-color:var(--red); color:var(--red); }
+  .btn.small { padding:5px 10px; font-size:12.5px; border-radius:8px; }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:12px 0; }
+  input, select, textarea { font:14px "Space Grotesk"; color:var(--ink); background:#fff; border:2px solid var(--ink); border-radius:10px; padding:8px 10px; }
+  textarea { width:100%; min-height:70px; }
+  .items { display:flex; flex-direction:column; gap:12px; }
+  .item { background:#fff; border:2px solid var(--ink); border-radius:14px; display:grid; grid-template-columns:200px minmax(0,1fr); overflow:hidden; }
+  .thumb { background:#1b4bff; color:#fff; position:relative; min-height:140px; display:flex; align-items:center; justify-content:center; font-family:Anton; font-size:46px; }
+  .thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .thumb .src { position:absolute; left:8px; bottom:8px; font:700 10.5px "Space Mono"; background:rgba(0,0,0,.65); color:#fff; padding:3px 8px; border-radius:100px; }
+  .body { padding:12px 16px; display:flex; flex-direction:column; gap:6px; min-width:0; }
+  .t { font-weight:700; font-size:16.5px; line-height:1.3; }
+  .meta { font-family:"Space Mono"; font-size:12px; color:var(--mute); }
+  .chips { display:flex; gap:6px; flex-wrap:wrap; }
+  .chip { font-family:"Space Mono"; font-size:11px; border:1.5px solid var(--ink); border-radius:100px; padding:2px 8px; color:var(--ink); background:#fff; }
+  .chip.dark { background:var(--ink); color:#fff; }
+  .chip.warn { border-color:var(--red); color:var(--red); }
+  .desc { color:var(--ink2); font-size:14px; }
+  .acts { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
+  .empty { background:#fff; border:2px dashed #8a877f; border-radius:14px; padding:26px; text-align:center; color:var(--ink2); }
+  table { width:100%; border-collapse:collapse; background:#fff; border:2px solid var(--ink); border-radius:14px; overflow:hidden; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); font-size:13.5px; vertical-align:top; }
+  th { font-family:"Space Mono"; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--mute); background:#faf9f6; }
+  .ok-t { color:var(--green); font-weight:700; } .bad-t { color:var(--red); font-weight:700; }
+  .card { background:#fff; border:2px solid var(--ink); border-radius:14px; padding:16px; }
+  .group { margin-bottom:14px; }
+  dialog { border:2px solid var(--ink); border-radius:16px; padding:0; max-width:760px; width:calc(100% - 32px); }
+  dialog::backdrop { background:rgba(0,0,0,.45); }
+  .form { padding:18px 20px; display:grid; grid-template-columns:1fr 1fr; gap:10px 14px; }
+  .form label { display:flex; flex-direction:column; gap:4px; font-size:12.5px; font-weight:700; color:var(--ink2); }
+  .form label.full { grid-column:1/-1; }
+  .form input, .form select, .form textarea { width:100%; }
+  .dlg-h { padding:14px 20px; border-bottom:2px solid var(--ink); font-family:Anton; font-size:20px; display:flex; justify-content:space-between; align-items:center; }
+  .dlg-f { padding:12px 20px; border-top:1px solid var(--line); display:flex; gap:10px; justify-content:flex-end; }
+  #login { max-width:420px; margin:12vh auto; }
+  .toast { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); background:#111; color:#fff; padding:10px 18px; border-radius:100px; font-weight:600; z-index:50; }
+  .hidden { display:none !important; }
+  @media (max-width:700px) { .item { grid-template-columns:1fr; } .thumb { min-height:170px; } .form { grid-template-columns:1fr; } header .upd { margin-left:0; width:100%; } nav { top:84px; } }
+</style>
+</head>
+<body>
+<header><b>BRIEFIQ · RESEARCH ADMIN</b><span class="upd" id="upd">—</span></header>
+
+<div id="login" class="card">
+  <h1>Research Admin</h1>
+  <p class="lede">Supervise the Research Intelligence Engine: approve what it finds, fix metadata, pin the best cases, manage trusted sources.</p>
+  <form id="loginForm" class="row" style="flex-direction:column;align-items:stretch">
+    <label style="font-weight:700;font-size:13px">Admin password <input id="pw" type="password" autocomplete="current-password" required style="width:100%;margin-top:4px"></label>
+    <button class="btn primary" type="submit">Sign in</button>
+    <div id="loginErr" class="bad-t"></div>
+  </form>
+</div>
+
+<div id="app" class="hidden">
+  <nav id="tabs">
+    <button data-t="overview" class="on">Overview</button>
+    <button data-t="pending">Review queue<span class="count" id="cPending">0</span></button>
+    <button data-t="published">Library</button>
+    <button data-t="duplicates">Duplicates</button>
+    <button data-t="sources">Sources</button>
+    <button data-t="runs">Runs</button>
+    <button data-t="rejected">Rejected</button>
+    <button data-t="members">Members &amp; AI</button>
+  </nav>
+  <main id="view"></main>
+</div>
+
+<dialog id="edit"><form method="dialog" id="editForm">
+  <div class="dlg-h">Correct metadata <button class="btn small" value="cancel">✕</button></div>
+  <div class="form" id="editFields"></div>
+  <div class="dlg-f"><button class="btn" value="cancel">Cancel</button><button class="btn primary" value="save" id="editSave">Save</button></div>
+</form></dialog>
+
+<script src="js/work-media.js"></script>
+<script src="js/admin-research.js?v=20261003c"></script>
+</body>
+</html>

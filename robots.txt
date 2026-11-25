@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /offline.html
+Disallow: /offline-test.html
+Disallow: /index-classic.html
+Disallow: /brand.html
+
+# Update the host below when the production domain changes
+Sitemap: https://briefiq.netlify.app/sitemap.xml

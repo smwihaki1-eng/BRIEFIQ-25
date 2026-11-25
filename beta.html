@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefIQ — Join the Closed Beta</title>
+<meta name="description" content="Help shape BriefIQ. Founding testers get 5 free projects to run every engine on real briefs, a direct line to the founder, and first dibs on Pro. Limited spots.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231B4BFF%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3Eb%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1b4bff">
+<link rel="stylesheet" href="css/studio.css?v=20260826b"><link rel="stylesheet" href="css/design-page.css?v=20260826b">
+<style>
+  /* ---- canvas: match the landing's warm bone + ink (explicit hex — do not rely on tokens) ---- */
+  html,body{background:#f0eee9}
+  body{color:#111;font-family:'Space Grotesk',sans-serif;margin:0;padding:0;overflow-x:hidden}
+  .wrap{max-width:1000px;margin:0 auto;padding:22px 26px 60px}
+  a{color:#1b4bff}
+  .mono{font-family:'Space Mono',monospace}
+  .kick{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#FF4D00}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+  .brandbar img{width:150px;height:auto;display:block}
+  .brandbar .nav a{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#55534e;text-decoration:none;margin-left:16px}
+  .brandbar .nav a:hover{color:#1b4bff}
+
+  /* ---- hero ---- */
+  .hero{display:grid;grid-template-columns:1.4fr .9fr;gap:30px;align-items:center;
+        border:1.5px solid #111;border-radius:22px;background:#fff;padding:38px 40px;box-shadow:7px 7px 0 #111}
+  .hero h1{font-family:Anton;font-weight:400;font-size:clamp(40px,6.4vw,74px);line-height:.96;text-transform:uppercase;margin:12px 0 14px;letter-spacing:.5px}
+  .hero h1 em{font-style:normal;color:#1b4bff}
+  .hero p{font-size:16px;color:#3a382f;line-height:1.55;max-width:46ch}
+  .counter{border:1.5px solid #111;border-radius:18px;background:#1b4bff;color:#fff;padding:22px 24px;text-align:center}
+  .counter .n{font-family:Anton;font-weight:400;font-size:64px;line-height:1;display:block}
+  .counter .lbl{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.9;margin-top:6px}
+  .counter .bar{height:8px;border-radius:100px;background:rgba(255,255,255,.28);margin:14px 0 4px;overflow:hidden}
+  .counter .bar i{display:block;height:100%;background:#FFB800;border-radius:100px;transition:width .5s ease}
+  .counter.closed{background:#111}
+  .cta{display:inline-flex;align-items:center;gap:8px;background:#FF4D00;color:#fff;border:none;border-radius:100px;
+       padding:15px 30px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;margin-top:20px}
+  .cta:hover{background:#1b4bff;color:#fff}
+  .cta.ghost{background:transparent;color:#111;border:1.5px solid #111;margin-left:10px}
+  .cta.ghost:hover{background:#111;color:#fff}
+
+  /* ---- generic section ---- */
+  section{margin-top:44px}
+  .sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+  .sec-h .num{font-family:'Space Mono',monospace;font-size:12px;color:#FF4D00}
+  .sec-h h2{font-family:Anton;font-weight:400;font-size:clamp(26px,4vw,40px);text-transform:uppercase;margin:0;letter-spacing:.5px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .card{border:1.5px solid #111;border-radius:16px;background:#fff;padding:22px}
+  .card h3{font-size:16px;margin:0 0 8px;font-weight:700}
+  .card p{font-size:13.5px;color:#55534e;line-height:1.55;margin:0}
+  .card .ic{font-size:24px;display:block;margin-bottom:10px}
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .step{border:1.5px solid #111;border-radius:16px;padding:20px;background:#fff;position:relative}
+  .step:before{counter-increment:s;content:counter(s);font-family:Anton;font-size:34px;color:#1b4bff;display:block;line-height:1;margin-bottom:8px}
+  .step h3{font-size:15px;margin:0 0 6px}
+  .step p{font-size:13px;color:#55534e;line-height:1.5;margin:0}
+  .who{display:flex;gap:10px;flex-wrap:wrap}
+  .who span{font-family:'Space Mono',monospace;font-size:12px;border:1.5px solid #111;border-radius:100px;padding:8px 16px;background:#fff}
+
+  details{border-bottom:1px solid rgba(0,0,0,.1);padding:12px 0}
+  summary{font-weight:700;font-size:14.5px;cursor:pointer;min-height:34px;display:flex;align-items:center}
+  details p{font-size:13.5px;color:#55534e;margin:8px 0 2px;line-height:1.6}
+
+  /* ---- signup form ---- */
+  .form-card{border:1.5px solid #111;border-radius:22px;background:#fff;padding:32px 34px;box-shadow:7px 7px 0 #1b4bff}
+  label{display:block;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:#55534e;margin:14px 0 6px}
+  input,textarea,select{width:100%;box-sizing:border-box;border:1.5px solid #111;border-radius:12px;padding:12px 14px;font-size:16px;font-family:'Space Grotesk',sans-serif;background:#fff;color:#111}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:#1b4bff;box-shadow:0 0 0 3px rgba(27,75,255,.15)}
+  textarea{min-height:90px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .req{color:#FF4D00}
+  .hint{font-size:12px;color:#8a877e;margin-top:6px}
+  #result{display:none;border-radius:18px;padding:26px;margin-top:8px;border:1.5px solid #111}
+  #result.ok{background:#eafbf0;border-color:#16a34a}
+  #result.wait{background:#fff7e6;border-color:#FFB800}
+  #result h3{font-family:Anton;font-weight:400;font-size:26px;text-transform:uppercase;margin:0 0 8px}
+  .codebox{font-family:'Space Mono',monospace;font-size:22px;letter-spacing:3px;background:#111;color:#FFB800;border-radius:12px;padding:12px 18px;display:inline-block;margin:8px 0}
+  .foot{margin-top:48px;border-top:1.5px solid #111;padding-top:16px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px;color:#55534e;line-height:2}
+  .foot img{width:150px;height:auto;display:block;margin-bottom:8px}
+
+  @media(max-width:760px){
+    .wrap{padding:16px 16px 46px}
+    .hero{grid-template-columns:1fr;padding:26px 22px;box-shadow:5px 5px 0 #111}
+    .form-card{padding:24px 20px}
+    .two{grid-template-columns:1fr}
+    .counter .n{font-size:52px}
+  }
+</style>
+</head>
+<body>
+<noscript><div style="padding:40px;text-align:center;font-family:sans-serif">The beta signup needs JavaScript enabled.</div></noscript>
+<div class="wrap">
+
+  <!-- brand bar -->
+  <div class="brandbar">
+    <a href="index.html" aria-label="briefiq — creative intelligence os"><img src="assets/briefiq-logo.svg?v=20260826b" alt="briefiq — creative intelligence os"></a>
+    <div class="nav"><a href="index.html">← Back to BriefIQ</a><a href="#apply">Apply ↓</a></div>
+  </div>
+
+  <!-- hero -->
+  <div class="hero">
+    <div>
+      <div class="kick">Closed beta · <span id="cohortName">Founding cohort</span></div>
+      <h1>Help build the <em>creative intelligence platform</em> creatives actually trust.</h1>
+      <p>BriefIQ is an African-built creative intelligence platform — a rigorous space to understand the real problem, challenge your assumptions and pressure-test your ideas before you make the work. It works today. Now a small founding cohort gets to shape what it becomes.</p>
+      <p style="font-family:'Space Mono',ui-monospace,monospace;font-size:13px;font-weight:700;letter-spacing:.3px;color:#1b4bff;margin:0 0 18px;line-height:1.65">20 founding spots · 5 free briefs each · your feedback shapes what gets built.</p>
+      <a href="#apply" class="cta">Apply for a spot →</a>
+      <a href="index.html" class="cta ghost">See how it works</a>
+    </div>
+    <div class="counter" id="counter" aria-live="polite">
+      <span class="n" id="spotsN">20</span>
+      <span class="lbl" id="spotsLbl">spots open</span>
+      <div class="bar"><i id="spotsBar" style="width:0%"></i></div>
+      <div class="lbl" id="spotsSub" style="opacity:.8">of 20 in this cohort</div>
+    </div>
+  </div>
+
+  <!-- the trade: feedback is the deal -->
+  <section>
+    <div style="background:#1b4bff;color:#fff;border:2px solid #0d0d0d;border-radius:18px;padding:clamp(22px,4vw,32px);box-shadow:6px 6px 0 #0d0d0d">
+      <div style="font-family:'Space Mono',ui-monospace,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px">Your part of the deal</div>
+      <h2 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(26px,3.8vw,40px);line-height:1.04;margin:0 0 12px;text-transform:uppercase;letter-spacing:.5px">You get 5 free briefs. We get your honest feedback. That's the whole trade.</h2>
+      <p style="font-size:15px;line-height:1.6;max-width:62ch;opacity:.96;margin:0 0 18px">This isn't a free trial — it's an exchange. After each brief you run, there's a two-minute prompt: <b>what helped, what felt wrong, what's missing.</b> That's what decides what gets built next and what gets cut. No feedback, no beta — for you or for us.</p>
+      <div style="display:inline-block;background:#FF4D00;color:#0d0d0d;border:2px solid #0d0d0d;border-radius:100px;padding:9px 16px;font-family:'Space Mono',ui-monospace,monospace;font-size:13px;font-weight:700">🎁 Run your 5 free briefs, send your feedback, and we gift you 3 more.</div>
+    </div>
+  </section>
+
+  <!-- what you get -->
+  <section>
+    <div class="sec-h"><span class="num">01</span><h2>What you get</h2></div>
+    <div class="grid">
+      <div class="card"><span class="ic">🚀</span><h3>5 free projects</h3><p>Run five real briefs through every engine — cultural intelligence, production planning, media strategy, advanced exports — completely free. No card to start.</p></div>
+      <div class="card"><span class="ic">🎯</span><h3>Shape the product</h3><p>Your feedback goes straight to the roadmap. Founding testers help decide what gets built next and what gets cut.</p></div>
+      <div class="card"><span class="ic">📞</span><h3>A direct line to the founder</h3><p>No support ticket queue. You talk to the person who builds it — and get answers, usually same day (Nairobi time).</p></div>
+      <div class="card"><span class="ic">🏷️</span><h3>Credited, if you want</h3><p>Founding testers are named on the launch page (opt-in). Your fingerprints are on the thing.</p></div>
+    </div>
+  </section>
+
+  <!-- how it works -->
+  <section>
+    <div class="sec-h"><span class="num">02</span><h2>How the beta works</h2></div>
+    <div class="steps">
+      <div class="step"><h3>Apply below</h3><p>Two minutes. Tell us who you are and when you can test. We read every one.</p></div>
+      <div class="step"><h3>Get your spot</h3><p>Accepted testers get an instant beta code — your key to log the projects you're testing.</p></div>
+      <div class="step"><h3>Test on real briefs</h3><p>Run up to five of your own live briefs through BriefIQ over the beta. Real work, not toy examples.</p></div>
+      <div class="step"><h3>Tell us what broke</h3><p>Quick structured feedback after each project — what helped, what didn't, what's missing.</p></div>
+    </div>
+  </section>
+
+  <!-- who -->
+  <section>
+    <div class="sec-h"><span class="num">03</span><h2>Who we're looking for</h2></div>
+    <p style="font-size:14.5px;color:#55534e;max-width:60ch;margin:0 0 16px">People who live inside client briefs. If you've ever eaten a round of free revisions because a brief was vague, you're exactly who this is for.</p>
+    <div class="who">
+      <span>Creative Directors</span><span>Designers</span><span>Strategists</span><span>Copywriters</span>
+      <span>Freelancers</span><span>Small-studio owners</span><span>Students &amp; juniors</span>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section>
+    <div class="sec-h"><span class="num">04</span><h2>Fair questions</h2></div>
+    <details open><summary>What's the time commitment?</summary><p>As much or as little as your real work allows — most testers run a brief or two a week and send a few lines of feedback. There's no quota and no busywork.</p></details>
+    <details><summary>Does it cost anything?</summary><p>Your first <b>five briefs are free</b>, with every engine unlocked — no card to start. Send us feedback and we gift you <b>three more</b> — eight in total. After that you can keep going with Pro ($20/mo) or your own API key. BriefIQ never charges you by surprise; if it ever does, that's a bug — email the founder.</p></details>
+    <details><summary>Where does my data go?</summary><p>Your briefs and analyses stay in your own browser — BriefIQ has no server that sees them. The only thing we collect is what you choose to send in the feedback form.</p></details>
+    <details><summary>How many people are in the cohort?</summary><p>Twenty, deliberately. Small enough that your feedback actually moves things. When the spots are gone, you can still join the waitlist for the next round.</p></details>
+    <details><summary>What happens when the beta ends?</summary><p>You keep everything you made. Founding testers get grandfathered perks on whatever plan launches — details shared with the cohort first.</p></details>
+  </section>
+
+  <!-- apply -->
+  <section id="apply">
+    <div class="sec-h"><span class="num">05</span><h2>Apply for a spot</h2></div>
+    <div class="form-card">
+      <form id="betaForm">
+        <div class="two">
+          <div><label>Your name <span class="req">*</span></label><input name="name" required placeholder="Amara Okoye" autocomplete="name"></div>
+          <div><label>Email <span class="req">*</span></label><input name="email" type="email" required placeholder="you@studio.com" autocomplete="email"></div>
+        </div>
+        <div class="two">
+          <div><label>What do you do?</label>
+            <select name="role" id="roleSel">
+              <option value="">Choose one…</option>
+              <option>Creative Director</option><option>Art Director</option><option>Designer</option>
+              <option>Brand Designer</option><option>UX/UI Designer</option><option>Motion / Video</option>
+              <option>Photographer</option><option>Strategist</option><option>Copywriter</option>
+              <option>Social Media Manager</option><option>Community Manager</option>
+              <option>Influencer / PR</option><option>Account / Client Service</option>
+              <option>Marketing Manager</option><option>Freelancer</option><option>Studio owner</option>
+              <option>Founder / Business owner</option><option>Student / Junior</option>
+              <option value="Other">Other (write your own)…</option>
+            </select>
+            <input name="roleOther" id="roleOther" placeholder="Tell us your role" autocomplete="off" style="display:none;margin-top:8px">
+          </div>
+          <div><label>Where do you work? (market)</label><input name="market" placeholder="Nairobi, Kenya" autocomplete="off"></div>
+        </div>
+        <label>When can you test? (rough availability)</label>
+        <input name="availability" placeholder="e.g. a couple of evenings a week for the next month">
+        <label>Why do you want in? <span style="text-transform:none;letter-spacing:0">(optional, but it helps)</span></label>
+        <textarea name="why" placeholder="The brief problem you keep running into…"></textarea>
+        <button type="submit" class="cta" id="submitBtn" style="margin-top:20px">Apply for a spot →</button>
+        <div class="hint" id="formHint">We read every application. You'll hear back right here, instantly.</div>
+      </form>
+
+      <div id="result" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <div class="foot">
+    <img src="assets/briefiq-logo.svg?v=20260826b" alt="briefiq — creative intelligence os">
+    FOUNDER-LED, BUILT IN NAIROBI · © 2026 BRIEFIQ<br>
+    <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="ai-disclosure.html">AI Disclosure</a> · <a href="support.html">Support</a>
+  </div>
+</div>
+
+<script src="js/doodle-trail.js"></script>
+<script src="js/beta-config.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(s){return document.querySelector(s)};
+  var B=window.BETA||{CAP:20,PROJECTS_PER:5,api:function(p){return "/api/"+p},validEmail:function(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}};
+  if(B.COHORT) $("#cohortName").textContent=B.COHORT;
+
+  /* ---- live spots counter ---- */
+  function paintCounter(spotsLeft, open){
+    var cap=B.CAP||20;
+    var left=(typeof spotsLeft==="number")?Math.max(0,Math.min(cap,spotsLeft)):null;
+    var el=$("#counter");
+    if(left===null){ // unknown → static, honest framing
+      $("#spotsN").textContent="20"; $("#spotsLbl").textContent="founding spots";
+      $("#spotsSub").textContent="apply below to claim one"; $("#spotsBar").style.width="8%";
+      return;
+    }
+    if(open===false || left===0){
+      el.classList.add("closed");
+      $("#spotsN").textContent="0"; $("#spotsLbl").textContent="spots left";
+      $("#spotsSub").textContent="join the waitlist below"; $("#spotsBar").style.width="100%";
+      return;
+    }
+    $("#spotsN").textContent=String(left);
+    $("#spotsLbl").textContent=(left===1?"spot left":"spots left");
+    $("#spotsSub").textContent="of "+cap+" in this cohort";
+    $("#spotsBar").style.width=Math.round((cap-left)/cap*100)+"%";
+  }
+  function loadStatus(){
+    if(!B.LIVE){ paintCounter(null); return; }
+    fetch(B.api("beta-status"),{headers:{accept:"application/json"}})
+      .then(function(r){return r.json()})
+      .then(function(d){ if(d&&d.unknown){paintCounter(null);} else paintCounter(d.spotsLeft, d.open); })
+      .catch(function(){ paintCounter(null); });
+  }
+  loadStatus();
+
+  /* ---- fallback capture (no backend / call failed): Formspree or mailto ---- */
+  function fallbackSubmit(data){
+    if(B.FORMSPREE){
+      return fetch(B.FORMSPREE,{method:"POST",headers:{"content-type":"application/json",accept:"application/json"},
+        body:JSON.stringify(Object.assign({_subject:"BriefIQ beta application — "+data.name,type:"beta application"},data))})
+        .then(function(r){return r.ok});
+    }
+    // last resort — compose an email so the application is never lost
+    var body="Beta application\n\nName: "+data.name+"\nEmail: "+data.email+"\nRole: "+(data.role||"-")
+      +"\nMarket: "+(data.market||"-")+"\nAvailability: "+(data.availability||"-")+"\nWhy: "+(data.why||"-");
+    location.href="mailto:"+(B.FOUNDER_EMAIL||"smwihaki1@gmail.com")+"?subject="+encodeURIComponent("BriefIQ beta application — "+data.name)+"&body="+encodeURIComponent(body);
+    return Promise.resolve(true);
+  }
+
+  function showResult(kind, spotsLeft, code){
+    var r=$("#result"); r.style.display="block";
+    if(kind==="accepted"){
+      r.className="ok";
+      // unlock the app on this browser immediately — no gate for a just-accepted tester
+      if(code){ try{ localStorage.setItem("briefiq_beta_access", JSON.stringify({code:String(code).toUpperCase().replace(/[^A-Z0-9]/g,""), at:Date.now()})); }catch(e){} }
+      var appLink="index.html"+(code?("?code="+encodeURIComponent(code)):"");
+      var welcomeLink="beta-welcome.html"+(code?("?code="+encodeURIComponent(code)):"");
+      r.innerHTML="<h3>You're in. 🎉</h3><p style='font-size:14px;color:#333'>Welcome to the founding cohort. This is your beta code — it's your key, and the app is already unlocked on this device. Save it somewhere.</p>"
+        +(code?("<div class='codebox'>"+code+"</div>"):"")
+        +"<p style='font-size:14px;color:#333'>Jump straight in, or open your tester welcome page to log projects and send feedback.</p>"
+        +"<div style='display:flex;gap:10px;flex-wrap:wrap;margin-top:10px'><a class='cta' href='"+appLink+"'>Enter BriefIQ →</a><a class='cta ghost' href='"+welcomeLink+"'>My welcome page</a></div>";
+    } else if(kind==="waitlisted"){
+      r.className="wait";
+      r.innerHTML="<h3>You're on the waitlist.</h3><p style='font-size:14px;color:#333'>This cohort's twenty spots are taken — but you're first in line for the next round. We'll email you the moment a seat opens.</p>";
+    } else {
+      r.className="ok";
+      r.innerHTML="<h3>Application received. ✅</h3><p style='font-size:14px;color:#333'>Thanks — we've got it and we read every one. You'll hear back from the founder soon.</p>";
+    }
+    r.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+
+  /* "Other" role → reveal a free-text box so people can write what they do. */
+  (function(){ var sel=$("#roleSel"), oth=$("#roleOther"); if(!sel||!oth)return;
+    sel.addEventListener("change",function(){ var isOther=sel.value==="Other"; oth.style.display=isOther?"block":"none"; if(isOther){ oth.focus(); } else { oth.value=""; } });
+  })();
+  $("#betaForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    var f=e.target, btn=$("#submitBtn");
+    var data=Object.fromEntries(new FormData(f).entries());
+    if(data.role==="Other" && (data.roleOther||"").trim()) data.role=data.roleOther.trim();
+    delete data.roleOther;
+    data.name=(data.name||"").trim(); data.email=(data.email||"").trim().toLowerCase();
+    if(!data.name){$("#formHint").textContent="Please add your name.";return;}
+    if(!B.validEmail(data.email)){$("#formHint").textContent="That email doesn't look right.";return;}
+    data.source="beta.html";
+    btn.disabled=true; var label=btn.textContent; btn.textContent="Sending…";
+    $("#formHint").textContent="";
+
+    var done=function(){ btn.disabled=false; btn.textContent=label; f.style.display="none"; $("#formHint").style.display="none"; };
+
+    if(B.LIVE){
+      fetch(B.api("beta-signup"),{method:"POST",headers:{"content-type":"application/json",accept:"application/json"},body:JSON.stringify(data)})
+        .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d}})})
+        .then(function(res){
+          if(res.ok && res.d && res.d.status){ done(); showResult(res.d.status, res.d.spotsLeft, res.d.betaCode); loadStatus(); }
+          else { return fallbackSubmit(data).then(function(){ done(); showResult("received"); }); }
+        })
+        .catch(function(){ fallbackSubmit(data).then(function(){ done(); showResult("received"); }); });
+    } else {
+      // No live backend yet: capture the application (Formspree/email so you know who
+      // applied) AND grant instant access with the shared founding code — apply = you're
+      // in, no waiting. When you turn on the Supabase backend, the LIVE branch above
+      // issues a unique per-person code and enforces the 20-spot cap instead.
+      var sharedCode=(B.ACCESS_CODES&&B.ACCESS_CODES[0])||"FOUNDING2026";
+      fallbackSubmit(data).then(function(){ done(); showResult("accepted", null, sharedCode); });
+    }
+  });
+})();
+</script>
+</body>
+</html>

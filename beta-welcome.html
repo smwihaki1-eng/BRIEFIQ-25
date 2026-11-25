@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefIQ — Beta Tester Welcome</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231B4BFF%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3Eb%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1b4bff">
+<link rel="stylesheet" href="css/studio.css?v=20260826b"><link rel="stylesheet" href="css/design-page.css?v=20260826b">
+<style>
+  html,body{background:#f0eee9}
+  body{color:#111;font-family:'Space Grotesk',sans-serif;margin:0;padding:0;overflow-x:hidden}
+  .wrap{max-width:860px;margin:0 auto;padding:22px 26px 60px}
+  a{color:#1b4bff}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+  .brandbar img{width:140px;height:auto;display:block}
+  .brandbar .nav a{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#55534e;text-decoration:none}
+  .kick{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#FF4D00}
+  h1{font-family:Anton;font-weight:400;font-size:clamp(34px,6vw,58px);line-height:.98;text-transform:uppercase;margin:10px 0 10px}
+  h1 em{font-style:normal;color:#1b4bff}
+  .lead{font-size:15.5px;color:#3a382f;line-height:1.55;max-width:60ch}
+  section{margin-top:34px}
+  .sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+  .sec-h .num{font-family:'Space Mono',monospace;font-size:12px;color:#FF4D00}
+  .sec-h h2{font-family:Anton;font-weight:400;font-size:clamp(22px,3.6vw,34px);text-transform:uppercase;margin:0}
+  .card{border:1.5px solid #111;border-radius:18px;background:#fff;padding:26px 28px}
+  .card.blue{box-shadow:6px 6px 0 #1b4bff}
+  label{display:block;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:#55534e;margin:14px 0 6px}
+  input,textarea,select{width:100%;box-sizing:border-box;border:1.5px solid #111;border-radius:12px;padding:12px 14px;font-size:16px;font-family:'Space Grotesk',sans-serif;background:#fff;color:#111}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:#1b4bff;box-shadow:0 0 0 3px rgba(27,75,255,.15)}
+  textarea{min-height:90px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cta{display:inline-flex;align-items:center;gap:8px;background:#FF4D00;color:#fff;border:none;border-radius:100px;padding:14px 28px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;margin-top:16px}
+  .cta:hover{background:#1b4bff;color:#fff}
+  .cta.sm{padding:11px 20px;font-size:13.5px}
+  .quota{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .quota .pill{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px;border:1.5px solid #111;border-radius:100px;padding:6px 14px}
+  .plist{list-style:none;margin:14px 0 0;padding:0}
+  .plist li{border:1.5px solid #111;border-radius:12px;padding:12px 16px;margin-bottom:8px;font-size:14px;display:flex;justify-content:space-between;gap:10px}
+  .plist li .t{font-family:'Space Mono',monospace;font-size:10px;color:#8a877e}
+  .hint{font-size:12px;color:#8a877e;margin-top:6px}
+  .note{font-size:13px;color:#55534e;background:#fff7e6;border:1.5px solid #FFB800;border-radius:12px;padding:12px 16px;margin-top:10px}
+  .ok-msg{font-size:13.5px;color:#166534;background:#eafbf0;border:1.5px solid #16a34a;border-radius:12px;padding:12px 16px;margin-top:10px;display:none}
+  .rate{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .rate label{margin:0;cursor:pointer}
+  .rate input{width:auto;margin-right:5px}
+  .foot{margin-top:44px;border-top:1.5px solid #111;padding-top:16px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px;color:#55534e;line-height:2}
+  .foot img{width:140px;height:auto;display:block;margin-bottom:8px}
+  .gate{max-width:440px}
+  @media(max-width:640px){.wrap{padding:16px}.two{grid-template-columns:1fr}.card{padding:20px}}
+</style>
+</head>
+<body>
+<noscript><div style="padding:40px;text-align:center;font-family:sans-serif">The tester welcome page needs JavaScript enabled.</div></noscript>
+<div class="wrap">
+  <div class="brandbar">
+    <a href="index.html" aria-label="briefiq — creative intelligence os"><img src="assets/briefiq-logo.svg?v=20260826b" alt="briefiq — creative intelligence os"></a>
+    <div class="nav"><a href="index.html">Open BriefIQ →</a></div>
+  </div>
+
+  <!-- CODE GATE (shown if no ?code=) -->
+  <div id="gate" class="card blue gate" style="display:none">
+    <div class="kick">Beta testers</div>
+    <h1 style="font-size:34px">Enter your <em>beta code</em></h1>
+    <p class="lead">It was shown when you were accepted (8 characters, like <span style="font-family:'Space Mono'">A1B2C3D4</span>). Lost it? <a href="mailto:smwihaki1@gmail.com?subject=BriefIQ%20beta%20code">Ask the founder</a>.</p>
+    <label>Beta code</label>
+    <input id="codeInput" placeholder="A1B2C3D4" maxlength="16" style="text-transform:uppercase;letter-spacing:2px;font-family:'Space Mono'">
+    <button class="cta" id="codeGo">Continue →</button>
+  </div>
+
+  <!-- MAIN (shown once we have a code) -->
+  <div id="main" style="display:none">
+    <div class="kick">Founding cohort · you're in</div>
+    <h1>Welcome, <em id="whoName">tester</em>.</h1>
+    <p class="lead">Here's the whole job: run your real briefs through BriefIQ, then tell us what helped and what didn't. Small cohort, so every note you send genuinely moves the roadmap. Thank you for being here.</p>
+
+    <!-- getting started -->
+    <section>
+      <div class="sec-h"><span class="num">01</span><h2>Start testing</h2></div>
+      <div class="card">
+        <p style="font-size:14.5px;color:#333;margin:0 0 12px;line-height:1.6">Open BriefIQ and bring a real problem or brief you're working on. Watch how it helps you think it through — the real problem, the assumptions to challenge, what's missing — and notice where it's sharp and where it's off.</p>
+        <a class="cta" href="index.html">Open BriefIQ →</a>
+      </div>
+    </section>
+
+    <!-- your briefs (auto-counted, no logging) -->
+    <section>
+      <div class="sec-h"><span class="num">02</span><h2>Your briefs</h2></div>
+      <div class="card">
+        <div class="quota"><span class="pill" id="quotaPill">5 free briefs</span><span class="hint">Counted automatically — no logging, no forms. Run them whenever.</span></div>
+        <div style="height:12px;background:#efece5;border:1.5px solid #111;border-radius:100px;overflow:hidden;margin:4px 0 0"><i id="briefBar" style="display:block;height:100%;width:0%;background:#1b4bff;transition:width .4s"></i></div>
+        <p id="briefMsg" style="font-size:14.5px;color:#333;line-height:1.6;margin:12px 0 0">Run your briefs in the app — we keep the count for you. When you're near the end, drop your feedback below and we top you up with 3 more.</p>
+      </div>
+    </section>
+
+    <!-- feedback -->
+    <section id="feedback">
+      <div class="sec-h"><span class="num">03</span><h2>Send feedback</h2></div>
+      <div class="card blue">
+        <p style="font-size:14.5px;color:#333;margin:0 0 6px;line-height:1.6">The most valuable thing you can do. Two minutes after a project — while it's fresh.</p>
+        <form id="fbForm">
+          <div class="two">
+            <div><label>Your email <span style="text-transform:none;letter-spacing:0">(so we can follow up)</span></label><input name="email" type="email" placeholder="you@studio.com" autocomplete="email"></div>
+            <div><label>Which project?</label><input name="project" placeholder="Acme Q4 launch"></div>
+          </div>
+          <label>How useful was BriefIQ here?</label>
+          <div class="rate">
+            <label><input type="radio" name="rating" value="5">Nailed it</label>
+            <label><input type="radio" name="rating" value="4">Solid</label>
+            <label><input type="radio" name="rating" value="3">Mixed</label>
+            <label><input type="radio" name="rating" value="2">Off</label>
+            <label><input type="radio" name="rating" value="1">Useless</label>
+          </div>
+          <label>What helped?</label>
+          <textarea name="helped" placeholder="Which part earned its place?"></textarea>
+          <label>What didn't — or felt wrong?</label>
+          <textarea name="broke" placeholder="Bugs, weak output, anything that annoyed you"></textarea>
+          <label>What's missing?</label>
+          <textarea name="missing" placeholder="The thing you wished it did"></textarea>
+          <label>Would you recommend BriefIQ to another creative?</label>
+          <select name="recommend"><option value="">Choose…</option><option>Yes, already have</option><option>Yes</option><option>Maybe</option><option>Not yet</option></select>
+          <button type="submit" class="cta" id="fbBtn">Send feedback →</button>
+          <div class="ok-msg" id="fbOk">Got it — thank you. That genuinely helps.</div>
+          <div class="hint" id="fbHint">Sent straight to the founder.</div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <div class="foot">
+    <img src="assets/briefiq-logo.svg?v=20260826b" alt="briefiq — creative intelligence os">
+    FOUNDER-LED, BUILT IN NAIROBI · © 2026 BRIEFIQ<br>
+    <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a>
+  </div>
+</div>
+
+<script src="js/doodle-trail.js"></script>
+<script src="js/beta-config.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(s){return document.querySelector(s)};
+  var B=window.BETA||{PROJECTS_PER:5,api:function(p){return "/api/"+p}};
+  var code=(new URLSearchParams(location.search).get("code")||"").trim().toUpperCase().replace(/[^A-Z0-9]/g,"");
+
+  function boot(){
+    if(!code){ $("#gate").style.display="block"; return; }
+    $("#main").style.display="block";
+    // carry the tester's code into the app so the beta gate auto-unlocks
+    document.querySelectorAll('a[href="index.html"], a[href="app.html"]').forEach(function(a){
+      a.href=a.getAttribute('href')+"?code="+encodeURIComponent(code);
+    });
+    renderBriefs();
+    // keep the count fresh if they come back to this tab after running briefs
+    window.addEventListener("focus", renderBriefs);
+    window.addEventListener("storage", function(e){ if(e && /briefiq_beta_(quota|bonus)/.test(e.key||"")) renderBriefs(); });
+  }
+
+  /* Auto brief-counter — reads what the app already tracked in THIS browser
+     (localStorage: briefiq_beta_quota / briefiq_beta_bonus), so testers never log
+     anything by hand. Just a countdown that leads to the feedback below. */
+  function renderBriefs(){
+    var per=(B&&+B.PROJECTS_PER)||5, bonus=0, used=0;
+    try{ bonus=Math.max(0,(+JSON.parse(localStorage.getItem("briefiq_beta_bonus")||"0"))||0); }catch(e){}
+    try{ used=((JSON.parse(localStorage.getItem("briefiq_beta_quota")||"{}").ids)||[]).length; }catch(e){}
+    var cap=per+bonus, left=Math.max(0,cap-used);
+    var pill=$("#quotaPill"); if(pill) pill.textContent=left+" of "+cap+" briefs left";
+    var bar=$("#briefBar"); if(bar) bar.style.width=Math.min(100,Math.round(used/Math.max(1,cap)*100))+"%";
+    var msg=$("#briefMsg"); if(!msg) return;
+    if(used===0) msg.innerHTML="Nothing run yet — head into the app and paste your first brief. We'll keep the count right here.";
+    else if(bonus>0 && left>0) msg.innerHTML="🎁 Nice — feedback earned you <b>3 bonus briefs</b>. <b>"+left+"</b> left. Keep going.";
+    else if(left>0) msg.innerHTML="<b>"+left+"</b> brief"+(left===1?"":"s")+" left. When you're near the end, drop your feedback below — we top you up with 3 more.";
+    else msg.innerHTML="That's the lot — <b>every brief used</b>. Legend. Leave your final feedback below; it genuinely shapes what's next.";
+  }
+
+  $("#codeGo") && $("#codeGo").addEventListener("click",function(){
+    var v=($("#codeInput").value||"").trim().toUpperCase().replace(/[^A-Z0-9]/g,"");
+    if(v.length<4){return;}
+    location.search="?code="+encodeURIComponent(v);
+  });
+
+
+  /* ---- feedback → Formspree (preferred) or founder email ---- */
+  $("#fbForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    var data=Object.fromEntries(new FormData(e.target).entries());
+    data.betaCode=code||""; data.type="beta feedback"; data._subject="BriefIQ beta feedback"+(data.project?(" — "+data.project):"");
+    var btn=$("#fbBtn"); btn.disabled=true; var lbl=btn.textContent; btn.textContent="Sending…";
+    var finish=function(){
+      var b=grantBetaBonus();
+      e.target.reset(); btn.disabled=false; btn.textContent=lbl;
+      var ok=$("#fbOk");
+      if(b) ok.innerHTML="🎁 Thank you — <b>"+b+" bonus briefs unlocked</b> on BriefIQ. Head back to the app and keep going.";
+      ok.style.display="block"; $("#fbHint").style.display="none";
+      setTimeout(function(){ok.style.display="none";$("#fbHint").style.display="block";}, b?6500:4000);
+    };
+    if(B.FORMSPREE){
+      fetch(B.FORMSPREE,{method:"POST",headers:{"content-type":"application/json",accept:"application/json"},body:JSON.stringify(data)})
+        .then(function(r){ if(r.ok) finish(); else mailFallback(data,btn,lbl); })
+        .catch(function(){ mailFallback(data,btn,lbl); });
+    } else { mailFallback(data,btn,lbl); }
+  });
+  function mailFallback(d,btn,lbl){
+    var b=grantBetaBonus();
+    var body="Beta feedback\n\nProject: "+(d.project||"-")+"\nRating: "+(d.rating||"-")+"\nHelped: "+(d.helped||"-")
+      +"\nDidn't: "+(d.broke||"-")+"\nMissing: "+(d.missing||"-")+"\nRecommend: "+(d.recommend||"-")+"\nCode: "+(d.betaCode||"-");
+    location.href="mailto:"+(B.FOUNDER_EMAIL||"smwihaki1@gmail.com")+"?subject="+encodeURIComponent("BriefIQ beta feedback"+(d.project?(" — "+d.project):""))+"&body="+encodeURIComponent(body);
+    btn.disabled=false; btn.textContent=lbl;
+    var ok=$("#fbOk"); if(b){ ok.innerHTML="🎁 Thanks — <b>"+b+" bonus briefs unlocked</b>. We opened your email app to send the feedback."; ok.style.display="block"; }
+  }
+  /* Giving feedback is the gift trigger: unlock the bonus projects (read by the
+     usage engine as extra trial allotment; also fires a storage event that the
+     open app tab catches to lift its lock). */
+  function grantBetaBonus(){ try{ var b=(window.BETA&&+window.BETA.FEEDBACK_BONUS)||3; localStorage.setItem("briefiq_beta_bonus", JSON.stringify(b)); return b; }catch(e){ return 0; } }
+
+  boot();
+})();
+</script>
+</body>
+</html>

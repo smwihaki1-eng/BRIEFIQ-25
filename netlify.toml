@@ -1,0 +1,38 @@
+# BriefIQ — Netlify config
+# Static site + serverless functions. The site works fully without the
+# functions (offline engine, local mode); functions add auth/billing/AI-proxy.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Pretty /api/* paths for the client
+[[redirects]]
+  from = "/api/waitlist"
+  to = "/.netlify/functions/waitlist"
+  status = 200
+
+[[redirects]]
+  from = "/api/checkout"
+  to = "/.netlify/functions/checkout"
+  status = 200
+
+[[redirects]]
+  from = "/api/stripe-webhook"
+  to = "/.netlify/functions/stripe-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/ai"
+  to = "/.netlify/functions/ai"
+  status = 200
+
+[[redirects]]
+  from = "/api/me"
+  to = "/.netlify/functions/me"
+  status = 200
+
+[[redirects]]
+  from = "/api/og-image"
+  to = "/.netlify/functions/og-image"
+  status = 200

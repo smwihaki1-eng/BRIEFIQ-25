@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-theme-lock="light" class="biq-light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefIQ — African-built creative intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Titan+One&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231b4bff%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3Eb%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="BriefIQ — African-built creative intelligence">
+<meta property="og:description" content="A creative intelligence platform that helps you solve problems more thoughtfully and develop stronger ideas — challenge assumptions, see what's missing, and pressure-test your thinking before you make the work.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BriefIQ — African-built creative intelligence">
+<meta name="twitter:description" content="Creative intelligence that helps you think more thoughtfully and develop stronger ideas — not an idea generator.">
+<script>/* Locked to the light "poster" look, same as index.html — black text on white everywhere (founder rule). */document.documentElement.setAttribute("data-theme","light");</script>
+<link rel="stylesheet" href="css/studio.css?v=20261001h">
+<link rel="stylesheet" href="css/redesign-skin.css?v=20261001h">
+<link rel="stylesheet" href="css/responsive-logo.css?v=20260826b">
+<link rel="stylesheet" href="css/results-tabs.css?v=20261002d">
+<style>.topbar .logo-img{width:clamp(126px,15vw,158px)}</style>
+<link rel="stylesheet" href="css/doodle-girl.css?v=20261002e">
+<link rel="stylesheet" href="css/explore.css?v=20261002h">
+<link rel="stylesheet" href="css/research-pipeline.css?v=20261014b">
+<link rel="stylesheet" href="css/readability.css?v=20261002a">
+</head>
+<body>
+<noscript><div style="padding:40px;text-align:center;font-family:sans-serif">This tool needs JavaScript to run. Please enable JavaScript and reload.</div></noscript>
+
+<div class="topbar"><div class="wrap">
+  <a class="logo-container" href="index.html" aria-label="briefiq — creative intelligence os" style="padding:0">
+    <img class="logo-img logo-img--light" src="assets/briefiq-logo.svg?v=20260826b" alt="briefiq — creative intelligence os" width="632" height="208" decoding="async">
+    <img class="logo-img logo-img--dark" src="assets/briefiq-logo-white.svg?v=20260826b" alt="" aria-hidden="true" width="632" height="208" decoding="async">
+  </a>
+  <div class="topbtns">
+    <button class="btn" id="btnAuth" style="display:none"></button>
+    <button class="btn" id="btnProjects">Projects</button>
+    <button class="btn" id="btnSettings">AI Settings</button>
+    <button class="btn" id="btnBrand">Brand</button>
+    <button class="btn" id="btnGrowth" onclick="CreativeGrowth.open()" title="How you're working across projects — Creative Growth">Growth</button>
+    <button class="btn" id="btnExplore" onclick="Explore.open()" title="Search, save and arrange images — your own visual space">Explore</button>
+    <button class="btn" id="btnCaseBoard" onclick="CaseBoard.open()" title="Your board of past work — ad films play inline, links show the real work">Case board</button>
+    <button class="btn" id="btnInspo" onclick="InspirationGallery.open()" title="Browse creative work by discipline — no brief needed">Inspiration</button>
+    <button class="btn" id="btnPlayground" onclick="CreativePlayground.open()" title="A collaborative thinking space — explore the problem and add your own thinking"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.18em;margin-right:.26em"><path d="M11.8 3.4C12.5 8 13.4 9 18 9.8 13.4 10.6 12.5 11.6 11.8 16.2 11.1 11.6 10.2 10.6 5.6 9.8 10.2 9 11.1 8 11.8 3.4Z"/><path d="M18 14.6c.2 1.7.5 2 2.2 2.3-1.7.3-2 .6-2.2 2.3-.2-1.7-.5-2-2.2-2.3 1.7-.3 2-.6 2.2-2.3Z"/></svg>Playground</button>
+    <button class="btn" id="btnTracker" onclick="ProjectDashboard.open()" style="background:#1500FF;color:#fff;border-color:#1500FF" title="Track deliverables, deadlines, team and status — open any time"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.18em;margin-right:.26em"><rect x="6" y="4.6" width="12" height="15.8" rx="2.2"/><path d="M9.3 4.6V3.4a1.1 1.1 0 0 1 1.1-1.1h3.2a1.1 1.1 0 0 1 1.1 1.1v1.2Z"/><path d="M9.2 10.6h5.6M9.2 13.8h5.6M9.2 17h3.4"/></svg>Tracker</button>
+    <button class="btn" data-theme-toggle title="Toggle light/dark mode">☾ Dark</button>
+    <button class="btn primary" id="btnNew">New Brief</button>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <div class="hero" id="hero">
+    <div class="kicker">For strategists, creatives &amp; brand teams</div>
+    <h1>Solve the real problem<br><em>before you make the work.</em></h1>
+    <p>BriefIQ is an African-built creative intelligence platform. Bring a problem or a brief and it helps you understand what's really being asked, challenge your assumptions, clarify your role, see the perspectives you're missing, pull in real context and references, explore the possibilities, and pressure-test your ideas — a rigorous space to think before you decide what to make. Not an idea generator; a sharper way to think.</p>
+  </div>
+
+  <div class="grid">
+    <!-- INPUT PANEL -->
+    <div class="panel" id="inputPanel">
+      <div class="panel-head"><h2>The Brief</h2><p>Paste it exactly as the client sent it. Mess and all.</p></div>
+      <div class="panel-body">
+        <button class="btn primary" onclick="Wizard.open()" style="width:100%;margin-bottom:16px;padding:13px 16px;border-radius:14px;font-size:14.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.18em;margin-right:.3em"><path d="M11.8 3.4C12.5 8 13.4 9 18 9.8 13.4 10.6 12.5 11.6 11.8 16.2 11.1 11.6 10.2 10.6 5.6 9.8 10.2 9 11.1 8 11.8 3.4Z"/><path d="M18 14.6c.2 1.7.5 2 2.2 2.3-1.7.3-2 .6-2.2 2.3-.2-1.7-.5-2-2.2-2.3 1.7-.3 2-.6 2.2-2.3Z"/></svg>Start a guided project — pick a type, add materials, get tailored results</button>
+        <div class="fld"><label for="briefText">Client brief *</label>
+          <textarea id="briefText" placeholder="Paste the client brief here…"></textarea>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <label for="briefFile" style="cursor:pointer;color:var(--lime-dim);margin:0;text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.12em;margin-right:.25em"><path d="M12 15.5V4.8"/><path d="M7.6 9.2 12 4.8l4.4 4.4"/><path d="M5 19.4h14"/></svg>Upload briefs, decks, research, logos, packaging, screenshots — BriefIQ reads them all</label>
+            <input type="file" id="briefFile" accept=".pdf,.docx,.txt,.md,.doc,.pptx,.ppt,.xlsx,.csv,.png,.jpg,.jpeg,.webp,.gif,.svg,.avif,.bmp,.psd,.ai,.eps,.zip" multiple style="display:none">
+            <span id="fileName" style="font-family:var(--mono);font-size:12px;color:var(--mute)"></span>
+          </div>
+          <div class="upload-key" style="font-size:11px;color:var(--mute);line-height:1.55;margin-top:5px">Reads <b>PDF · Word · PowerPoint · Excel · CSV · TXT</b> and <b>images</b> (PNG, JPG, WEBP, SVG, PSD, AI, EPS) · <b>ZIP</b> project folders. Paste a <b>website, Figma or video link</b> into the brief and BriefIQ reads that too.</div>
+          <div id="piChips"></div>
+        </div>
+        <div class="fld"><label>What is your role on this project?</label>
+          <select id="fRole">
+            <option value="">Not specified — general analysis</option>
+            <option>Creative Director</option><option>Art Director</option><option>Designer</option>
+            <option>Strategist</option><option>Account Manager</option><option>Copywriter</option>
+            <option>Social Media Manager</option><option>Community Manager</option>
+            <option>Influencer Marketing Manager</option><option>PR Manager</option>
+            <option>Photographer</option><option>Videographer</option><option>Motion Designer</option>
+            <option>Packaging Designer</option><option>Brand Designer</option><option>UX/UI Designer</option>
+            <option>Experiential Designer</option><option>Production Manager</option>
+            <option>Client Service Lead</option><option>Marketing Manager</option>
+            <option>Founder / Business Owner</option><option>Other (custom role)</option>
+          </select>
+          <input type="text" id="fRoleCustom" placeholder="Type your role, e.g. Cultural Consultant" style="display:none;margin-top:8px">
+        </div>
+        <div class="two">
+          <div class="fld"><label>Output type</label>
+            <select id="fMode">
+              <option value="full">Full Creative Analysis</option><option value="insights">Insight Generator</option>
+              <option value="campaigns">Campaign Idea Generator</option><option value="brand">Brand Strategy</option>
+              <option value="identity">Brand Identity Direction</option><option value="packaging">Packaging Direction</option>
+              <option value="social">Social Media Strategy</option><option value="influencer">Influencer Strategy</option>
+              <option value="pitch">Pitch Deck Outline</option><option value="budget">Budget &amp; Team Estimate</option>
+              <option value="cases">Case Study Finder</option>
+              <option value="uxui">UX/UI Design</option><option value="hcd">Human-Centred Design</option>
+            </select>
+          </div>
+          <div class="fld"><label>AI model</label>
+            <select id="fModel">
+              <optgroup label="BriefIQ — no setup">
+                <option value="local">BriefIQ AI · free, no key needed</option>
+                <option value="briefiq-ai">BriefIQ AI · managed (Pro)</option>
+                <option value="laptop">On my laptop · private, one-time download</option>
+              </optgroup>
+              <optgroup label="Your own API key (BYOK)">
+                <option value="anthropic">Claude · your key</option>
+                <option value="openai">ChatGPT · your key</option>
+                <option value="gemini">Gemini · your key</option>
+                <option value="compare">⇄ Compare configured models</option>
+                <option value="all">⚡ Run all connected models</option>
+              </optgroup>
+              <optgroup label="Any AI, manually">
+                <option value="manual">Manual Mode · copy prompt</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin:2px 2px 14px;text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:13px;color:var(--bone-dim)">
+          <input type="checkbox" id="agentMode" style="accent-color:var(--lime);width:15px;height:15px;flex-shrink:0">
+          Multi-Agent Mode — 10 specialists review the brief (agency room)
+        </label>
+        <div class="two">
+          <div class="fld"><label>Client name</label><input type="text" id="fClient" placeholder="e.g. Safari Bank"></div>
+          <div class="fld"><label>Brand / product</label><input type="text" id="fBrand" placeholder="e.g. Chapaa App"></div>
+        </div>
+        <div class="two">
+          <div class="fld"><label>Industry</label>
+            <select id="fIndustry"><option value="">Auto-detect</option>
+              <option>Fintech / Banking</option><option>Telco / Tech</option><option>FMCG / Food &amp; Beverage</option>
+              <option>Alcohol</option><option>Fashion / Beauty</option><option>Health / Pharma</option>
+              <option>NGO / Public sector</option><option>Betting / Gaming</option><option>Retail / E-commerce</option>
+              <option>Automotive / Mobility</option><option>Agriculture</option><option>Education</option>
+              <option>Media / Entertainment</option><option>Real Estate</option><option>Energy</option><option>Other</option>
+            </select>
+          </div>
+          <div class="fld"><label>Country / market</label>
+            <select id="fCountry">
+              <option>Global / Multi-market</option>
+              <option>Kenya</option><option>Nigeria</option><option>South Africa</option><option>Ghana</option><option>Egypt</option>
+              <option>United Arab Emirates</option><option>India</option><option>Indonesia</option>
+              <option>Brazil</option><option>Mexico</option><option>United States</option>
+              <option>United Kingdom</option><option>Germany</option><option>Japan</option>
+              <option value="Other">Other (use region below)</option>
+            </select>
+          </div>
+        </div>
+        <div class="two">
+          <div class="fld"><label>Region</label>
+            <select id="fRegion">
+              <option>Global</option><option>Africa</option><option>Middle East</option><option>South Asia</option>
+              <option>Southeast Asia</option><option>East Asia</option><option>Europe</option>
+              <option>North America</option><option>Latin America</option><option>Oceania</option>
+            </select>
+          </div>
+          <div class="fld"><label>Custom market name</label><input type="text" id="fMarketCustom" placeholder="If Other — e.g. Morocco"></div>
+        </div>
+        <div class="optional-toggle" id="optToggle"><span class="chev">▶</span> More fields — audience, budget, deadline, channels…</div>
+        <div class="optional-fields" id="optFields">
+          <div class="fld"><label>Target audience</label><input type="text" id="fAudience" placeholder="e.g. Urban Gen Z, 18–25, Nairobi"></div>
+          <div class="fld"><label>Campaign objective</label>
+            <select id="fObjective"><option value="">Auto-detect</option>
+              <option>Launch — new product / brand</option><option>Awareness — get known</option>
+              <option>Sales / conversion — move product</option><option>Repositioning — change perception</option>
+              <option>Engagement / community</option><option>Retention / loyalty</option>
+              <option>Behaviour change / social impact</option><option>Recruitment / acquisition</option>
+            </select>
+          </div>
+          <div class="two">
+            <div class="fld"><label>Budget level</label>
+              <select id="fBudget"><option value="">Not specified</option>
+                <option value="micro">Micro — scrappy / organic-led</option>
+                <option value="small">Small — single channel done well</option>
+                <option value="medium">Medium — full campaign</option>
+                <option value="large">Large — multi-channel + production</option>
+                <option value="major">Major — flagship / national</option>
+              </select>
+            </div>
+            <div class="fld"><label>Deadline</label><input type="date" id="fDeadline"></div>
+          </div>
+          <div class="two">
+            <div class="fld"><label>Brand maturity</label>
+              <select id="fMaturity"><option value="">Not specified</option>
+                <option>New / pre-launch</option><option>Challenger</option><option>Established</option><option>Category leader</option>
+              </select>
+            </div>
+            <div class="fld"><label>Audience type</label>
+              <select id="fAudType"><option value="">Not specified</option>
+                <option>Mass consumer</option><option>Youth / Gen Z</option><option>Premium / affluent</option>
+                <option>Parents / family</option><option>B2B / professional</option><option>SME owners</option>
+                <option>Public / community</option>
+              </select>
+            </div>
+          </div>
+          <div class="two">
+            <div class="fld"><label>Preferred language</label><input type="text" id="fLanguage" placeholder="e.g. English + Swahili, Spanish…"></div>
+            <div class="fld"><label>Cultural context</label><input type="text" id="fCulture" placeholder="Anything we must respect or reflect"></div>
+          </div>
+          <div class="fld"><label>Deliverables required</label><input type="text" id="fDeliverables" placeholder="e.g. TVC, social, OOH, radio, activation"></div>
+          <div class="fld"><label>Existing brand assets <span style="text-transform:none;letter-spacing:0;color:var(--mute);font-weight:400">(optional — if the brand already has an identity)</span></label>
+            <textarea id="fAssets" rows="3" placeholder="Paste what you already have — hex colours (#1b4bff, #FF4D00), fonts (Archivo Black, Space Grotesk), logo type (wordmark / monogram), tagline. BriefIQ audits these instead of proposing a new look."></textarea></div>
+          <div class="two">
+            <div class="fld"><label>Tone of campaign</label>
+              <select id="fTone"><option value="">Open</option>
+                <option>Bold / provocative</option><option>Witty / humorous</option><option>Warm / human</option>
+                <option>Premium / aspirational</option><option>Youthful / street</option><option>Serious / trustworthy</option>
+              </select>
+            </div>
+            <div class="fld"><label>Media channels</label><input type="text" id="fChannels" placeholder="e.g. TikTok, radio, OOH, WhatsApp"></div>
+          </div>
+        </div>
+        <button class="analyse-btn" id="btnAnalyse">Analyse Brief</button>
+        <button class="btn" id="btnCopyPrompt" style="width:100%;margin-top:10px;border-radius:12px;padding:12px">⧉ Copy Prompt — use in any AI tool</button>
+        <span class="sample-link" id="btnSample">No brief handy? Load a sample messy brief</span>
+        <div class="ai-note" id="aiNote"></div>
+      </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="out" id="out">
+      <div class="empty-state" id="emptyState">
+        <div class="dg-empty" data-doodle="break" data-doodle-quip="No brief yet? Perfect. Coffee break."></div>
+        <div class="big">Your strategic breakdown lands here.</div>
+        Bring a problem or a brief, hit <b>Analyse</b>, and BriefIQ helps you think it through — the real problem, the assumptions to challenge, the perspectives you're missing — then hands you strategy, ideas, identity routes and <b>References, Inspiration &amp; Learning</b>: what's been done before, what worked, the opportunity gap, and the case studies to back your thinking.
+      </div>
+      <div id="results" tabindex="-1" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer"><div class="wrap"><span class="logo-container" style="padding:0;display:inline-flex;margin-bottom:10px"><img class="logo-img logo-img--light" src="assets/briefiq-logo.svg?v=20260826b" alt="briefiq — creative intelligence os" width="632" height="208" decoding="async" style="width:150px"><img class="logo-img logo-img--dark" src="assets/briefiq-logo-white.svg?v=20260826b" alt="" aria-hidden="true" width="632" height="208" decoding="async" style="width:150px"></span><br>SELF-POWERED · PROJECTS SAVED LOCALLY<br><a href="index.html" style="color:inherit">Home</a> · <a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a> · <a href="ai-disclosure.html" style="color:inherit">AI Disclosure</a> · <a href="support.html" style="color:inherit">Support</a> · <a href="mailto:smwihaki1@gmail.com" style="color:inherit">Contact</a> · © 2026 BriefIQ</div></div>
+
+<!-- modals -->
+<div class="modal-bg" id="growthModal"><div class="modal" style="max-width:720px">
+  <div id="growthBody"></div>
+</div></div>
+
+<div class="modal-bg" id="projModal"><div class="modal">
+  <h3>Saved projects</h3><div class="sub">Stored locally in this browser only — never uploaded. Click one to reopen.</div>
+  <div id="projList"></div>
+  <div style="margin-top:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button class="btn small" type="button" onclick="clearAllData()" style="color:#b3261e;border-color:#b3261e" title="Erase every BriefIQ project, key and setting from this browser">Delete all my data</button>
+    <span style="flex:1"></span>
+    <button class="btn small" onclick="closeModals()">Close</button>
+  </div>
+</div></div>
+
+<div class="modal-bg" id="setModal"><div class="modal">
+  <h3>AI Settings — how BriefIQ thinks</h3>
+  <div class="sub">BriefIQ works immediately with no key at all. Choose how the analysis is generated:</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+    <div style="border:1px solid var(--line);border-radius:12px;padding:13px 14px">
+      <div style="font-weight:700;font-size:13.5px;margin-bottom:5px">Use BriefIQ AI</div>
+      <div style="font-size:12px;line-height:1.5;color:var(--mute)">Included in your subscription · no setup · managed by BriefIQ. (The self-powered engine is free and always on.)</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;padding:13px 14px">
+      <div style="font-weight:700;font-size:13.5px;margin-bottom:5px">Connect your own key <span style="font-family:var(--mono);font-size:12px;color:var(--orange)">· ADVANCED</span></div>
+      <div style="font-size:12px;line-height:1.5;color:var(--mute)">Uses your provider account &amp; billing · your preferred model · may allow larger analyses. Optional.</div>
+    </div>
+  </div>
+  <div class="sub" style="margin-bottom:10px">Your keys (add, replace or remove any time):</div>
+  <div class="fld"><label>Anthropic — Claude <span class="keyStatus" data-p="anthropic"></span></label>
+    <div style="display:flex;gap:8px"><input type="password" id="keyAnthropic" placeholder="sk-ant-…  (console.anthropic.com)" style="flex:1" autocomplete="off"><button class="btn small keyRemove" data-p="anthropic" type="button">Remove</button></div></div>
+  <div class="fld"><label>OpenAI — ChatGPT <span class="keyStatus" data-p="openai"></span></label>
+    <div style="display:flex;gap:8px"><input type="password" id="keyOpenai" placeholder="sk-…  (platform.openai.com/api-keys)" style="flex:1" autocomplete="off"><button class="btn small keyRemove" data-p="openai" type="button">Remove</button></div></div>
+  <div class="fld"><label>Google — Gemini <span class="keyStatus" data-p="gemini"></span></label>
+    <div style="display:flex;gap:8px"><input type="password" id="keyGemini" placeholder="AIza…  (aistudio.google.com/apikey)" style="flex:1" autocomplete="off"><button class="btn small keyRemove" data-p="gemini" type="button">Remove</button></div></div>
+  <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.5px;color:#8a6200;margin-top:10px;line-height:1.5"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.13em;margin-right:.3em"><rect x="5.5" y="10.5" width="13" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>Keys are stored only in this browser (localStorage), used only to call that provider directly, and never sent to a BriefIQ server or logged. Remove wipes a key from this browser immediately. Don't save keys on a shared or public machine.</div>
+  <div style="display:flex;gap:10px;align-items:center;margin-top:14px">
+    <button class="btn small" type="button" onclick="clearAllKeys()" style="color:#b3261e;border-color:#b3261e" title="Wipe all saved AI keys from this browser">Remove all keys</button>
+    <span style="flex:1"></span>
+    <button class="btn small" onclick="closeModals()">Cancel</button>
+    <button class="btn small primary" id="btnSaveKey">Save keys</button>
+  </div>
+</div></div>
+
+<div class="modal-bg" id="promptModal"><div class="modal" style="max-width:720px">
+  <h3>Master Prompt — Manual Mode</h3>
+  <div class="sub">Copy this into ChatGPT, Claude, Gemini, Perplexity or any AI tool. Then paste the model's JSON response below to render it as cards.</div>
+  <textarea id="promptText" style="min-height:220px;font-family:var(--mono);font-size:11.5px" readonly></textarea>
+  <div style="display:flex;gap:10px;margin:10px 0 18px">
+    <button class="btn small primary" id="btnCopyPromptModal">⧉ Copy Prompt</button>
+    <span style="font-family:var(--mono);font-size:12px;color:var(--mute);align-self:center" id="promptMeta"></span>
+  </div>
+  <div class="fld"><label>Paste the AI's response here (JSON)</label>
+    <textarea id="pasteBack" style="min-height:120px;font-family:var(--mono);font-size:11.5px" placeholder='{"diagnosis":{…}, …}'></textarea>
+  </div>
+  <div style="display:flex;gap:10px;justify-content:flex-end">
+    <button class="btn small" onclick="closeModals()">Close</button>
+    <button class="btn small primary" id="btnRenderPaste">Render response →</button>
+  </div>
+</div></div>
+
+<div class="modal-bg" id="brandModal"><div class="modal" style="max-width:640px">
+  <h3>Brand Settings</h3>
+  <div class="sub">White-label the whole app — name, look and copy. Nothing is hard-coded; defaults live in <b>js/brand-config.js</b>, your edits here override them (stored in this browser).</div>
+  <div class="fld"><label>Try a positioning (fills name + tagline)</label><select id="bPick"><option value="">— pick from 20 options —</option></select></div>
+  <div class="two">
+    <div class="fld"><label>App name</label><input type="text" id="bName"></div>
+    <div class="fld"><label>Logo text (| = accent split)</label><input type="text" id="bLogo"></div>
+  </div>
+  <div class="fld"><label>Tagline</label><input type="text" id="bTagline"></div>
+  <div class="two">
+    <div class="fld"><label>Brand accent colour</label><input type="color" id="bAccent" style="height:44px;padding:4px"></div>
+    <div class="fld"><label>Button colour (light mode)</label><input type="color" id="bButton" style="height:44px;padding:4px"></div>
+  </div>
+  <div class="fld"><label>Font style</label>
+    <select id="bFont"><option value="poster">Poster (Anton + Space Grotesk) — website design</option><option value="editorial">Editorial (Fraunces + Space Grotesk)</option><option value="modern">Modern (all Space Grotesk)</option><option value="classic">Classic (Georgia + system)</option></select>
+  </div>
+  <div class="fld"><label>Homepage headline (| = accented second line)</label><input type="text" id="bHero"></div>
+  <div class="fld"><label>Homepage subtitle</label><textarea id="bHeroSub" style="min-height:70px"></textarea></div>
+  <div class="fld"><label>Pricing copy</label><input type="text" id="bPricing"></div>
+  <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px">
+    <button class="btn small" id="btnBrandReset">Reset to defaults</button>
+    <button class="btn small" onclick="closeModals()">Cancel</button>
+    <button class="btn small primary" id="btnBrandSave">Save</button>
+  </div>
+</div></div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Done</div>
+<div id="a11yStatus" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+<script src="js/doodle-trail.js"></script>
+<script src="js/owner.js"></script>
+<script src="js/brand-config.js?v=20260828a"></script>
+<script src="js/logo-initialization.js?v=20260826"></script>
+<script src="js/markets.js"></script>
+<script src="js/brief-fit.js?v=20261003a"></script>
+<script src="js/briefiq-ai.js?v=20261003ai"></script>
+<script src="js/briefiq-brain.js?v=20261003j"></script>
+<script src="js/intel.js"></script>
+<script src="js/roles.js"></script>
+<script src="js/frameworks.js?v=20261003a"></script>
+<script src="js/backend.js"></script>
+<script src="js/usage-engine.js?v=20260809"></script>
+<script src="js/focus-mode.js?v=20261115c"></script>
+<script src="js/followup-engine.js"></script>
+<script src="js/refine-engine.js"></script>
+<script src="js/interrogator.js?v=20261003a"></script>
+<script src="js/evidence-checker.js?v=20261003a"></script>
+<script src="js/assumption-auditor.js?v=20261003a"></script>
+<script src="js/devils-advocate.js"></script>
+<script src="js/preproduction-auditor.js?v=20261003a"></script>
+<script src="js/variance-engine.js"></script>
+<script src="js/engine-local.js?v=20261003a"></script>
+<script src="js/creative-insight-engine.js?v=20260825c"></script>
+<script src="js/creative-playground.js?v=20261115c"></script>
+<script src="js/inspiration.js?v=20261001e"></script>
+<script src="js/prompt-builder.js?v=20260911b"></script>
+<script src="js/ai/connector-openai.js?v=20261003ai"></script>
+<script src="js/ai/connector-anthropic.js?v=20261003ai"></script>
+<script src="js/ai/connector-gemini.js?v=20261003ai"></script>
+<script src="js/ai/router.js"></script>
+<script src="js/agents.js?v=20261014b"></script>
+<script src="js/project-types.js?v=20261001h"></script>
+<script src="js/visual-summary.js?v=20260809b"></script>
+<script src="js/research-feed.js?v=20261002b"></script>
+<script src="js/work-media.js?v=20261003a"></script>
+<script src="js/work-images.js?v=20261001f"></script>
+<script src="js/visual-inspiration.js?v=20261115c"></script>
+<script src="js/insight-evidence.js?v=20261115c"></script>
+<script src="js/live-research.js?v=20261002c"></script>
+<script src="js/inspiration-gallery.js?v=20261002c"></script>
+<script src="js/cd-review.js?v=20260809b"></script>
+<script src="js/thinking-tools.js?v=20261014b"></script>
+<script src="js/creator-intelligence.js?v=20260911b"></script>
+<script src="js/production-auditor.js?v=20260911b"></script>
+<script src="js/editorial-planner.js?v=20261001a"></script>
+<script src="js/production-schedule.js?v=20260915g"></script>
+<script src="js/project-dashboard.js?v=20260915e"></script>
+<script src="js/ui-guidance.js?v=20260828a"></script>
+<script src="js/clarify-chat.js?v=20261014b"></script>
+<script src="js/creative-growth.js?v=20261014b"></script>
+<script src="js/vision.js?v=20260813a"></script>
+<script src="js/project-understanding.js?v=20260813c"></script>
+<script src="js/wizard.js?v=20261001a"></script>
+<script src="js/case-board.js?v=20261002d"></script>
+<script src="js/moodboard.js?v=20261014b"></script>
+<script src="js/results-tabs.js?v=20261014b"></script>
+<script src="js/app.js?v=20261115d"></script>
+<script src="js/quality-checker.js?v=20261115a"></script>
+<script src="js/visual-curator.js?v=20261116a"></script>
+<script src="js/ai-enhance.js?v=20261116a"></script>
+<script src="js/brief-reader.js?v=20261115c"></script>
+<script src="js/discipline-gate.js?v=20261002a"></script>
+<script src="js/live-platform.js?v=20261002a"></script>
+<script src="js/doodle-girl.js?v=20261002e"></script>
+<script src="js/explore.js?v=20261014b"></script>
+<script src="js/beta-config.js?v=20260826b"></script>
+<script src="js/feedback.js?v=20260915e"></script>
+<script src="js/beta-gate.js?v=20260828c" data-mode="app"></script>
+<script src="js/scrape-helper.js?v=20261014b"></script>
+<script src="js/research-pipeline.js?v=20261116a"></script>
+<script>
+/* topbar auth state — signed-in chip / Log in button */
+(function(){
+  var b=document.getElementById('btnAuth'); if(!b)return;
+  var s=null; try{s=JSON.parse(localStorage.getItem('briefiq_session'))}catch(e){}
+  b.style.display='';
+  if(s){
+    b.textContent='◉ '+(s.name||s.email).split(' ')[0];
+    b.title='Signed in as '+(s.email||s.name)+' — click to log out';
+    b.addEventListener('click',function(){
+      if(confirm('Log out of BriefIQ?')){localStorage.removeItem('briefiq_session');location.reload()}
+    });
+  }else{
+    b.textContent='Log in';
+    b.addEventListener('click',function(){location.href='login.html'});
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefIQ — Log in</title>
+<meta name="description" content="Log in to BriefIQ with Google, Apple, LinkedIn or your work email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231b4bff%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3Eb%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --blue:#1b4bff; --blue2:#1b4bff; --orange:#FF4D00; --yellow:#FFB800;
+  --green:#00A651; --lime-g:#3DFF7E; --red:#E8262B;
+  --ink:#111111; --paper:#ffffff; --dim:#55534e; --mute:#8a877e; --line:#e6e4dc;
+  --display:'Anton',Impact,sans-serif; --black:'Archivo Black',sans-serif;
+  --sans:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+::selection{background:var(--blue);color:#fff}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--blue)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px;width:100%}
+
+.rv{opacity:0;transform:translateY(28px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.rv.d1{animation-delay:.08s}.rv.d2{animation-delay:.16s}.rv.d3{animation-delay:.24s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;animation:none}}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1.5px solid var(--ink)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brandmark{font-family:var(--black);font-size:24px;letter-spacing:-.5px;cursor:pointer;display:flex;align-items:baseline;gap:10px}
+.brandmark .dot{color:var(--orange)}
+.brandmark small{font-family:var(--mono);font-size:8.5px;letter-spacing:1.8px;color:var(--mute);text-transform:uppercase}
+@media(max-width:760px){.brandmark small{display:none}}
+.topbtns{display:flex;gap:26px;align-items:center;font-weight:500;font-size:14.5px}
+.pill-cta{background:var(--ink);color:#fff !important;padding:12px 26px;border-radius:100px;font-weight:700;transition:background .18s,transform .18s;display:inline-block}
+.pill-cta:hover{background:var(--blue);transform:translateY(-2px)}
+
+.login-stage{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1280px;margin:0 auto;padding:70px 32px;width:100%}
+@media(max-width:960px){.login-stage{grid-template-columns:1fr;gap:40px;padding:44px 20px}}
+
+.login-left .kicker{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:2.2px;text-transform:uppercase;margin-bottom:26px}
+.login-left .kicker .star{color:var(--orange);font-size:16px;display:inline-block;animation:starspin 8s linear infinite}
+@keyframes starspin{to{transform:rotate(360deg)}}
+.login-left h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,6vw,84px);line-height:.95;text-transform:uppercase;letter-spacing:.5px;color:#2b2b28}
+.login-left h1 .truth{color:var(--blue)}
+.login-left p{color:var(--dim);max-width:440px;margin-top:24px;font-size:16.5px}
+.login-left .marks{margin-top:34px;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute)}
+.login-left .marks b{color:var(--orange);font-weight:400;margin:0 8px}
+
+.login-card{border:1.5px solid var(--ink);border-radius:22px;padding:40px 38px;background:var(--paper);box-shadow:10px 10px 0 var(--yellow);max-width:460px;justify-self:center;width:100%}
+@media(max-width:960px){.login-card{justify-self:start}}
+.login-card h2{font-family:var(--display);font-weight:400;font-size:30px;text-transform:uppercase;margin-bottom:4px;color:#2b2b28}
+.login-card .sub{color:var(--mute);font-size:13.5px;margin-bottom:26px}
+
+.sso{display:flex;align-items:center;gap:12px;width:100%;border:1.5px solid var(--ink);border-radius:100px;background:var(--paper);padding:13px 22px;font-family:var(--sans);font-weight:700;font-size:14.5px;color:var(--ink);cursor:pointer;margin-bottom:12px;transition:transform .18s,box-shadow .18s,background .18s}
+.sso:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.sso svg{flex-shrink:0}
+.sso span{flex:1;text-align:center}
+
+.divider{display:flex;align-items:center;gap:14px;margin:22px 0;font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mute)}
+.divider::before,.divider::after{content:"";flex:1;border-top:1.5px solid var(--line)}
+
+.fld{margin-bottom:14px}
+.fld label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+.fld input{width:100%;border:1.5px solid var(--ink);border-radius:12px;padding:13px 16px;font-family:var(--sans);font-size:14.5px;color:var(--ink);background:var(--paper);outline:none;transition:border-color .15s,box-shadow .15s}
+.fld input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,0,255,.12)}
+
+.go{width:100%;background:var(--orange);color:#fff;border:none;border-radius:100px;padding:16px;font-family:var(--sans);font-weight:700;font-size:16px;cursor:pointer;transition:background .18s,transform .18s;margin-top:6px}
+.go:hover{background:var(--blue);transform:translateY(-2px)}
+
+.fine{margin-top:18px;font-size:11.5px;color:var(--mute);line-height:1.55}
+.fine a{color:var(--blue)}
+.err{display:none;background:#fff1ee;border:1.5px solid var(--red);border-radius:12px;color:var(--red);font-size:13px;padding:10px 14px;margin-bottom:14px}
+
+.provider-note{display:none;background:#eef1ff;border:1.5px solid var(--blue);border-radius:12px;font-size:13px;color:var(--ink);padding:12px 14px;margin-bottom:16px}
+.provider-note b{color:var(--blue)}
+
+.footer{background:var(--ink);border-top:1px solid #2c2c2c;padding:24px 0;color:#8a877e;font-size:12px;font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <a class="brandmark" href="index.html">Brief<span class="dot">IQ</span><small>Creative Intelligence OS</small></a>
+  <div class="topbtns">
+    <a href="index.html#how">Features</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a class="pill-cta" href="app.html">Analyse a Brief ↗</a>
+  </div>
+</div></div>
+
+<div class="login-stage">
+  <div class="login-left">
+    <div class="kicker rv"><span class="star">✳</span> Members area</div>
+    <h1 class="rv d1">Back to<br><span class="truth">the truth.</span></h1>
+    <p class="rv d2">Log in to pick up your saved projects, run new analyses and keep every brief honest.</p>
+    <div class="marks rv d3">Brief Quality Score<b>✳</b>Red Flag Detector<b>✳</b>Insight Engine<b>✳</b>Agency Room</div>
+  </div>
+
+  <div class="login-card rv d1">
+    <h2>Log in</h2>
+    <div class="sub">Choose how you want to continue.</div>
+
+    <div class="err" id="err"></div>
+    <div class="provider-note" id="pnote"></div>
+
+    <button class="sso" data-provider="google">
+      <svg width="19" height="19" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.2 5.2C41.4 34.9 44 29.9 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+      <span>Continue with Google</span>
+    </button>
+
+    <button class="sso" data-provider="apple">
+      <svg width="18" height="21" viewBox="0 0 384 512"><path fill="#111" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      <span>Continue with Apple</span>
+    </button>
+
+    <button class="sso" data-provider="linkedin">
+      <svg width="18" height="18" viewBox="0 0 448 512"><path fill="#0A66C2" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+      <span>Continue with LinkedIn</span>
+    </button>
+
+    <div class="divider">or with your work email</div>
+
+    <form id="emailForm">
+      <div class="fld"><label for="liName">Your name</label><input type="text" id="liName" placeholder="Jane Wanjiru" autocomplete="name"></div>
+      <div class="fld"><label for="liEmail">Work email</label><input type="email" id="liEmail" placeholder="jane@studio.co.ke" autocomplete="email" required></div>
+      <button class="go" type="submit">Continue →</button>
+    </form>
+
+    <div class="fine">By continuing you agree to our <a href="terms.html">Terms</a> &amp; <a href="privacy.html">Privacy Policy</a>. New here? The same buttons create your account. <a href="index.html#pricing">See plans</a> — start free, no card needed.</div>
+  </div>
+</div>
+
+<div class="footer"><div class="wrap">BRIEFIQ — CREATIVE INTELLIGENCE OS · YOUR PROJECTS STAY IN YOUR BROWSER<br><a href="index.html" style="color:inherit">Home</a> · <a href="privacy.html" style="color:inherit">Privacy</a> · <a href="terms.html" style="color:inherit">Terms</a> · <a href="support.html" style="color:inherit">Support</a> · <a href="mailto:smwihaki1@gmail.com" style="color:inherit">Contact</a> · © 2026 BriefIQ</div></div>
+
+<script src="js/doodle-trail.js"></script>
+<script src="js/backend.js"></script>
+<script src="js/supabase-auth.js"></script>
+<script>
+/* ============================================================
+   Client-side auth (backend-ready shapes).
+   Session:  briefiq_session = {id,name,email,provider,at}
+   Registry: user upserted into briefiq_db_v2.users and
+             briefiq_admin_users (role member, plan free).
+   In production, the provider buttons hand off to real OAuth
+   (Google / Apple / LinkedIn) on a server; the session and user
+   shapes stay identical — swap this block for the redirect.
+   ============================================================ */
+(function(){
+  const $=id=>document.getElementById(id);
+  const PROVIDERS={google:"Google",apple:"Apple",linkedin:"LinkedIn",email:"Work email"};
+  let provider="email";
+
+  const params=new URLSearchParams(location.search);
+  const dest=params.get("next")==="admin"?"admin.html":"app.html";
+  const SB=(typeof SupabaseAuth!=="undefined" && SupabaseAuth.ready());
+
+  /* returning from Google/magic-link with a token in the hash? adopt then go through */
+  if(SB && (location.hash||"").indexOf("access_token=")>=0){
+    SupabaseAuth.handleRedirect().then(s=>{ if(s) location.replace(dest); }).catch(()=>{});
+  }
+  /* already signed in? go straight through */
+  try{ if(JSON.parse(localStorage.getItem("briefiq_session"))) location.replace(dest); }catch(e){}
+
+  document.querySelectorAll(".sso").forEach(b=>b.addEventListener("click",()=>{
+    provider=b.dataset.provider;
+    if(SB){
+      if(provider==="google") return SupabaseAuth.signInGoogle();
+      const note=$("pnote"); note.style.display="block";
+      note.innerHTML="For now sign in with <b>Google</b> or enter your <b>email</b> below for a magic link — "+PROVIDERS[provider]+" can be enabled in Supabase later.";
+      $("liEmail").focus(); provider="email"; return;
+    }
+    const note=$("pnote");
+    note.style.display="block";
+    note.innerHTML="Signing in with <b>"+PROVIDERS[provider]+"</b>. This deployment runs without a server, so confirm the name and email for your "+PROVIDERS[provider]+" account below — with a backend connected, this button hands straight off to "+PROVIDERS[provider]+" OAuth.";
+    $("liEmail").focus();
+  }));
+
+  $("emailForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    const email=$("liEmail").value.trim(), name=$("liName").value.trim()||email.split("@")[0];
+    const err=$("err");
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.style.display="block";err.textContent="That email doesn't look right — check it and try again.";return}
+    err.style.display="none";
+    if(SB){
+      SupabaseAuth.signInEmail(email).then(r=>{
+        const note=$("pnote"); note.style.display="block";
+        note.innerHTML=r.ok?("✓ Magic sign-in link sent to <b>"+email+"</b>. Open it on this device to finish."):("Couldn't send the link: "+(r.error||"try again")+".");
+      }).catch(()=>{err.style.display="block";err.textContent="Network error — try again.";});
+      return;
+    }
+
+    const id="u_"+email.toLowerCase().replace(/[^a-z0-9]+/g,"-");
+    const session={id,name,email,provider,at:new Date().toISOString()};
+    localStorage.setItem("briefiq_session",JSON.stringify(session));
+
+    /* upsert into the project DB user list (Store schema, app.js) */
+    try{
+      const db=JSON.parse(localStorage.getItem("briefiq_db_v2"))||{version:2,users:[],projects:[]};
+      db.users=db.users||[];
+      const i=db.users.findIndex(u=>u.id===id||u.email===email);
+      if(i>=0)Object.assign(db.users[i],{name,email});else db.users.push({id,name,email});
+      localStorage.setItem("briefiq_db_v2",JSON.stringify(db));
+    }catch(e){}
+
+    /* upsert into the admin user registry (owner.js AdminUsers schema) */
+    try{
+      let list=JSON.parse(localStorage.getItem("briefiq_admin_users"));
+      if(!list) list=[{id:"local-user",name:"Local User",email:null,role:"owner",plan:"studio",status:"active",permissions:["analyse","export","ai-keys","agency-room","compare-models"]}];
+      const i=list.findIndex(u=>u.id===id||u.email===email);
+      if(i>=0)Object.assign(list[i],{name,email,provider});
+      else list.push({id,name,email,provider,role:"member",plan:"free",status:"active",permissions:["analyse","export"]});
+      localStorage.setItem("briefiq_admin_users",JSON.stringify(list));
+    }catch(e){}
+
+    location.href=dest;
+  });
+})();
+</script>
+</body>
+</html>

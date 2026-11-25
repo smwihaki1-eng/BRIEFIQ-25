@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefIQ — Founder Console</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/studio.css"><link rel="stylesheet" href="css/design-page.css">
+<style>
+body{padding:26px;max-width:1080px;margin:0 auto}
+h1{font-family:Anton;font-size:44px;text-transform:uppercase;margin:6px 0 2px}
+.kick{font-family:'Space Mono';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#FF4D00}
+.sub{color:#55534e;font-size:13.5px;margin-bottom:18px}
+.sec{margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.stat{background:#faf9f6;border:1.5px solid #111;border-radius:14px;padding:14px}
+.stat b{font-family:Anton;font-size:30px;display:block}
+.stat span{font-family:'Space Mono';font-size:8.5px;letter-spacing:1px;text-transform:uppercase;color:#55534e}
+.demo{font-family:'Space Mono';font-size:8.5px;letter-spacing:1px;background:#FFB800;color:#111;border-radius:100px;padding:2px 10px;margin-left:8px;vertical-align:middle}
+.real{font-family:'Space Mono';font-size:8.5px;letter-spacing:1px;background:#00A651;color:#fff;border-radius:100px;padding:2px 10px;margin-left:8px;vertical-align:middle}
+.mock{font-family:'Space Mono';font-size:8.5px;letter-spacing:1px;background:#E8262B;color:#fff;border-radius:100px;padding:2px 10px;margin-left:8px;vertical-align:middle}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th{font-family:'Space Mono';font-size:9px;letter-spacing:1px;text-transform:uppercase;text-align:left;padding:8px 10px;border-bottom:1.5px solid #111;color:#55534e}
+td{padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top}
+.ok{color:#00A651;font-weight:700}.pa{color:#8a6200;font-weight:700}.no{color:#E8262B;font-weight:700}
+.bar{background:#f2efe8;border:1px solid #e6e4dc;border-radius:6px;height:9px}.bar>i{display:block;height:100%;background:#1b4bff;border-radius:6px}
+a{color:#1b4bff}
+@media(max-width:700px){body{padding:14px}h1{font-size:32px}}
+</style>
+</head>
+<body>
+<div id="gate" style="display:none;text-align:center;padding:80px 20px">
+  <div style="font-family:'Archivo Black';font-size:27px;color:#1b4bff">briefiq<span style="color:#FF4D00">.</span></div>
+  <h1>Founder access only</h1>
+  <p class="sub">Unlock owner mode in the <a href="admin.html">Admin Dashboard</a> first, then return here.</p>
+</div>
+<div id="console" style="display:none">
+
+<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px">
+  <div><div style="font-family:'Archivo Black';font-size:24px;color:#1b4bff">briefiq<span style="color:#FF4D00">.</span></div>
+  <h1>Founder Console</h1>
+  <div class="sub">Everything, every plan, every dashboard — plus the honest audit. <a href="index.html">← back to site</a> · <a href="admin.html">Admin Dashboard</a> · <a href="support.html">Support pages</a></div></div>
+</div>
+
+<!-- VIEW AS -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·01</span><h2>View As — plan preview</h2></div>
+<div class="lede">Switch the live site's entitlements. Locks, quotas, upsell prompts and export gates behave exactly like that plan. The floating ⚑ FOUNDER bar on the site does the same.</div>
+<div id="vaRow" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+<p style="font-size:12px;color:#55534e;margin-top:10px">Also: <a href="#" id="resetQuota">reset the free-plan monthly quota</a> · <a href="#" id="clearProfile">clear the learning profile</a> (for clean free-user testing).</p></div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·02</span><h2>Admin Dashboard</h2></div>
+<div class="lede">Live numbers come from THIS browser's storage <span class="real">REAL LOCAL DATA</span> — cross-user totals need a backend <span class="demo">SAMPLE</span>.</div>
+<div class="grid" id="stats"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px" id="charts"></div></div>
+
+<!-- TEAM WORKSPACE PREVIEW -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·03</span><h2>Team Workspace <span class="demo">DEMO — SAMPLE DATA</span></h2></div>
+<div class="lede">What Team buyers get once the hosted backend exists. Every interaction below is a visual preview.</div>
+<table><tr><th>Shared project</th><th>Owner</th><th>Status</th><th>Reviews</th><th>Last activity</th></tr>
+<tr><td><b>Chapaa Q3 Launch</b> — campaign</td><td>Wanjiku (CD)</td><td>🟢 In review</td><td>2 approved · 1 requested changes</td><td>Brian commented 2h ago: "Territory 3 is the one — kill the montage route."</td></tr>
+<tr><td><b>Safari Bank rebrand</b> — identity</td><td>Brian (Design lead)</td><td>🟡 Draft</td><td>—</td><td>Aisha uploaded 3 references yesterday</td></tr>
+<tr><td><b>Tusker OOH</b> — media plan</td><td>Aisha (Strategist)</td><td>✅ Approved</td><td>3 approved</td><td>Exported as client PDF Mon</td></tr></table>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
+<div class="stat"><span>Permissions</span><div style="font-size:12.5px;margin-top:6px">Wanjiku — Admin · Brian — Editor · Aisha — Editor · Intern Joy — Viewer (can comment, can't export)</div></div>
+<div class="stat"><span>Activity feed</span><div style="font-size:12.5px;margin-top:6px">09:12 Aisha ran analysis "Tusker OOH v2" · 08:40 Brian saved to shared library · Yesterday Wanjiku approved review #14</div></div></div>
+<p style="font-size:12px;color:#8a6200;margin-top:10px">⚠ Requires: hosted backend, auth, shared database, real-time sync. Nothing here persists across users today.</p></div>
+
+<!-- AGENCY WORKSPACE PREVIEW -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·04</span><h2>Agency Workspace <span class="demo">DEMO — SAMPLE DATA</span></h2></div>
+<table><tr><th>Client</th><th>Projects</th><th>Team</th><th>This month</th></tr>
+<tr><td><b>Safari Bank</b></td><td>4 active (rebrand, launch film, social, media)</td><td>6 members</td><td>31 analyses · 12 exports</td></tr>
+<tr><td><b>Tusker</b></td><td>2 active (OOH, influencer)</td><td>3 members</td><td>9 analyses · 5 exports</td></tr>
+<tr><td><b>MoFaster Logistics</b></td><td>1 active (brand strategy)</td><td>2 members</td><td>6 analyses · 2 exports</td></tr></table>
+<div class="grid" style="margin-top:12px">
+<div class="stat"><b>11</b><span>Team members</span></div><div class="stat"><b>7</b><span>Shared frameworks</span></div>
+<div class="stat"><b>142</b><span>Shared references</span></div><div class="stat"><b>46</b><span>Analyses this month</span></div></div>
+<p style="font-size:12px;color:#55534e;margin-top:10px">Agency admin tools that exist TODAY (single-browser): the <a href="admin.html">Admin Dashboard</a> — users &amp; plans, pricing, feature flags, frameworks, references, research sources, AI instructions, analytics. Multi-client/multi-user views above need the backend.</p></div>
+
+<!-- ENTERPRISE PREVIEW -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·05</span><h2>Enterprise Preview <span class="mock">✗ PLACEHOLDER — NOT FUNCTIONAL</span></h2></div>
+<div class="lede">Visual mock of the enterprise surface. None of these panels do anything yet — shown so you can evaluate the offering.</div>
+<div class="grid">
+<div class="stat"><span>Custom integrations</span><div style="font-size:12px;margin-top:6px">Slack · Teams · Monday · Asana webhooks</div></div>
+<div class="stat"><span>API management</span><div style="font-size:12px;margin-top:6px">Keys, rate limits, usage logs — needs API layer</div></div>
+<div class="stat"><span>Security</span><div style="font-size:12px;margin-top:6px">SSO/SAML, audit logs, data residency</div></div>
+<div class="stat"><span>Private hosting</span><div style="font-size:12px;margin-top:6px">Self-hosted container of the engine</div></div>
+<div class="stat"><span>User management</span><div style="font-size:12px;margin-top:6px">SCIM provisioning, org roles</div></div>
+<div class="stat"><span>Custom AI workflows</span><div style="font-size:12px;margin-top:6px">Org prompts + fine-tuned routing (prompt layer already exists locally)</div></div></div></div>
+
+<!-- TESTING AREA -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·06</span><h2>Founder Testing Area</h2></div>
+<div class="lede">Feature flags are real and live <span class="real">WORKS TODAY</span> — draft → private testing → published, with rollback. Toggle here or in Admin → Feature Release System.</div>
+<div id="flags"></div></div>
+
+<!-- PLACEHOLDER AUDIT -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·07</span><h2>Placeholder Audit — what's real</h2></div>
+<table><tr><th>Feature</th><th>Status</th><th>Truth</th></tr>
+<tr><td>Brief analysis engine (36 sections, scoring, red flags)</td><td class="ok">✓ Fully functional</td><td>Offline, deterministic, no backend needed</td></tr>
+<tr><td>Sparring Partner + learning profile + route tracking</td><td class="ok">✓ Fully functional</td><td>Local storage; profile never leaves the browser</td></tr>
+<tr><td>Cultural Insight Engine (14 markets, 4 levels)</td><td class="ok">✓ Fully functional</td><td>Curated data; refresh cadence is manual (you)</td></tr>
+<tr><td>Production Intelligence P·01–P·19</td><td class="ok">✓ Fully functional</td><td>Template-driven; honest heuristics on budget/timeline</td></tr>
+<tr><td>Media Strategy M·01–M·10</td><td class="ok">✓ Fully functional</td><td>Country packs + mix logic; not a media agency</td></tr>
+<tr><td>Universal framework, relevance engine, exports (PDF/Word/outline/CSV), Library</td><td class="ok">✓ Fully functional</td><td>Client-side; Word/PPT via HTML tricks, not binary OOXML</td></tr>
+<tr><td>AI connectors (OpenAI/Anthropic/Gemini) + Manual Mode + Agency Room</td><td class="ok">✓ Fully functional</td><td>Needs user keys + internet; Anthropic can hit CORS → Manual Mode fallback messaged</td></tr>
+<tr><td>PWA install + offline + service worker</td><td class="ok">✓ Fully functional</td><td>Needs HTTPS hosting to install</td></tr>
+<tr><td>Login / accounts</td><td class="pa">⚠ Partial</td><td>Local session only — no real OAuth, no server, no password. Needs auth backend</td></tr>
+<tr><td>Payments / plans (checkout)</td><td class="pa">⚠ Partial</td><td>Plan assignment + gating real (this browser); card form is a demo — needs Stripe/M-Pesa</td></tr>
+<tr><td>Free-plan quota (3/month)</td><td class="pa">⚠ Partial</td><td>Enforced per-browser only; clearing storage resets it — server needed for real enforcement</td></tr>
+<tr><td>Admin: users, pricing, flags, frameworks, analytics</td><td class="pa">⚠ Partial</td><td>Fully working — but single-browser data, not a real user base</td></tr>
+<tr><td>Team collaboration (shared projects, reviews, comments)</td><td class="no">✗ Placeholder</td><td>Demo above; needs backend + database + realtime</td></tr>
+<tr><td>Agency multi-client workspaces · white-label</td><td class="no">✗ Placeholder</td><td>Demo above; white-label PDF header is trivial once plans are real</td></tr>
+<tr><td>Enterprise (API, SSO, hosting, integrations)</td><td class="no">✗ Placeholder</td><td>Mock panels only</td></tr>
+<tr><td>Share links (live URLs)</td><td class="no">✗ Placeholder</td><td>File-based sharing works; link sharing needs hosting</td></tr></table></div>
+
+<!-- COMPLETENESS REPORT -->
+<div class="sec"><div class="sec-head"><span class="sec-num">F·08</span><h2>Product Completeness Report</h2></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+<div><div class="kick">✳ Ships today (no backend)</div><p style="font-size:12.5px">The entire single-player product: every engine, sparring, cultural, production, media, exports, library, PWA, admin console, founder mode. This is a complete, sellable single-user tool right now — payments being the one blocker to charging.</p>
+<div class="kick" style="margin-top:10px">✳ Mock / demo only</div><p style="font-size:12.5px">Team + Agency collaboration, Enterprise panels, live share links, cross-user analytics.</p></div>
+<div><div class="kick">✳ Required backend work (launch order)</div>
+<p style="font-size:12.5px">1. <b>Auth</b> (email magic-link or OAuth) — unlocks real accounts.<br>
+2. <b>Payments</b> — Stripe + M-Pesa (Daraja) for the Nairobi market; unlocks charging for Pro.<br>
+3. <b>Server-side quota + plan storage</b> — makes Free/Pro real.<br>
+4. <b>Project sync database</b> (Postgres/Supabase-class) — unlocks Team.<br>
+5. <b>Realtime + permissions layer</b> — unlocks reviews/comments/workspaces.<br>
+6. <b>API layer + SSO</b> — unlocks Agency/Enterprise promises.<br>
+<b>Infra:</b> HTTPS hosting (static now; app server for 1–6), backups, error tracking.<br>
+<b>Integrations:</b> Stripe, M-Pesa, an email service (support + magic links), optional AI-proxy for CORS-free Anthropic.</p></div></div></div>
+
+<script src="js/owner.js"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const founder=(typeof Workspace!=="undefined"&&Workspace.isAdmin())||sessionStorage.getItem("briefiq_owner_session");
+if(!founder){$("gate").style.display="block";return}
+$("console").style.display="block";
+/* view-as pills */
+const cur=localStorage.getItem("briefiq_viewas")||"";
+$("vaRow").innerHTML=["","free","pro","team","agency","enterprise"].map(v=>
+ `<span class="advpill${(cur===v)?" on":""}" data-va="${v}">${v?v.toUpperCase():"FOUNDER (ALL ACCESS)"}</span>`).join("");
+$("vaRow").addEventListener("click",e=>{const p=e.target.closest("[data-va]");if(!p)return;
+ if(p.dataset.va)localStorage.setItem("briefiq_viewas",p.dataset.va);else localStorage.removeItem("briefiq_viewas");
+ [...$("vaRow").children].forEach(x=>x.classList.toggle("on",x===p));});
+$("resetQuota").addEventListener("click",e=>{e.preventDefault();localStorage.removeItem("briefiq_quota");alert("Quota reset")});
+$("clearProfile").addEventListener("click",e=>{e.preventDefault();localStorage.removeItem("briefiq_profile");alert("Profile cleared")});
+/* real local stats + labeled samples */
+const read=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}};
+const usage=(typeof Usage!=="undefined"&&Usage.all&&Usage.all())||[];
+const users=(typeof AdminUsers!=="undefined"&&AdminUsers.all&&AdminUsers.all())||[];
+const lib=read("briefiq_library")||[];
+const db=read("briefiq_db_v2")||{projects:[]};
+const analyses=usage.filter(u=>u.type==="analysis").length;
+const exportsN=lib.length;
+const feat={};usage.forEach(u=>{const k=(u.meta&&(u.meta.mode||u.meta.provider))||u.type;feat[k]=(feat[k]||0)+1});
+const topFeat=Object.entries(feat).sort((a,b)=>b[1]-a[1]).slice(0,4);
+$("stats").innerHTML=[
+ ["Registered users (this browser)",users.length,"real"],["Active session",read("briefiq_session")?1:0,"real"],
+ ["Analyses run",analyses,"real"],["Library saves",lib.length,"real"],
+ ["Projects stored",(db.projects||[]).length+((read("briefiq_projects")||[]).length||0),"real"],
+ ["Total users (all devices)","—","demo"],["MRR","—","demo"],["User growth","needs backend","demo"]
+].map(s=>`<div class="stat"><b>${s[1]}</b><span>${s[0]} </span><span class="${s[2]}">${s[2]==="real"?"REAL":"SAMPLE"}</span></div>`).join("");
+const planDist=users.length?["free","pro","studio","team","agency"].map(p=>[p,users.filter(u=>(u.plan||"free")===p).length]).filter(x=>x[1]):[["free",1]];
+const mx=Math.max(...planDist.map(x=>x[1]),1);
+$("charts").innerHTML=`<div class="stat"><span>Plan distribution <i class="real" style="font-style:normal">REAL</i></span>${planDist.map(x=>`<div style="font-size:11px;margin-top:6px">${x[0].toUpperCase()} — ${x[1]}<div class="bar"><i style="width:${Math.round(x[1]/mx*100)}%"></i></div></div>`).join("")}</div>
+<div class="stat"><span>Most used features <i class="real" style="font-style:normal">REAL</i></span>${topFeat.length?topFeat.map(x=>`<div style="font-size:11px;margin-top:6px">${x[0]} — ${x[1]}×<div class="bar"><i style="width:${Math.round(x[1]/topFeat[0][1]*100)}%"></i></div></div>`).join(""):'<div style="font-size:11px;margin-top:6px">Run analyses to populate</div>'}</div>`;
+/* feature flags */
+if(typeof Features!=="undefined"&&Features.all){
+ const F=Features.all();
+ $("flags").innerHTML='<table><tr><th>Feature</th><th>Status</th><th></th></tr>'+F.map(f=>
+  `<tr><td><b>${f.name||f.id}</b><div style="font-size:11px;color:#55534e">${f.desc||""}</div></td><td>${f.status}</td>
+  <td><button class="btn small" data-f="${f.id}" data-s="${f.status==="live"?"testing":"live"}">${f.status==="live"?"↩ Back to testing":"Publish live"}</button></td></tr>`).join("")+"</table>";
+ $("flags").addEventListener("click",e=>{const b=e.target.closest("[data-f]");if(!b)return;Features.setStatus(b.dataset.f,b.dataset.s);location.reload();});
+}else $("flags").innerHTML='<p style="font-size:12px">Feature system not loaded — manage in <a href="admin.html">Admin → Feature Release System</a>.</p>';
+})();
+</script>
+</div>
+</body>
+</html>

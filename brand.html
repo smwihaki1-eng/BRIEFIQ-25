@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>BriefIQ — Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231B4BFF%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3Eb%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --blue:#1b4bff; --logoblue:#1b4bff; --orange:#FF4D00; --ink:#0d0d0d; --paper:#f0eee9;
+    --orangered:#FF5219; --red:#E8262B; --amber:#FFB800; --green:#00A651; --brightgreen:#3DFF7E;
+    --lime:#C6FF3D; --purple:#9B51FF;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:#111;font-family:'Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 22px 80px}
+  .kick{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin:0 0 8px}
+  h1.big{font-family:Anton;font-weight:400;font-size:clamp(44px,9vw,104px);line-height:.94;text-transform:uppercase;letter-spacing:.5px;color:#2b2b28;margin:0}
+  h1.big em{font-style:normal;color:var(--blue)}
+  h2{font-family:Anton;font-weight:400;font-size:clamp(26px,4vw,40px);text-transform:uppercase;letter-spacing:.5px;color:#2b2b28;margin:0 0 4px}
+  .sec{background:#fff;border-radius:22px;padding:34px;margin-top:18px;box-shadow:7px 7px 0 var(--ink)}
+  .sec-kick{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8a8a83;margin-bottom:18px}
+  .grid{display:grid;gap:14px}
+  .sw{border-radius:14px;padding:16px;min-height:104px;display:flex;flex-direction:column;justify-content:space-between;border:1.5px solid transparent}
+  .sw .hex{font-family:'Space Mono',monospace;font-size:12px;font-weight:700}
+  .sw .role{font-size:12px;line-height:1.4;opacity:.92}
+  .sw.on-light{border-color:#111}
+  .lede{font-size:16px;line-height:1.6;color:#55534e;max-width:680px}
+  .pill{display:inline-block;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px}
+  .mono{font-family:'Space Mono',monospace}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td,th{text-align:left;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.09);vertical-align:top}
+  th{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#8a8a83}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.two{grid-template-columns:1fr}}
+  code{font-family:'Space Mono',monospace;font-size:.92em;background:rgba(0,0,0,.06);padding:1px 5px;border-radius:5px}
+  .do{color:var(--green);font-weight:700}
+  .dont{color:var(--red);font-weight:700}
+  a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <p class="kick">✳ Brand Identity Reference · compiled from the shipped code</p>
+  <div style="font-family:'Archivo Black';font-size:clamp(34px,7vw,56px);letter-spacing:-1px;line-height:1;color:var(--logoblue)">briefiq<span style="color:var(--orange)">.</span></div>
+  <p class="mono" style="font-size:11px;letter-spacing:1.6px;margin:8px 0 26px;text-transform:uppercase;color:#111">Creative Intelligence OS</p>
+  <h1 class="big">The brief is<br><em>lying to you.</em></h1>
+  <p class="lede" style="margin-top:20px">The single source of truth for BriefIQ's look and voice. When this document and the code disagree, the code wins — this is a mirror of <code>index.html</code>, <code>css/*.css</code> and <code>js/doodle-trail.js</code>. A machine-readable copy lives in <code>docs/BRAND.md</code>.</p>
+
+  <!-- 1 · LOGO -->
+  <div class="sec">
+    <div class="sec-kick">01 — Logo</div>
+    <div class="two" style="align-items:start">
+      <div>
+        <h2>Primary wordmark</h2>
+        <p class="lede" style="font-size:14px">Lowercase <b>briefiq.</b> in <b>Archivo Black</b>, letter-spacing −1px. Wordmark <code>#1b4bff</code>, period <code>#FF4D00</code>. Sub-line in Space Mono. This is the marketing mark — sidebar, mobile bar, login, support.</p>
+        <div style="background:var(--paper);border:1.5px solid #111;border-radius:16px;padding:24px;margin-top:12px;text-align:center">
+          <div style="font-family:'Archivo Black';font-size:40px;letter-spacing:-1px;color:var(--logoblue)">briefiq<span style="color:var(--orange)">.</span></div>
+          <div class="mono" style="font-size:8.5px;letter-spacing:1.6px;margin-top:6px">CREATIVE INTELLIGENCE OS</div>
+        </div>
+      </div>
+      <div>
+        <h2>Signature doodles</h2>
+        <p class="lede" style="font-size:14px">Hand-drawn marks in <code>#FF4D00</code> / <code>#1b4bff</code> — part of the identity, not decoration.</p>
+        <ul class="lede" style="font-size:14px;padding-left:18px">
+          <li>Orange <b>coil scribble</b> replacing letters (hero "ly<span style="color:var(--orange)">〰</span>ing")</li>
+          <li>Blue <b>squiggle-arrow</b></li>
+          <li>Spinning <b style="color:var(--amber)">✳ asterisk</b> — the prefix on every section kicker</li>
+          <li><b>Mouse trail:</b> orange squiggle + <b style="color:var(--blue)">blue</b> rotating asterisk head</li>
+        </ul>
+        <p class="lede" style="font-size:13px"><b>Favicon:</b> rounded square <code>#1b4bff</code> + white "b". <b>OG image:</b> <code>assets/og-image.png</code> (1200×630).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · COLOR -->
+  <div class="sec">
+    <div class="sec-kick">02 — Colour palette · flat colour always, no gradients</div>
+    <h2>Core brand</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:12px 0 24px">
+      <div class="sw" style="background:var(--blue);color:#fff"><span class="hex">#1b4bff</span><span class="role">Design Blue — statement bands, Pro card, scorecard, doodle head</span></div>
+      <div class="sw" style="background:var(--logoblue);color:#fff"><span class="hex">#1b4bff</span><span class="role">Logo Blue — wordmark, card 01, favicon</span></div>
+      <div class="sw" style="background:var(--orange);color:#fff"><span class="hex">#FF4D00</span><span class="role">CTA Orange — every primary action, logo period, checkmarks</span></div>
+      <div class="sw" style="background:var(--ink);color:#fff"><span class="hex">#0d0d0d</span><span class="role">Ink — dark panels, footer, borders, hard shadows</span></div>
+      <div class="sw on-light" style="background:var(--paper);color:#111"><span class="hex">#f0eee9</span><span class="role">Paper — page background (warm off-white)</span></div>
+    </div>
+    <h2>Accent brights</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:12px 0 24px">
+      <div class="sw" style="background:var(--orangered);color:#fff"><span class="hex">#FF5219</span><span class="role">Card 03 · accents on dark</span></div>
+      <div class="sw" style="background:var(--red);color:#fff"><span class="hex">#E8262B</span><span class="role">Marquee red ribbons</span></div>
+      <div class="sw on-light" style="background:var(--amber);color:#111"><span class="hex">#FFB800</span><span class="role">Card 02 · "most popular" badge</span></div>
+      <div class="sw" style="background:var(--green);color:#fff"><span class="hex">#00A651</span><span class="role">Pricing hero · table checkmarks</span></div>
+      <div class="sw" style="background:var(--brightgreen);color:#0d0d0d"><span class="hex">#3DFF7E</span><span class="role">Checks/accents — dark bg only</span></div>
+      <div class="sw on-light" style="background:var(--lime);color:#111"><span class="hex">#C6FF3D</span><span class="role">"Offline engine" pill</span></div>
+      <div class="sw" style="background:var(--purple);color:#fff"><span class="hex">#9B51FF</span><span class="role">"Analyse a Brief" CTA · Manual Mode</span></div>
+    </div>
+    <h2>Text</h2>
+    <table style="margin-top:10px">
+      <tr><th>Hex</th><th>Role</th></tr>
+      <tr><td><code>#2b2b28</code></td><td>Headline ink — big Anton headlines on light</td></tr>
+      <tr><td><code>#33322e</code></td><td>Body — long-form paragraphs</td></tr>
+      <tr><td><code>#55534e</code></td><td>Secondary — card body text, labels</td></tr>
+      <tr><td><code>#6c6a62</code> / <code>#6b6b64</code></td><td>Muted on light — mono micro-labels (AA floor, do not lighten)</td></tr>
+      <tr><td><code>#8a8a83</code></td><td>Muted on dark — mono labels on <code>#0d0d0d</code> only</td></tr>
+      <tr><td><code>#c9c9c9</code> / <code>#f2efe8</code></td><td>Body / headline on ink panels</td></tr>
+      <tr><td><code>#b9c2ff</code> / <code>#dbe4ff</code></td><td>Label / body tints on <code>#1b4bff</code></td></tr>
+    </table>
+    <p class="lede" style="font-size:13px;margin-top:14px"><b>Contrast rules:</b> dark text on brights uses <code>#0d0d0d</code> or tuned darks (<code>#33150a</code> on orange, <code>#4a3400</code> on amber, <code>#002a10</code> on green). <code>#3DFF7E</code> and <code>#8a8a83</code> are <b>dark-background only</b>. Muted grey text on light backgrounds must be <code>#6c6a62</code> or darker (WCAG AA).</p>
+  </div>
+
+  <!-- 3 · TYPE -->
+  <div class="sec">
+    <div class="sec-kick">03 — Typography</div>
+    <div style="border-bottom:1.5px solid #111;padding-bottom:18px;margin-bottom:18px">
+      <p class="mono" style="font-size:10px;letter-spacing:1px;color:#8a8a83">ANTON · display · weight 400 only · ALWAYS UPPERCASE</p>
+      <div style="font-family:Anton;font-weight:400;font-size:clamp(32px,6vw,60px);text-transform:uppercase;line-height:.95;color:#2b2b28">Diagnose before you prescribe</div>
+      <p class="lede" style="font-size:13px">Hero 104px · page titles 76–96px · section titles 40–52px · card titles 29–34px · prices 40–42px. <b>Never bold</b> — faux-bold distorts it.</p>
+    </div>
+    <div style="border-bottom:1.5px solid #111;padding-bottom:18px;margin-bottom:18px">
+      <p class="mono" style="font-size:10px;letter-spacing:1px;color:#8a8a83">ARCHIVO BLACK · logo wordmark only</p>
+      <div style="font-family:'Archivo Black';font-size:34px;letter-spacing:-1px;color:var(--logoblue)">briefiq<span style="color:var(--orange)">.</span></div>
+    </div>
+    <div style="border-bottom:1.5px solid #111;padding-bottom:18px;margin-bottom:18px">
+      <p class="mono" style="font-size:10px;letter-spacing:1px;color:#8a8a83">SPACE GROTESK · body · 400 / 500 / 700</p>
+      <div style="font-size:19px;color:#33322e">The only creative-intelligence tool that diagnoses the brief before prescribing work — <b>on a strategy engine that runs entirely offline.</b></div>
+    </div>
+    <div>
+      <p class="mono" style="font-size:10px;letter-spacing:1px;color:#8a8a83">SPACE MONO · kickers &amp; micro-labels · 8.5–12px · +letter-spacing</p>
+      <div class="mono" style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--orange)">✳ 01 — What BriefIQ does</div>
+      <p class="lede" style="font-size:13px;margin-top:8px">Kicker pattern: <code>✳ 01 — SECTION NAME</code>. Titan One is used only for the app's in-product sticker mark.</p>
+    </div>
+  </div>
+
+  <!-- 4 · SHAPE -->
+  <div class="sec">
+    <div class="sec-kick">04 — Shape &amp; surface language</div>
+    <div class="two">
+      <div>
+        <table>
+          <tr><th>Token</th><th>Value</th></tr>
+          <tr><td>Card radius</td><td><code>22px</code></td></tr>
+          <tr><td>Small card / input radius</td><td><code>12–16px</code></td></tr>
+          <tr><td>Pills (buttons, tags, ribbons)</td><td><code>100px</code></td></tr>
+          <tr><td>Borders (light surfaces)</td><td><code>1.5px solid #111</code></td></tr>
+          <tr><td>Signature shadow</td><td><code>7px 7px 0 #0d0d0d</code> — flat, no blur</td></tr>
+          <tr><td>Grid-paper texture</td><td>repeating <code>58px</code> line grid on colour heroes</td></tr>
+        </table>
+      </div>
+      <div>
+        <div style="background:var(--amber);border-radius:22px;padding:24px;box-shadow:7px 7px 0 var(--ink);background-image:linear-gradient(rgba(13,13,13,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,13,.14) 1px,transparent 1px);background-size:26px 26px">
+          <div style="font-family:Anton;font-size:22px;text-transform:uppercase;color:#0d0d0d;margin-bottom:14px">Card = 22px + hard shadow + grid</div>
+          <span class="pill" style="background:var(--orange);color:#fff">Primary action</span>
+          <span class="pill" style="background:#fff;border:1.5px solid #111;color:#111;margin-left:6px">Secondary</span>
+        </div>
+        <div style="background:var(--red);border-radius:100px;padding:11px 0;overflow:hidden;margin-top:14px;white-space:nowrap">
+          <span class="mono" style="color:var(--amber);font-weight:700;font-size:13px;padding:0 16px">MARQUEE RIBBON ⚡ FLAT COLOUR ◆ NO GRADIENTS ✳ HARD EDGES ⚡</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · MOTION + VOICE -->
+  <div class="two" style="margin-top:18px">
+    <div class="sec" style="margin-top:0">
+      <div class="sec-kick">05 — Motion</div>
+      <p class="lede" style="font-size:14px">Keyframes: <code>marq</code> (marquee), <code>rise</code> (entrance), <code>spinRing</code> (asterisk), <code>coilDraw</code> (scribble draw-on), <code>bob</code>, <code>wiggle</code>, <code>floaty</code>, <code>pulse</code>.</p>
+      <p class="lede" style="font-size:14px">Hover: small translates (−2 / −3px), hard-shadow reveals, colour swaps. Transitions .15–.22s.</p>
+      <p class="lede" style="font-size:14px"><b>All motion respects <code>prefers-reduced-motion: reduce</code></b> — global kill-switch + the mouse trail opts out on touch / reduced-motion.</p>
+    </div>
+    <div class="sec" style="margin-top:0">
+      <div class="sec-kick">06 — Voice</div>
+      <p class="lede" style="font-size:14px">Diagnostic, confident, a little confrontational. <em>"The brief is lying to you. We find the truth."</em></p>
+      <ul class="lede" style="font-size:14px;padding-left:18px">
+        <li>Diagnose-before-prescribe; "senior planning department" energy</li>
+        <li>Short declaratives, em-dashes; sentence-case body, UPPERCASE display</li>
+        <li>Honest about limits ("works offline, no keys needed")</li>
+        <li>Africa-first — "built from Nairobi to Jakarta, not adapted from New York"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7 · DO / DON'T -->
+  <div class="sec">
+    <div class="sec-kick">07 — Do / Don't</div>
+    <div class="two">
+      <div>
+        <p class="lede" style="font-size:14px"><span class="do">✓ Do</span></p>
+        <ul class="lede" style="font-size:14px;padding-left:18px">
+          <li>Anton for display, never body; Space Mono only for micro-labels</li>
+          <li>One orange CTA per view; purple reserved for "Analyse a Brief"</li>
+          <li>Hard shadows, flat brights, 1.5px ink borders</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lede" style="font-size:14px"><span class="dont">✗ Don't</span></p>
+        <ul class="lede" style="font-size:14px;padding-left:18px">
+          <li>No gradients, no blurred shadows, no faux-bold Anton</li>
+          <li>Never claim "Powered by Stripe" until billing is live</li>
+          <li>No <code>#3DFF7E</code> or <code>#8a8a83</code> text on light backgrounds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p class="mono" style="font-size:10px;letter-spacing:1px;color:#8a8a83;text-align:center;margin-top:30px">BRIEFIQ BRAND IDENTITY · SOURCE OF TRUTH IS THE CODE · MACHINE-READABLE COPY IN docs/BRAND.md</p>
+</div>
+</body>
+</html>

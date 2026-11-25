@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Save to BriefIQ</title>
+<link rel="icon" href="icons/icon-192.png">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#fbfaf7;color:#111;font:15px/1.5 'Space Grotesk',system-ui,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:18px}
+  .card{width:100%;max-width:400px;background:#fff;border:2px solid #111;border-radius:20px;padding:18px;box-shadow:5px 5px 0 #111}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .top b{font-size:18px}
+  .ok{font-weight:700;color:#0A6E35}
+  .prev{border-radius:12px;overflow:hidden;background:#ece8df;min-height:160px;display:flex;align-items:center;justify-content:center}
+  .prev img{width:100%;max-height:340px;object-fit:contain;display:block}
+  .t{font-weight:700;margin:12px 0 2px;color:#111}
+  .src{font-size:13px;color:#3b3a36;word-break:break-all}
+  .row{display:flex;gap:8px;margin-top:14px}
+  select,input{flex:1;font:14px inherit;border:1.5px solid #d9d4c8;border-radius:100px;padding:10px 14px;color:#111;background:#fff}
+  button{font:700 14px inherit;border:0;border-radius:100px;padding:10px 18px;cursor:pointer;background:#111;color:#fff}
+  button.alt{background:#FF4D00;color:#111}
+  .note{font-size:12.5px;color:#3b3a36;margin-top:12px}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top"><b>Save to BriefIQ</b><span class="ok" id="status">Saving…</span></div>
+  <div class="prev" id="prev"><span class="src">Getting a preview…</span></div>
+  <div class="t" id="title"></div>
+  <div class="src" id="from"></div>
+  <div class="row"><select id="col" aria-label="Collection"></select><button id="move">Move</button></div>
+  <div class="row hide" id="newrow"><input id="newname" placeholder="New collection name" maxlength="60"><button class="alt" id="create">Create</button></div>
+  <div class="row"><button class="alt" id="open">Open in BriefIQ</button><button id="close">Done</button></div>
+  <p class="note">Saved in this browser, credited and linked back to where you found it.</p>
+</div>
+<script>
+(function () {
+  "use strict";
+  var CK = "briefiq_collections_v1", LK = "briefiq_last_col";
+  function get(k, d) { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } }
+  function set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
+  function cols() { var c = get(CK, null); if (c && c.length) return c; c = [{ id: "unsorted", name: "Unsorted", items: [] }]; set(CK, c); return c; }
+  var P = new URLSearchParams(location.search);
+  var page = P.get("u") || "", img = P.get("img") || "", title = (P.get("t") || "").slice(0, 140);
+  var https = function (u) { return /^https:\/\//i.test(u || "") ? u : ""; };
+  page = https(page); img = https(img);
+  var host = ""; try { host = new URL(page).hostname.replace(/^www\./, ""); } catch (e) {}
+  var $ = function (id) { return document.getElementById(id); };
+  $("from").textContent = host ? "From " + host : "";
+  $("title").textContent = title || "Saved item";
+  var yt = (page.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/)|youtu\.be\/)([\w-]{11})/) || [])[1] || "";
+  var item = null, savedIn = null;
+
+  function fillSelect(sel) {
+    var c = cols(); $("col").innerHTML = c.map(function (x) { return '<option value="' + x.id + '">' + x.name.replace(/[<&"]/g, "") + "</option>"; }).join("") + '<option value="__new">＋ New collection…</option>';
+    $("col").value = sel || get(LK, "unsorted");
+    if ($("col").selectedIndex < 0) $("col").value = "unsorted";
+  }
+  function store(colId) {
+    var c = cols();
+    c.forEach(function (x) { x.items = x.items.filter(function (i) { return i.key !== item.key; }); });   // move, never duplicate
+    var col = c.find(function (x) { return x.id === colId; }) || c[0];
+    col.items.unshift(item); if (!set(CK, c)) { $("status").textContent = "Storage full"; return; }
+    set(LK, col.id); savedIn = col.id;
+    $("status").textContent = "✓ Saved to " + col.name;
+  }
+  function ready(thumb, w, h) {
+    item = { key: "s" + (yt || page) + (thumb || ""), kind: yt ? "work" : "photo", thumb: thumb, full: thumb, title: title || host, credit: host, page: yt ? "https://www.youtube.com/watch?v=" + yt : page, source: host, w: w || 4, h: h || 5, color: "", yt: yt, brand: "", tags: [], at: Date.now() };
+    $("prev").innerHTML = ""; var im = new Image(); im.alt = ""; im.referrerPolicy = "no-referrer"; im.src = thumb; $("prev").appendChild(im);
+    im.onload = function () { item.w = im.naturalWidth || item.w; item.h = im.naturalHeight || item.h; store(savedIn || $("col").value); };
+    im.onerror = function () { $("prev").innerHTML = '<span class="src">No preview — saved as a link.</span>'; store(savedIn || $("col").value); };
+  }
+  fillSelect();
+  if (!page) { $("status").textContent = "Nothing to save"; return; }
+  if (yt) ready("https://i.ytimg.com/vi/" + yt + "/hqdefault.jpg", 16, 9);
+  else if (img) ready(img);
+  else fetch("/api/og-image?url=" + encodeURIComponent(page)).then(function (r) { return r.json(); })
+    .then(function (j) { if (j && j.title && !title) $("title").textContent = title = j.title; ready(https(j && j.image) || ""); })
+    .catch(function () { ready(""); });
+
+  $("col").onchange = function () { if (this.value === "__new") { $("newrow").classList.remove("hide"); $("newname").focus(); } };
+  $("move").onclick = function () { if ($("col").value !== "__new" && item) store($("col").value); };
+  $("create").onclick = function () {
+    var n = $("newname").value.trim(); if (!n) return;
+    var c = cols(), col = { id: "c" + Date.now().toString(36), name: n.slice(0, 60), items: [] }; c.push(col); set(CK, c);
+    fillSelect(col.id); $("newrow").classList.add("hide"); if (item) store(col.id);
+  };
+  $("open").onclick = function () { window.open(location.origin + "/index.html#explore", "_blank"); window.close(); };
+  $("close").onclick = function () { window.close(); };
+})();
+</script>
+</body>
+</html>

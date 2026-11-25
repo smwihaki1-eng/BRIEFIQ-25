@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-theme-lock="light" class="biq-light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefIQ — African-built creative intelligence</title>
+<meta name="description" content="BriefIQ is an African-built creative intelligence platform that helps you solve problems more thoughtfully and develop stronger ideas. Not an idea generator — a rigorous space to understand the real problem, challenge assumptions, see what's missing, and pressure-test solutions before you decide what to make.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231B4BFF%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%23ffffff%27%3Eb%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1b4bff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="BriefIQ">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<!-- Update the host in canonical/og:url/og:image when the production domain changes (see robots.txt) -->
+<meta property="og:title" content="BriefIQ — African-built creative intelligence">
+<meta property="og:description" content="A creative intelligence platform that helps you solve problems more thoughtfully and develop stronger ideas — challenge assumptions, see what's missing, and pressure-test your thinking before you make the work.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BriefIQ — African-built creative intelligence">
+<meta name="twitter:description" content="Creative intelligence that helps you think more thoughtfully and develop stronger ideas — not an idea generator.">
+<meta name="twitter:image" content="/assets/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BriefIQ",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "BriefIQ is an African-built creative intelligence platform that helps you solve problems more thoughtfully and develop stronger ideas. Not an idea generator — it helps you understand the real problem, challenge assumptions, see what's missing, pull in real context and references, and pressure-test solutions before you decide what to make. Runs in the browser.",
+  "url": "/",
+  "image": "/assets/og-image.png",
+  "offers": [
+    {"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD"},
+    {"@type": "Offer", "name": "Pro", "price": "20", "priceCurrency": "USD"},
+    {"@type": "Offer", "name": "Team", "price": "99", "priceCurrency": "USD"},
+    {"@type": "Offer", "name": "Agency", "price": "199", "priceCurrency": "USD"}
+  ]
+}
+</script>
+<link rel="stylesheet" href="css/studio.css?v=20261001h">
+<link rel="stylesheet" href="css/design-page.css?v=20261001h">
+<link rel="stylesheet" href="css/responsive.css?v=20260826b">
+<link rel="stylesheet" href="css/landing.css?v=20260915d">
+<link rel="stylesheet" href="css/peek-buddy.css?v=20260826b">
+<!-- Refactor (Phase 4): design tokens → utilities → components. Loaded last so token-backed
+     classes win equal-specificity resets. Currently used by the sidebar-nav pilot only. -->
+<link rel="stylesheet" href="css/_tokens.css?v=20261001h">
+<link rel="stylesheet" href="css/_utilities.css?v=20260826b">
+<link rel="stylesheet" href="css/components.css?v=20260826b">
+<link rel="stylesheet" href="css/responsive-logo.css?v=20260826b">
+<link rel="stylesheet" href="css/results-tabs.css?v=20261002d">
+<style>/* hero peek-buddy — size + position scale with the viewport */
+.hero-peek{ flex:0 0 auto; width:clamp(200px, 25vw, 330px); align-self:center; box-sizing:border-box; }
+@media (max-width:900px){ .hero-body{ gap:24px !important; } .hero-peek{ align-self:center; margin:8px auto 0; width:clamp(190px, 42vw, 300px); } }
+@media (max-width:560px){ .hero-peek{ width:clamp(170px, 58vw, 250px); } }
+/* ===== beta announcement — first thing on the landing ===== */
+.beta-banner{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+  text-decoration:none;background:#1b4bff;color:#fff;border:1.5px solid #111;border-radius:18px;
+  padding:20px 28px;box-shadow:5px 5px 0 #111;transition:background .15s ease,transform .15s ease}
+.beta-banner:hover{background:#1539d9;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #111}
+.beta-banner__l{display:flex;flex-direction:column;gap:5px;min-width:0}
+.beta-banner__kick{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#FFB800}
+.beta-banner__h{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(20px,2.5vw,30px);text-transform:uppercase;line-height:1.04;letter-spacing:.4px}
+.beta-banner__h em{font-style:normal;color:#FFB800}
+.beta-banner__sub{font-size:13px;color:rgba(255,255,255,.92);line-height:1.4}
+.beta-banner__cta{flex:0 0 auto;background:#FF4D00;color:#fff;border-radius:100px;padding:14px 26px;font-weight:700;font-size:15px;white-space:nowrap;font-family:'Space Grotesk',sans-serif}
+.beta-banner:hover .beta-banner__cta{background:#fff;color:#1b4bff}
+@media (max-width:640px){.beta-banner{padding:17px 20px;gap:14px}.beta-banner__cta{width:100%;text-align:center}}</style>
+<link rel="stylesheet" href="css/doodle-girl.css?v=20261002e">
+<link rel="stylesheet" href="css/explore.css?v=20261002h">
+<link rel="stylesheet" href="css/research-pipeline.css?v=20261014b">
+<link rel="stylesheet" href="css/readability.css?v=20261002a">
+</head>
+<body>
+<noscript><div style="padding:40px;text-align:center;font-family:sans-serif">BriefIQ needs JavaScript to run. Please enable JavaScript and reload.</div></noscript>
+
+
+
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<div class="app-shell" style="display:flex;min-height:100vh;background:#f0eee9;align-items:stretch">
+
+  <!-- ============ SIDEBAR (1b) ============ -->
+  <nav aria-label="Main navigation" class="side-nav">
+    <a href="#" data-dc-click="goHome" class="side-brand dcbtn" aria-label="briefiq — creative intelligence os" style="display:block">
+      <img src="assets/briefiq-logo.svg?v=20260826b" alt="briefiq — creative intelligence os" width="632" height="208" decoding="async" style="width:100%;max-width:186px;height:auto;display:block">
+    </a>
+    <a href="#how" data-dc-click="goHow" data-dcring="how" class="side-tile side-tile--blue dchv0 dcbtn">
+      <div class="side-tile__row"><span>01</span><span aria-hidden="true">↗</span></div>
+      <div class="side-tile__label">How it works</div>
+    </a>
+    <a href="#ai" data-dc-click="goAI" data-dcring="ai" class="side-tile side-tile--amber dchv0 dcbtn">
+      <div class="side-tile__row"><span>02</span><span aria-hidden="true">↗</span></div>
+      <div class="side-tile__label">AI · optional</div>
+    </a>
+    <a href="#who" data-dc-click="goWho" data-dcring="who" class="side-tile side-tile--orange dchv0 dcbtn">
+      <div class="side-tile__row"><span>03</span><span aria-hidden="true">↗</span></div>
+      <div class="side-tile__label">Who it's for</div>
+    </a>
+    <a href="#pricing" data-dc-click="goPricing" data-dcring="pricing" class="side-tile side-tile--green dchv0 dcbtn">
+      <div class="side-tile__row"><span>04</span><span aria-hidden="true">↗</span></div>
+      <div class="side-tile__label">Pricing</div>
+    </a>
+    <div class="side-group">Start here</div>
+    <button type="button" onclick="Wizard.open()" class="side-btn side-btn--blue dcbtn" title="New to this? A few guided steps pick the right analysis for you — no page change"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><path d="M11.8 3.4C12.5 8 13.4 9 18 9.8 13.4 10.6 12.5 11.6 11.8 16.2 11.1 11.6 10.2 10.6 5.6 9.8 10.2 9 11.1 8 11.8 3.4Z"/><path d="M18 14.6c.2 1.7.5 2 2.2 2.3-1.7.3-2 .6-2.2 2.3-.2-1.7-.5-2-2.2-2.3 1.7-.3 2-.6 2.2-2.3Z"/></svg>Guided project</button>
+    <div class="side-desc">New here? A few steps pick the right analysis for you.</div>
+    <a href="#analyse" class="side-btn side-btn--orange dcbtn" data-dc-click="goAnalyse" title="The quickest way in — bring a brief and start thinking"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><rect x="6" y="4.6" width="12" height="15.8" rx="2.2"/><path d="M9.3 4.6V3.4a1.1 1.1 0 0 1 1.1-1.1h3.2a1.1 1.1 0 0 1 1.1 1.1v1.2Z"/><path d="M9.2 10.6h5.6M9.2 13.8h5.6M9.2 17h3.4"/></svg>Analyse a brief</a>
+    <div class="side-desc">Know what you want? Bring a brief and start.</div>
+    <div class="side-group">Explore &amp; think</div>
+    <button type="button" onclick="CreativePlayground.open()" class="side-btn side-btn--purple dcbtn" title="A collaborative thinking space — explore the problem, add your own thinking, then challenge it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><path d="M11.8 3.4C12.5 8 13.4 9 18 9.8 13.4 10.6 12.5 11.6 11.8 16.2 11.1 11.6 10.2 10.6 5.6 9.8 10.2 9 11.1 8 11.8 3.4Z"/><path d="M18 14.6c.2 1.7.5 2 2.2 2.3-1.7.3-2 .6-2.2 2.3-.2-1.7-.5-2-2.2-2.3 1.7-.3 2-.6 2.2-2.3Z"/></svg>Creative Playground</button>
+    <div class="side-desc">Think a problem through with a sharp creative partner.</div>
+    <button type="button" onclick="Explore.open()" class="side-btn side-btn--blue side-btn--sm dcbtn" title="An endless wall of images to search, save into collections and arrange on a canvas"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><rect x="3" y="3" width="7.5" height="10" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="6" rx="1.5"/><rect x="13.5" y="11.5" width="7.5" height="9.5" rx="1.5"/><rect x="3" y="15.5" width="7.5" height="5.5" rx="1.5"/></svg>Explore images</button>
+    <div class="side-desc">Search, save &amp; play with images — your own visual space.</div>
+    <button type="button" onclick="CaseBoard.open()" class="side-btn side-btn--orange side-btn--sm dcbtn" title="Your board of past work — ad films play inline, links show the real work"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><rect x="3" y="3.5" width="8" height="8" rx="1.5"/><rect x="13" y="3.5" width="8" height="5" rx="1.5"/><rect x="13" y="10.5" width="8" height="10" rx="1.5"/><rect x="3" y="13.5" width="8" height="7" rx="1.5"/></svg>Case board</button>
+    <div class="side-desc">Ad films, campaigns, packaging &amp; branding — real work.</div>
+    <button type="button" onclick="InspirationGallery.open()" class="side-btn side-btn--green side-btn--sm dcbtn" title="Browse standout creative work by discipline — no brief needed"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><rect x="4" y="5.5" width="16" height="13" rx="1.8"/><circle cx="8.8" cy="10" r="1.3"/><path d="M4.6 16.4 9 12l2.6 2.4L15 10l4.4 5.2"/></svg>Explore work</button>
+    <div class="side-desc">Browse standout creative work by discipline.</div>
+    <button type="button" onclick="CreativeGrowth.open()" class="side-btn side-btn--amber side-btn--sm dcbtn" title="See how your thinking is growing across projects — patterns and blind spots"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><path d="M5 4.5V19h14.5"/><path d="M7.5 14.8 11 11.2l2.6 2 4-5.6"/><path d="M15.4 7.4h2.4v2.4"/></svg>Creative Growth</button>
+    <div class="side-desc">See how your thinking grows across projects.</div>
+    <button type="button" onclick="ProjectDashboard.open()" class="side-btn side-btn--blue side-btn--sm dcbtn" title="Track deliverables, deadlines, team and status — open any time"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.2em;margin-right:.32em"><rect x="6" y="4.6" width="12" height="15.8" rx="2.2"/><path d="M9.3 4.6V3.4a1.1 1.1 0 0 1 1.1-1.1h3.2a1.1 1.1 0 0 1 1.1 1.1v1.2Z"/><path d="M9.2 10.6h5.6M9.2 13.8h5.6M9.2 17h3.4"/></svg>Project tracker</button>
+    <div class="side-desc">Track deliverables, deadlines, team &amp; status.</div>
+    <button type="button" data-dc-click="goLogin" id="dcNavLogin" class="side-link dchv2 dcbtn">Log in</button>
+    <a href="support.html" class="side-support">SUPPORT &amp; HELP</a>
+  </nav>
+
+  <!-- ============ MAIN ============ -->
+  <div id="main" role="main" tabindex="-1" style="flex:1;min-width:0;padding:24px 26px 26px 10px;display:flex;flex-direction:column;gap:18px;box-sizing:border-box">
+
+    <!-- ===== BETA ANNOUNCEMENT (first thing on the landing) ===== -->
+    <a href="beta.html" class="beta-banner" aria-label="Join the BriefIQ closed beta — apply for a spot">
+      <span class="beta-banner__l">
+        <span class="beta-banner__kick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.12em;margin-right:.28em"><path d="M9.5 3.5h5M10.5 3.5v5.3L6 17.4a1.9 1.9 0 0 0 1.7 2.9h8.6a1.9 1.9 0 0 0 1.7-2.9L13.5 8.8V3.5"/><path d="M8.2 14.5h7.6"/></svg>Closed beta · Founding cohort</span>
+        <span class="beta-banner__h">Help build BriefIQ — <em>20 founding spots</em> open.</span>
+        <span class="beta-banner__sub">5 free projects, every engine unlocked, and a direct line to the founder.</span>
+      </span>
+      <span class="beta-banner__cta">Apply for a spot →</span>
+    </a>
+
+    <!-- ================= HOME ================= -->
+    <div class="dc-page" data-dcpage="home" hidden>
+      <div style="display:flex;flex-direction:column;gap:18px">
+
+        <!-- red ribbon -->
+        <div aria-hidden="true" style="background:#C8151B;border-radius:100px;padding:13px 0;overflow:hidden">
+          <div style="display:inline-flex;width:max-content;white-space:nowrap;font-weight:700;font-size:15px;color:#FFFFFF;animation:marq 26s linear infinite">
+            <span style="margin:0 18px">Brief Quality Score</span>⚡<span style="margin:0 18px">Red Flag Detector</span>◆<span style="margin:0 18px">Solution Diagnosis</span>⚡<span style="margin:0 18px">Insight Engine</span>◆<span style="margin:0 18px">Campaign Ideas</span>⚡<span style="margin:0 18px">Agency Room — 10 AI Specialists</span>◆
+            <span style="margin:0 18px">Brief Quality Score</span>⚡<span style="margin:0 18px">Red Flag Detector</span>◆<span style="margin:0 18px">Solution Diagnosis</span>⚡<span style="margin:0 18px">Insight Engine</span>◆<span style="margin:0 18px">Campaign Ideas</span>⚡<span style="margin:0 18px">Agency Room — 10 AI Specialists</span>◆
+          </div>
+        </div>
+
+        <!-- hero -->
+        <div style="background:#fff;border-radius:22px;padding:62px 56px 58px;position:relative;overflow:hidden">
+          <div style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:26px;animation:rise .7s .05s both">
+            <span style="color:#FF4D00;font-size:15px">✳</span> Built in Nairobi · Standalone · No signup · Free to start
+          </div>
+          <h1 class="hero-h1" style="font-family:Anton;font-size:clamp(27px,4.4vw,50px);line-height:1.07;text-transform:uppercase;color:var(--color-ink-2);letter-spacing:.3px;animation:rise .8s .15s both;margin:0;font-weight:400;max-width:900px">
+            Great campaigns rarely fail because the idea was bad.<br>
+            <span style="color:#1b4bff">They fail because the brief wasn't challenged early enough.</span>
+          </h1>
+          <!-- hero body: value + paste-box demo on the left, the peek buddy anchored on the right -->
+          <div class="hero-body" style="display:flex;gap:48px;align-items:center;flex-wrap:wrap;margin:30px 0 0">
+            <div class="hero-left" style="flex:1 1 440px;min-width:0">
+              <p style="font-size:17px;line-height:1.6;color:var(--color-text-muted);margin:0 0 26px;animation:rise .8s .35s both">BriefIQ is a creative intelligence partner — not another idea generator. It studies your whole project, challenges the brief, and surfaces the tensions and opportunities others miss, grounded in local culture rather than a Western template. <b>It doesn't replace your creativity. It removes the uncertainty around it.</b></p>
+              <!-- the 10-second demo: paste box lives IN the hero — one job, one verdict -->
+              <div style="animation:rise .8s .5s both">
+                <textarea id="heroBrief" aria-label="Paste a client brief to analyse" placeholder="Paste the client's brief here — the messier the better…" style="width:100%;box-sizing:border-box;border:1.5px solid #111;border-radius:16px;padding:16px 18px;font-size:15px;line-height:1.55;font-family:'Space Grotesk',system-ui,sans-serif;color:#111;background:#fff;min-height:96px;resize:vertical;outline:none"></textarea>
+                <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:14px">
+                  <button type="button" data-dc-click="heroCheck" style="background:#FF4D00;color:#0d0d0d;padding:17px 36px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;transition:transform .18s,background .18s;display:inline-block" class="dchv4 dcbtn">Analyse a brief →</button>
+                  <a href="#how" data-dc-click="goHow" data-dcring="how" class="dcbtn" style="font-size:14px;font-weight:700;color:#1b4bff;text-decoration:underline;text-underline-offset:3px;cursor:pointer">See how it works</a>
+                  <button type="button" data-dc-click="heroSample" class="dcbtn" style="font-size:14px;font-weight:700;color:#111;text-decoration:underline;text-underline-offset:3px;cursor:pointer">Try a sample messy one</button>
+                </div>
+              </div>
+            </div>
+            <!-- meet the peek buddy — a hand-drawn creative who follows your cursor -->
+            <div data-doodle="laptop" data-doodle-eyes data-doodle-eager data-doodle-quip="Hi! Paste a brief — I'll find what it's really asking." class="hero-peek" style="animation:rise .8s .55s both"></div>
+          </div>
+        </div>
+
+        <!-- mono marquee strip -->
+        <div aria-hidden="true" style="background:#fff;border:1.5px solid #111;border-radius:100px;padding:15px 0;overflow:hidden">
+          <div style="display:inline-flex;width:max-content;white-space:nowrap;font-family:'Space Mono';font-size:12px;letter-spacing:2px;text-transform:uppercase;animation:marq 34s linear infinite">
+            <span style="margin:0 20px">Brief Quality Score</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">Red Flag Detector</span><span style="color:#1b4bff">✳</span><span style="margin:0 20px">Solution Diagnosis</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">Insight Engine</span><span style="color:#1b4bff">✳</span><span style="margin:0 20px">Strategic Territories</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">Campaign Ideas</span><span style="color:#1b4bff">✳</span><span style="margin:0 20px">Cannes · WARC · D&amp;AD · Effie References</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">15+ Market Packs</span><span style="color:#1b4bff">✳</span>
+            <span style="margin:0 20px">Brief Quality Score</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">Red Flag Detector</span><span style="color:#1b4bff">✳</span><span style="margin:0 20px">Solution Diagnosis</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">Insight Engine</span><span style="color:#1b4bff">✳</span><span style="margin:0 20px">Strategic Territories</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">Campaign Ideas</span><span style="color:#1b4bff">✳</span><span style="margin:0 20px">Cannes · WARC · D&amp;AD · Effie References</span><span style="color:#FF4D00">✳</span><span style="margin:0 20px">15+ Market Packs</span><span style="color:#1b4bff">✳</span>
+          </div>
+        </div>
+
+        <!-- blue statement band -->
+        <div data-rv="0" style="background:#1b4bff;color:#f2efe8;border-radius:22px;padding:104px 80px;text-align:center;position:relative;overflow:hidden;opacity:0;transform:translateY(34px)">
+          <div aria-hidden="true" style="position:absolute;left:12%;top:22%;width:10px;height:10px;background:#FFB800;animation:bob 4s ease-in-out infinite"></div>
+          <div aria-hidden="true" style="position:absolute;right:15%;bottom:20%;width:9px;height:9px;background:#FF5219;animation:bob 5s .8s ease-in-out infinite"></div>
+          <div aria-hidden="true" style="position:absolute;left:7%;bottom:20%;font-size:38px;color:#FFB800;line-height:1;animation:spinRing 11s linear infinite">✳</div>
+          <div aria-hidden="true" style="position:absolute;right:9%;top:16%;font-size:30px;color:#3DFF7E;line-height:1;animation:spinRing 8s linear infinite reverse">✳</div>
+          <h2 style="font-family:Anton;font-size:clamp(22px,4.4vw,48px);line-height:1.08;text-transform:uppercase;max-width:960px;margin:0 auto;font-weight:400">Stronger ideas come from thinking that went deeper — not output that came faster.</h2>
+        </div>
+
+        <!-- 3 step bento -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+          <a href="#how" data-rv="0" data-dc-click="goHow" data-dcring="how" style="background:#FF5219;border-radius:22px;padding:34px;color:#0d0d0d;cursor:pointer;transition:transform .2s;opacity:0;transform:translateY(34px);display:block" class="dchv6 dcbtn">
+            <span style="border:1.5px solid #0d0d0d;border-radius:100px;padding:8px 18px;font-size:13px;font-weight:700;display:inline-block">01 · The revisions</span>
+            <div style="font-family:Anton;font-size:30px;line-height:1.05;text-transform:uppercase;margin:64px 0 12px">Unpaid rounds, every time</div>
+            <p style="font-size:14.5px;line-height:1.55;margin:0;color:#33150a">A messy brief adds two or three revision rounds. Each one is days of work you'll never invoice. On a fixed fee, that's your rate cut in half — for someone else's vagueness.</p>
+          </a>
+          <a href="#how" data-rv=".12" data-dc-click="goHow" data-dcring="how" style="background:#FFB800;border-radius:22px;padding:34px;color:#0d0d0d;cursor:pointer;transition:transform .2s;opacity:0;transform:translateY(34px);display:block" class="dchv6 dcbtn">
+            <span style="border:1.5px solid #0d0d0d;border-radius:100px;padding:8px 18px;font-size:13px;font-weight:700;display:inline-block">02 · The blame</span>
+            <div style="font-family:Anton;font-size:30px;line-height:1.05;text-transform:uppercase;margin:64px 0 12px">"That's not what I meant"</div>
+            <p style="font-size:14.5px;line-height:1.55;margin:0;color:#4a3400">When the brief was never really agreed, wrong work looks like YOUR failure. Vague briefs don't just cost hours — they cost the client's confidence in you, which costs the next project.</p>
+          </a>
+          <a href="#how" data-rv=".24" data-dc-click="goHow" data-dcring="how" style="background:#00A651;border-radius:22px;padding:34px;color:#0d0d0d;cursor:pointer;transition:transform .2s;opacity:0;transform:translateY(34px);display:block" class="dchv6 dcbtn">
+            <span style="border:1.5px solid #0d0d0d;border-radius:100px;padding:8px 18px;font-size:13px;font-weight:700;display:inline-block">03 · The pattern</span>
+            <div style="font-family:Anton;font-size:30px;line-height:1.05;text-transform:uppercase;margin:64px 0 12px">A week a month, donated</div>
+            <p style="font-size:14.5px;line-height:1.55;margin:0;color:#002a10">Two or three projects a month, one goes sideways from a bad brief — that's roughly a week of unpaid labour every month, donated to other people's vagueness. The check takes 30 seconds.</p>
+          </a>
+        </div>
+
+        <!-- ===== LIVE DEMO: real engine scores the sample brief ===== -->
+        <div data-doodle-host data-rv="0" id="demoBlock" style="background:#fff;border-radius:22px;padding:44px 44px 40px;opacity:0;transform:translateY(34px)">
+          <div class="dg-spot dg-spot--top" data-doodle="working" data-doodle-quip="Watch me score this mess."></div>
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#FF4D00;margin-bottom:12px">✳ See it work — live, in your browser</div>
+          <h2 style="font-family:Anton;font-size:clamp(30px,4vw,44px);line-height:.98;text-transform:uppercase;color:var(--color-ink-2);margin:0 0 8px;font-weight:400">Watch a messy brief get scored</h2>
+          <p style="font-size:15px;line-height:1.6;color:var(--color-text-muted);max-width:640px;margin:0 0 28px">BriefIQ's instant brief check, running right now in your browser on a deliberately messy sample brief. Your full report goes further — written by BriefIQ's AI for your own brief, with its sources.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch">
+            <!-- the brief -->
+            <div style="background:#f0eee9;border-radius:18px;padding:24px 26px;display:flex;flex-direction:column">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:var(--color-text-faint);margin-bottom:12px">THE BRIEF (PASTED AS-IS)</div>
+              <p id="demoBrief" style="font-size:14px;line-height:1.6;color:var(--color-ink-2);margin:0;flex:1"></p>
+            </div>
+            <!-- the scorecard -->
+            <div style="background:#1b4bff;border-radius:18px;padding:24px 26px;color:#fff;display:flex;flex-direction:column">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#b9c2ff;margin-bottom:10px" id="demoStatus">✳ BRIEF HEALTH — DIAGNOSING…</div>
+              <div style="display:flex;align-items:baseline;gap:8px"><span id="demoScore" style="font-family:Anton;font-size:clamp(27px,5.4vw,59px);line-height:1;font-weight:400">0</span><span style="font-family:'Space Mono';font-size:12px;color:#b9c2ff">/100</span><span id="demoGrade" style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:#3DFF7E;margin-left:auto;align-self:center"></span></div>
+              <div style="height:1px;background:rgba(255,255,255,.18);margin:16px 0"></div>
+              <div id="demoFlagsK" style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:#FFB800;margin-bottom:8px"></div>
+              <div id="demoFlags" style="font-family:'Space Mono';font-size:11.5px;line-height:1.9;color:#dbe4ff;flex:1"></div>
+              <div style="height:1px;background:rgba(255,255,255,.18);margin:14px 0"></div>
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:#b9c2ff;margin-bottom:6px">SOLUTION DIAGNOSIS</div>
+              <div id="demoDiag" style="font-family:Anton;font-size:22px;line-height:1.1;text-transform:uppercase;font-weight:400"></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:22px">
+            <a href="#analyse" data-dc-click="goAnalyse" style="background:#FF4D00;color:#0d0d0d;padding:15px 32px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;transition:transform .18s,background .18s;display:inline-block" class="dchv7 dcbtn">Try your own brief ↗</a>
+            <button type="button" id="demoReplay" style="border:1.5px solid #111;padding:14px 28px;border-radius:100px;font-weight:700;font-size:14px;cursor:pointer;background:#fff" class="dcbtn">↻ Replay</button>
+          </div>
+        </div>
+
+        <!-- ===== IT STUDIES YOUR WHOLE PROJECT (multimodal) ===== -->
+        <div data-rv="0" style="background:#fff;border-radius:22px;padding:52px 56px;opacity:0;transform:translateY(34px)">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1b4bff;margin-bottom:14px">✳ Built for real creative work</div>
+          <h2 style="font-family:Anton;font-size:clamp(30px,4vw,46px);line-height:.98;text-transform:uppercase;color:var(--color-ink-2);margin:0 0 14px;font-weight:400">You don't start from an empty prompt.<br>Neither does BriefIQ.</h2>
+          <p style="font-size:16px;line-height:1.65;color:var(--color-text-muted);max-width:760px;margin:0 0 30px">Real projects already have a brief, brand guidelines, research, a website, logos, packaging, decks. Upload them and BriefIQ builds one understanding of the whole project — then shows you what it learned and waits for your yes before it analyses anything. You never explain the same thing twice.</p>
+          <div class="feature-grid"><div class="feature-card"><div class="feature-card__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1500FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h6l4 4v13H7Z"/><path d="M13 3.5v4h4"/><path d="M9.5 12h5M9.5 15h5M9.5 18h3"/></svg></div><div class="feature-card__title">Briefs &amp; decks</div><div class="feature-card__body">Read in full — PDF, Word, text.</div></div><div class="feature-card"><div class="feature-card__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6a8.4 8.4 0 0 0 0 16.8c1.2 0 2-.9 2-2 0-.5-.2-.9-.5-1.3-.3-.4-.5-.8-.5-1.2 0-1 .8-1.8 1.8-1.8H16a4.4 4.4 0 0 0 4.4-4.4C20.4 6.4 16.6 3.6 12 3.6Z"/><circle cx="8" cy="10.5" r="1" fill="#FF4D00"/><circle cx="12" cy="7.8" r="1" fill="#1500FF" stroke="#1500FF"/><circle cx="15.5" cy="10" r="1" fill="#1E7D46" stroke="#1E7D46"/></svg></div><div class="feature-card__title">Logos &amp; packaging</div><div class="feature-card__body">Its real colour palette, read off the pixels.</div></div><div class="feature-card"><div class="feature-card__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E7D46" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M14.6 14.6 20 20"/></svg></div><div class="feature-card__title">Research</div><div class="feature-card__body">Your findings replace generic assumptions.</div></div><div class="feature-card"><div class="feature-card__icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9B51FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3.5" width="10" height="17" rx="2.2"/><path d="M10.5 17.5h3"/></svg></div><div class="feature-card__title">Screens &amp; UI</div><div class="feature-card__body">Existing work it builds on, not around.</div></div></div>
+          <p style="font-size:12.5px;color:var(--color-text-faint);margin:18px 0 0;line-height:1.55">Text and brand colours are read right in your browser — nothing leaves your device. Deep visual reading of images and websites switches on when you connect your own AI key.</p>
+        </div>
+
+        <!-- ===== WHY THIS EXISTS — founder + African angle + API-optional ===== -->
+        <div data-rv="0" style="background:#0d0d0d;border-radius:22px;padding:52px 56px;color:#f2efe8;opacity:0;transform:translateY(34px)">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#3DFF7E;margin-bottom:16px">✳ Why this exists</div>
+          <div class="biq-founder" style="display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:start">
+            <div>
+              <h2 style="font-family:Anton;font-size:clamp(30px,4vw,46px);line-height:.98;text-transform:uppercase;margin:0 0 20px;font-weight:400">Built in Nairobi.<br>For how Africa actually thinks.</h2>
+              <p style="font-size:15.5px;line-height:1.65;color:var(--color-on-dark);margin:0 0 14px">BriefIQ wasn't built by a Silicon Valley AI company trying to understand Africa. It was built by <b style="color:#f2efe8">Sylvia Kimathi</b> — a creative director in Nairobi and founder of <b style="color:#f2efe8">HER. Design Lab</b>, who's sat in the client meetings, done the briefs, and won at Cannes Lions. Someone who knows what creatives actually need.</p>
+              <p style="font-size:15.5px;line-height:1.65;color:var(--color-on-dark);margin:0 0 14px">Western playbooks average the world out. BriefIQ digs into your market instead — payday cycles, which platform people actually trust, what "authenticity" means in Sheng vs corporate speak, aspiration vs hustle vs community. Your brief gets read through an African lens, not a Valley one.</p>
+              <p style="font-size:15.5px;line-height:1.65;color:var(--color-on-dark);margin:0">It doesn't generate answers for you. It teaches you to ask better questions — so the judgment you build is <b style="color:#f2efe8">yours</b>. African-made, for Africa first, usable anywhere.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="background:#1b4bff;border-radius:16px;padding:20px 22px"><div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:#b9c2ff;margin-bottom:6px">STANDALONE BY DESIGN</div><div style="font-family:Anton;font-size:22px;text-transform:uppercase;line-height:1.05;color:#fff;font-weight:400">Complete on its own</div><p style="font-size:13px;line-height:1.5;color:#dbe4ff;margin:8px 0 0">No credit card, no ChatGPT dependency. The full analysis runs on its own, in your browser.</p></div>
+              <div style="background:#FFB800;border-radius:16px;padding:20px 22px;color:#0d0d0d"><div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:#4a3400;margin-bottom:6px">MARKET-AWARE</div><div style="font-family:Anton;font-size:22px;text-transform:uppercase;line-height:1.05;font-weight:400">Kenya · Nigeria · Ghana · SA</div><p style="font-size:13px;line-height:1.5;color:#4a3400;margin:8px 0 0">Local context built in — trust patterns, platform hierarchy, cultural tension, buying reality.</p></div>
+              <div style="background:#111;border:1.5px solid #3DFF7E;border-radius:16px;padding:20px 22px"><div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:#3DFF7E;margin-bottom:6px">OPTIONAL, NEVER REQUIRED</div><div style="font-family:Anton;font-size:22px;text-transform:uppercase;line-height:1.05;color:#f2efe8;font-weight:400">Bring your own AI</div><p style="font-size:13px;line-height:1.5;color:var(--color-on-dark);margin:8px 0 0">Want deeper AI research? Add your own Claude, ChatGPT or Gemini key — you pay the provider, we don't mark it up. Purely a bonus.</p></div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- blue pill ribbon -->
+        <div aria-hidden="true" style="background:#1b4bff;border-radius:100px;padding:13px 0;overflow:hidden">
+          <div style="display:inline-flex;width:max-content;white-space:nowrap;font-weight:700;font-size:15px;color:#3DFF7E;animation:marq 24s linear infinite">
+            <span style="margin:0 18px">Understand the real problem</span>⚡<span style="margin:0 18px">Challenge the brief</span>◆<span style="margin:0 18px">See what's missing</span>⚡<span style="margin:0 18px">Pull in real references</span>◆<span style="margin:0 18px">Pressure-test the idea</span>⚡<span style="margin:0 18px">Runs on its own · No signup</span>◆
+            <span style="margin:0 18px">Understand the real problem</span>⚡<span style="margin:0 18px">Challenge the brief</span>◆<span style="margin:0 18px">See what's missing</span>⚡<span style="margin:0 18px">Pull in real references</span>◆<span style="margin:0 18px">Pressure-test the idea</span>⚡<span style="margin:0 18px">Runs on its own · No signup</span>◆
+          </div>
+        </div>
+
+        <!-- 2 feature cards -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+          <a href="#analyse" data-rv="0" data-dc-click="goAnalyse" style="background:#fff;border-radius:22px;padding:38px;cursor:pointer;transition:transform .2s;opacity:0;transform:translateY(34px);display:block" class="dchv6 dcbtn">
+            <div style="font-family: 'Space Mono'; font-size: 11px; letter-spacing: 2px; color: #E8262B; margin-bottom: 16px">BEFORE BRIEFIQ</div>
+            <div style="font-family:Anton;font-size:30px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;color:var(--color-ink-2)">Start anyway. Pay later.</div>
+            <p style="font-size:14.5px;line-height:1.6;color:var(--color-text-muted);margin:0">The brief is three WhatsApp lines and a logo. Pushing back feels rude — you can't quite say WHAT's wrong. So you start. Three weeks later: "that's not what I meant," round four, and you're the one who "didn't get it."</p>
+          </a>
+          <a href="#analyse" data-rv=".12" data-dc-click="goAnalyse" style="background:#0d0d0d;border-radius:22px;padding:38px;color:#fff;cursor:pointer;transition:transform .2s;opacity:0;transform:translateY(34px);display:block" class="dchv6 dcbtn">
+            <div style="font-family: 'Space Mono'; font-size: 11px; letter-spacing: 2px; color: #3DFF7E; margin-bottom: 16px">AFTER BRIEFIQ</div>
+            <div style="font-family: Anton; font-size: 30px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; color: #3DFF7E">Check first. Start once.</div>
+            <p style="font-size:14.5px;line-height:1.6;color:var(--color-on-dark);margin:0">Bring a problem or a brief → BriefIQ helps you see what's really being asked, what's missing, and which assumptions to challenge → you go in sharper, think deeper, and make stronger work. You get paid for thinking, not just making.</p>
+          </a>
+        </div>
+
+        <!-- ===== THE BRIEFIQ PHILOSOPHY ===== -->
+        <div data-rv="0" style="background:#f2efe8;border:1.5px solid #111;border-radius:22px;padding:64px 56px;opacity:0;transform:translateY(34px)">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#FF4D00;margin-bottom:22px">✳ The BriefIQ philosophy</div>
+          <div style="max-width:820px">
+            <p style="font-family:Anton;font-size:clamp(26px,3.4vw,40px);line-height:1.12;text-transform:uppercase;color:#1c1c19;margin:0 0 24px;font-weight:400">Creativity was never the problem. <span style="color:#1b4bff">Uncertainty is.</span></p>
+            <p style="font-size:16.5px;line-height:1.7;color:var(--color-ink-3);margin:0 0 14px">BriefIQ exists to help creatives think more clearly, challenge assumptions, uncover opportunities and build stronger work — before time and money are spent. It should never replace your thinking. It should strengthen it.</p>
+            <p style="font-size:16.5px;line-height:1.7;color:var(--color-ink-3);margin:0 0 14px">It should never hand you generic ideas. It should help you make ideas that are strategically stronger, culturally relevant and unmistakably your own.</p>
+            <p style="font-size:16.5px;line-height:1.7;color:var(--color-ink-3);margin:0">The goal isn't to make everyone think the same. It's to help every creative think more deeply — and leave every project more informed, more confident and better prepared to defend the work.</p>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <div data-rv="0" style="background:#0d0d0d;border-radius:22px;padding:clamp(28px,7vw,56px) clamp(20px,6vw,56px) 40px;position:relative;overflow:hidden;opacity:0;transform:translateY(34px)">
+          
+          <div aria-hidden="true" style="position:absolute;right:22%;top:30%;width:12px;height:12px;background:#FFB800"></div>
+          <div aria-hidden="true" style="position:absolute;right:10%;bottom:26%;width:12px;height:12px;background:#E8262B"></div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px 20px;margin-bottom:26px;flex-wrap:wrap">
+            <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;color:var(--color-text-faint);text-transform:uppercase">Creative Intelligence OS</div>
+            <nav aria-label="Footer" style="display:flex;gap:16px 24px;flex-wrap:wrap;font-size:14px;font-weight:500;color:var(--color-on-dark)">
+              <a href="#how" data-dc-click="goHow" data-dcring="how" style="cursor:pointer" class="dcbtn">How it works</a>
+              <a href="#ai" data-dc-click="goAI" data-dcring="ai" style="cursor:pointer" class="dcbtn">AI · optional</a>
+              <a href="#who" data-dc-click="goWho" data-dcring="who" style="cursor:pointer" class="dcbtn">Who it's for</a>
+              <a href="#pricing" data-dc-click="goPricing" data-dcring="pricing" style="cursor:pointer" class="dcbtn">Pricing</a>
+            </nav>
+          </div>
+
+          <div style="display:flex;justify-content:center;padding:10px 0 6px"><img src="assets/briefiq-logo-white.svg?v=20260826b" alt="briefiq — creative intelligence os" width="632" height="208" decoding="async" style="width:clamp(220px,44vw,460px);max-width:100%;height:auto;display:block"></div><div style="display:flex;justify-content:center;margin-top:34px">
+            <a href="#analyse" data-dc-click="goAnalyse" style="background:#FF4D00;color:#0d0d0d;padding:17px 40px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;transition:transform .18s,background .18s;display:inline-block" class="dchv7 dcbtn">Analyse a brief ↗</a>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14)">
+            <div style="font-family:'Space Mono';font-size:11.5px;letter-spacing:1px;color:var(--color-text-faint);line-height:1.8">Founder-led, built in Nairobi · © 2026 · Your briefs stay in your browser<br><a href="mailto:smwihaki1@gmail.com" style="color:var(--color-on-dark);text-decoration:underline">smwihaki1@gmail.com</a></div>
+            <nav aria-label="Legal &amp; support" style="display:flex;gap:20px;font-size:13.5px;font-weight:500;color:var(--color-on-dark)">
+              <a href="privacy.html" style="color:var(--color-on-dark)">Privacy</a>
+              <a href="terms.html" style="color:var(--color-on-dark)">Terms</a>
+              <a href="ai-disclosure.html" style="color:var(--color-on-dark)">AI Disclosure</a>
+              <a href="support.html" style="color:var(--color-on-dark)">Support</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <div class="dc-page" data-dcpage="how" hidden>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div data-doodle-host style="background:#FFB800;border-radius:22px;padding:90px 60px;background-image:linear-gradient(rgba(13,13,13,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,13,.14) 1px,transparent 1px);background-size:58px 58px">
+          <div class="dg-spot" data-doodle="pitch" data-doodle-quip="How it works? I stand on chairs and shout ideas."></div>
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;animation:rise .7s .05s both">✳ 01 — What BriefIQ does</div>
+          <h2 style="font-family:Anton;font-size:clamp(40px,8.0vw,88px);line-height:.95;text-transform:uppercase;color:#0d0d0d;animation:rise .8s .15s both;margin:0;font-weight:400">How it<br>works <svg aria-hidden="true" focusable="false" width="150" height="62" viewBox="0 0 220 90" style="display:inline-block;vertical-align:baseline;animation:floaty 4s ease-in-out infinite"><path d="M8 62 C 30 10, 58 10, 62 55 C 66 92, 34 92, 38 55 C 42 12, 78 12, 82 55 C 86 92, 54 92, 58 55 C 62 12, 98 12, 102 55 C 106 92, 74 92, 78 55 C 82 12, 118 12, 122 55 C 126 92, 94 92, 98 55 C 102 12, 138 12, 142 55 C 146 92, 114 92, 118 55 C 122 12, 158 12, 162 55 C 166 92, 134 92, 138 55 C 142 12, 178 12, 182 55 C 186 78, 200 72, 212 62" fill="none" stroke="#E8262B" stroke-width="8" stroke-linecap="round"></path></svg></h2>
+        </div>
+        <div data-rv="0" style="background:#fff;border-radius:22px;padding:44px 56px;opacity:0;transform:translateY(34px)">
+          <p style="font-size:19px;line-height:1.65;color:var(--color-ink-2);max-width:900px;margin:0">BriefIQ doesn't rush to generate ads. It works the way a senior team does — it studies your whole project first, challenges the brief, researches, and only then helps you think. Six steps, in order.</p>
+        </div>
+        <!-- 6-STEP FLOW -->
+        <div class="biq-steps"><div data-rv="0" class="step step--1 dchv6"><div class="step__head"><span class="step__num">01</span><div class="step__eyebrow">Build your project</div></div><h3 class="step__title">Upload anything</h3><p class="step__body">Briefs, PDFs, decks, research, logos, packaging, screenshots, moodboards. BriefIQ reads the words <b>and</b> the colours out of every file — one connected project, not scattered attachments.</p></div><div data-rv=".08" class="step step--2 dchv6"><div class="step__head"><span class="step__num">02</span><div class="step__eyebrow">Project understanding</div></div><h3 class="step__title">Confirm before it thinks</h3><p class="step__body">Before a single recommendation, BriefIQ shows what it understood — industry, audience, brand colours, gaps — and waits for you to confirm or correct it. Nothing is generated until it's right.</p></div><div data-rv=".16" class="step step--3 dchv6"><div class="step__head"><span class="step__num">03</span><div class="step__eyebrow">Challenge the brief</div></div><h3 class="step__title">Interrogate, don't obey</h3><p class="step__body">What's missing, what's risky, which assumptions are hiding — what a Creative Director would question and a client would push back on. The brief gets pressure-tested before it's answered.</p></div><div data-rv=".24" class="step step--4 dchv6"><div class="step__head"><span class="step__num">04</span><div class="step__eyebrow">Research before thinking</div></div><h3 class="step__title">Evidence, not opinions</h3><p class="step__body">Relevant, current work — campaigns, identities, UX, packaging — each with <b>why it's recommended</b>, what to learn, a confidence score and how it applies to your brief. Live when your own AI key is connected.</p></div><div data-rv=".32" class="step step--5 dchv6"><div class="step__head"><span class="step__num">05</span><div class="step__eyebrow">Generate intelligence</div></div><h3 class="step__title">Tensions before ideas</h3><p class="step__body">Only now does it think — opportunities and tensions first, then distinct strategic territories, positioning, insights, production, media, UX and identity. Every output traced back to <b>your</b> project.</p></div><div data-rv=".4" class="step step--6 dchv6"><div class="step__head"><span class="step__num">06</span><div class="step__eyebrow">Present with confidence</div></div><h3 class="step__title">Ready for the room</h3><p class="step__body">The output is presentation-ready — structured, evidence-backed and specific enough to take straight to a client, Creative Director or Executive Producer without a rewrite.</p></div></div>
+        <div data-rv="0" style="background:#1b4bff;border-radius:22px;padding:48px 56px;color:#fff;opacity:0;transform:translateY(34px)">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;margin-bottom:30px;color:#b9c2ff">✳ EXAMPLE OUTPUTS — 30 SECONDS AFTER PASTING A BRIEF</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+            <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:26px">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#3DFF7E;margin-bottom:12px">BRIEF QUALITY SCORE</div>
+              <div style="font-family:Anton;font-size:clamp(18px,3.6vw,40px);line-height:1">51<span style="font-size:16px;color:#b9c2ff">/100</span></div>
+              <p style="font-size:13px;line-height:1.55;color:#dbe4ff;margin:12px 0 0">"Needs a call before work starts. 7 red flags: 'make it go viral', targeting 'everyone', panic timeline…"</p>
+            </div>
+            <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:26px">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#3DFF7E;margin-bottom:12px">SOLUTION DIAGNOSIS</div>
+              <div style="font-family:Anton;font-size:26px;line-height:1.1;text-transform:uppercase">Rebrand › Campaign</div>
+              <p style="font-size:13px;line-height:1.55;color:#dbe4ff;margin:12px 0 0">"This brief asked for advertising, but the strongest signal is Brand Positioning (96). A campaign on a weak foundation rents attention the brand can't keep."</p>
+            </div>
+            <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:26px">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#3DFF7E;margin-bottom:12px">INSIGHT + EVIDENCE</div>
+              <div style="font-size:17px;line-height:1.35;font-weight:700">"People don't fear being broke — they fear being seen to be broke."</div>
+              <p style="font-size:13px;line-height:1.55;color:#dbe4ff;margin:12px 0 0">↗ Evidence: Real Beauty Sketches (Dove, 2013) — Cannes Titanium</p>
+            </div>
+            <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:26px">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#3DFF7E;margin-bottom:12px">CAMPAIGN IDEA</div>
+              <div style="font-family:Anton;font-size:26px;line-height:1.1;text-transform:uppercase">The Proof Stunt — ★8.1</div>
+              <p style="font-size:13px;line-height:1.55;color:#dbe4ff;margin:12px 0 0">"One public, verifiable stunt that proves the brand's core promise." Similar work: Whopper Detour (BK, 2018).</p>
+            </div>
+            <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:26px">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#3DFF7E;margin-bottom:12px">INFLUENCER STRATEGY</div>
+              <div style="font-family:Anton;font-size:26px;line-height:1.1;text-transform:uppercase">50% micro + 30% nano</div>
+              <p style="font-size:13px;line-height:1.55;color:#dbe4ff;margin:12px 0 0">"At this budget, buy trust in volume. One macro post would consume everything and convert nothing."</p>
+            </div>
+            <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:26px">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#3DFF7E;margin-bottom:12px">AGENCY ROOM</div>
+              <div style="font-family:Anton;font-size:26px;line-height:1.1;text-transform:uppercase">CD vs Account Director</div>
+              <p style="font-size:13px;line-height:1.55;color:#dbe4ff;margin:12px 0 0">"CD wants the award route; Account flags feasibility. Resolution: present safe + award side by side."</p>
+            </div>
+          </div>
+        </div>
+        <div data-rv="0" style="background:#fff;border-radius:22px;padding:44px 56px;opacity:0;transform:translateY(34px)">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;margin-bottom:26px"><span style="color:#FF4D00">✳</span> FOUR WAYS TO RUN AN ANALYSIS</div>
+          <div class="biq-airoutes" style="display:flex;flex-direction:column">
+            <div style="display:flex;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1.5px solid #111">
+              <div style="font-family:Anton;font-size:24px;color:#FF4D00;width:44px;flex:none">01</div>
+              <div style="font-weight:700;font-size:17px;width:220px;flex:none">BriefIQ Engine</div>
+              <div style="font-size:14.5px;color:var(--color-text-muted);line-height:1.55">Built-in and self-powered. Instant, free, deterministic — the full 28-section output with zero keys.</div>
+            </div>
+            <div style="display:flex;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1.5px solid #111">
+              <div style="font-family:Anton;font-size:24px;color:#1b4bff;width:44px;flex:none">02</div>
+              <div style="font-weight:700;font-size:17px;width:220px;flex:none">Single AI model</div>
+              <div style="font-size:14.5px;color:var(--color-text-muted);line-height:1.55">ChatGPT, Claude or Gemini via your own API key. Same master prompt, live bespoke analysis.</div>
+            </div>
+            <div style="display:flex;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1.5px solid #111">
+              <div style="font-family:Anton;font-size:24px;color:#FF4D00;width:44px;flex:none">03</div>
+              <div style="font-weight:700;font-size:17px;width:220px;flex:none">Compare / Run all</div>
+              <div style="font-size:14.5px;color:var(--color-text-muted);line-height:1.55">Identical prompt to every configured model in parallel — comparison table plus full outputs per model.</div>
+            </div>
+            <div style="display:flex;gap:24px;align-items:baseline;padding:18px 0">
+              <div style="font-family:Anton;font-size:24px;color:#1b4bff;width:44px;flex:none">04</div>
+              <div style="font-weight:700;font-size:17px;width:220px;flex:none">Manual Mode</div>
+              <div style="font-size:14.5px;color:var(--color-text-muted);line-height:1.55">Copy the master prompt into ANY AI tool, paste the JSON back, and BriefIQ renders it as cards. Zero keys.</div>
+            </div>
+          </div>
+        </div>
+        <div data-rv="0" style="background:#0d0d0d;border-radius:22px;padding:56px;text-align:center;opacity:0;transform:translateY(34px)">
+          <h2 style="font-family:Anton;font-size:clamp(18px,3.6vw,40px);text-transform:uppercase;color:#f2efe8;margin:0 0 26px;font-weight:400">See it on your own brief.</h2>
+          <a href="#analyse" data-dc-click="goAnalyse" style="background:#FF4D00;color:#0d0d0d;padding:17px 40px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;display:inline-block;transition:transform .18s,background .18s" class="dchv7 dcbtn">Analyse a brief ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= BRING ANY AI ================= -->
+    <div class="dc-page" data-dcpage="ai" hidden>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="background:#1b4bff;border-radius:22px;padding:90px 60px;background-image:linear-gradient(rgba(13,13,13,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,13,.16) 1px,transparent 1px);background-size:58px 58px">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;color:#fff;animation:rise .7s .05s both">✳ 02 — Model-agnostic by design</div>
+          <h2 style="font-family:Anton;font-size:clamp(39px,7.7vw,85px);line-height:.95;text-transform:uppercase;color:#fff;animation:rise .8s .15s both;margin:0;font-weight:400">Bring any AI.<br>Or none.</h2>
+        </div>
+        <div data-rv="0" style="background:#fff;border-radius:22px;padding:44px 56px;opacity:0;transform:translateY(34px)">
+          <p style="font-size:19px;line-height:1.65;color:var(--color-ink-2);max-width:900px;margin:0 0 28px">One master prompt, many brains. The routing engine sends the same structured analysis request to ChatGPT, Claude or Gemini — run one, compare several, or run them all and watch where they disagree. No keys? The built-in strategy engine works completely on its own.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv5">ChatGPT</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv5">Claude</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv5">Gemini</span>
+            <span style="background:#C6FF3D;border:1.5px solid #C6FF3D;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px">No AI at all — self-powered engine</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+          <div data-rv="0" style="background:#FFB800;border-radius:22px;padding:38px;opacity:0;transform:translateY(34px);transition:transform .2s" class="dchv6">
+            <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;margin-bottom:16px">MULTI-MODEL</div>
+            <div style="font-family:Anton;font-size:30px;text-transform:uppercase;margin-bottom:12px">Compare mode</div>
+            <p style="font-size:14.5px;line-height:1.6;color:#4a3400;margin:0">Send the identical prompt to every connected model simultaneously. The disagreements between models are usually where the interesting strategy hides.</p>
+          </div>
+          <div data-rv=".12" style="background:#0d0d0d;border-radius:22px;padding:38px;color:#fff;opacity:0;transform:translateY(34px);transition:transform .2s" class="dchv6">
+            <div style="font-family: 'Space Mono'; font-size: 11px; letter-spacing: 2px; color: #9B51FF; margin-bottom: 16px">MANUAL MODE</div>
+            <div style="font-family: Anton; font-size: 30px; text-transform: uppercase; margin-bottom: 12px; color: #9B51FF">Copy prompt anywhere</div>
+            <p style="font-size:14.5px;line-height:1.6;color:var(--color-on-dark);margin:0">"Copy Prompt" builds the polished master prompt for any AI tool on earth. Paste the JSON response back and BriefIQ renders it as cards. Zero keys needed.</p>
+          </div>
+        </div>
+        <div data-rv="0" style="background:#fff;border-radius:22px;padding:44px 56px;opacity:0;transform:translateY(34px)">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;margin-bottom:10px"><span style="color:#FF4D00">✳</span> MULTI-AGENT</div>
+          <h2 style="font-family:Anton;font-size:clamp(18px,3.6vw,40px);text-transform:uppercase;color:var(--color-ink-2);margin:0 0 14px;font-weight:400">The Agency Room</h2>
+          <p style="font-size:16px;line-height:1.6;color:var(--color-text-muted);max-width:820px;margin:0 0 28px">Ten specialists review your brief independently, then a synthesis shows consensus, productive disagreements, and the blind spots only one of them saw. Runs on its own or via any connected model.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <span style="background:#1b4bff;color:#fff;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Strategist</span>
+            <span style="background:#FF5219;color:#0d0d0d;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Creative Director</span>
+            <span style="background:#FFB800;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Brand Strategist</span>
+            <span style="background:#00A651;color:#0d0d0d;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Designer</span>
+            <span style="background:#9B51FF;color:#0d0d0d;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Packaging</span>
+            <span style="background:#E8262B;color:#fff;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Social</span>
+            <span style="background:#1b4bff;color:#fff;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Influencer</span>
+            <span style="background:#FF4D00;color:#0d0d0d;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Experiential</span>
+            <span style="background:#0d0d0d;color:#fff;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">PR</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:10px 20px;font-weight:700;font-size:13.5px">Account Director</span>
+          </div>
+        </div>
+        <div data-rv="0" style="background:#0d0d0d;border-radius:22px;padding:56px;text-align:center;opacity:0;transform:translateY(34px)">
+          <h2 style="font-family:Anton;font-size:clamp(18px,3.6vw,40px);text-transform:uppercase;color:#f2efe8;margin:0 0 26px;font-weight:400">Ten opinions. One synthesis.</h2>
+          <a href="#analyse" data-dc-click="goAnalyse" style="background:#FF4D00;color:#0d0d0d;padding:17px 40px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;display:inline-block;transition:transform .18s,background .18s" class="dchv7 dcbtn">Analyse a brief ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= WHO IT'S FOR ================= -->
+    <div class="dc-page" data-dcpage="who" hidden>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div data-doodle-host style="background:#FF5219;border-radius:22px;padding:90px 60px;background-image:linear-gradient(rgba(13,13,13,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,13,.16) 1px,transparent 1px);background-size:58px 58px">
+          <div class="dg-spot dg-spot--low" data-doodle="filming" data-doodle-quip="Built for us — the ones filming soda cans at midnight."></div>
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;animation:rise .7s .05s both">✳ 03 — Who it's for</div>
+          <h2 style="font-family:Anton;font-size:clamp(35px,7.0vw,77px);line-height:.98;text-transform:uppercase;color:#0d0d0d;animation:rise .8s .15s both;margin:0;font-weight:400">Built for the people<br>who get the messy briefs.</h2>
+        </div>
+        <div data-rv="0" style="background:#fff;border-radius:22px;padding:44px 56px;opacity:0;transform:translateY(34px)">
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv8">Agencies</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv9">Freelancers</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv10">Creative Directors</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv11">Strategists</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv12">Designers</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv13">Copywriters</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv14">Social Media Managers</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv15">Community Managers</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv8">Brand Consultants</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv10">Account Managers</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv11">Brand Teams</span>
+            <span style="border:1.5px solid #111;border-radius:100px;padding:12px 26px;font-weight:700;font-size:15px;transition:background .18s,color .18s" class="dchv9">Students entering the industry</span>
+          </div>
+        </div>
+        <div data-rv="0" style="background:#1b4bff;color:#f2efe8;border-radius:22px;padding:80px;text-align:center;opacity:0;transform:translateY(34px)">
+          <div style="font-family:Anton;font-size:40px;line-height:1.12;text-transform:uppercase;max-width:940px;margin:0 auto">Every analysis adapts to the market you select. If a recommendation would work identically anywhere else, the engine pushes harder.</div>
+          <p style="font-size:16px;line-height:1.6;color:#dbe4ff;max-width:720px;margin:24px auto 0">M-Pesa rails in Nairobi, Pix in São Paulo, UPI in Mumbai, konbini culture in Tokyo, ASA rules in London. Culture, media habits, influencer rates, budgets and regulatory flags all follow the market pack.</p>
+        </div>
+        <div aria-hidden="true" style="background:#E8262B;border-radius:100px;padding:13px 0;overflow:hidden">
+          <div style="display:inline-flex;width:max-content;white-space:nowrap;font-weight:700;font-size:15px;color:#FFB800;animation:marq 26s linear infinite">
+            <span style="margin:0 18px">15+ Market Packs</span>⚡<span style="margin:0 18px">Nairobi</span>◆<span style="margin:0 18px">Lagos</span>⚡<span style="margin:0 18px">São Paulo</span>◆<span style="margin:0 18px">Mumbai</span>⚡<span style="margin:0 18px">Tokyo</span>◆<span style="margin:0 18px">London</span>⚡<span style="margin:0 18px">New York</span>◆<span style="margin:0 18px">Any market on earth</span>⚡
+            <span style="margin:0 18px">15+ Market Packs</span>⚡<span style="margin:0 18px">Nairobi</span>◆<span style="margin:0 18px">Lagos</span>⚡<span style="margin:0 18px">São Paulo</span>◆<span style="margin:0 18px">Mumbai</span>⚡<span style="margin:0 18px">Tokyo</span>◆<span style="margin:0 18px">London</span>⚡<span style="margin:0 18px">New York</span>◆<span style="margin:0 18px">Any market on earth</span>⚡
+          </div>
+        </div>
+        <div data-rv="0" style="background:#fff;border-radius:22px;padding:44px 56px;opacity:0;transform:translateY(34px)">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;margin-bottom:26px"><span style="color:#FF4D00">✳</span> 15 MARKET PACKS + REGIONAL FALLBACKS</div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇰🇪 Kenya</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇳🇬 Nigeria</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇿🇦 South Africa</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇬🇭 Ghana</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇪🇬 Egypt</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇦🇪 UAE</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇮🇳 India</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇮🇩 Indonesia</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇧🇷 Brazil</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇲🇽 Mexico</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇺🇸 USA</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇬🇧 UK</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇩🇪 Germany</div>
+            <div style="border:1.5px solid #111;border-radius:14px;padding:18px;font-weight:700;font-size:15px;transition:background .18s" class="dchv16">🇯🇵 Japan</div>
+            <div style="background:#0d0d0d;color:#fff;border:1.5px solid #0d0d0d;border-radius:14px;padding:18px;font-weight:700;font-size:15px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.15em;margin-right:.3em"><circle cx="12" cy="12" r="8.2"/><path d="M3.8 12h16.4"/><path d="M12 3.8c2.3 2.2 3.5 5.1 3.5 8.2s-1.2 6-3.5 8.2c-2.3-2.2-3.5-5.1-3.5-8.2S9.7 6 12 3.8Z"/></svg>Global</div>
+          </div>
+        </div>
+        <div data-rv="0" style="background:#0d0d0d;border-radius:22px;padding:56px;text-align:center;opacity:0;transform:translateY(34px)">
+          <h2 style="font-family:Anton;font-size:clamp(18px,3.6vw,40px);text-transform:uppercase;color:#f2efe8;margin:0 0 26px;font-weight:400">Your market. Your brief. Your truth.</h2>
+          <a href="#analyse" data-dc-click="goAnalyse" style="background:#FF4D00;color:#0d0d0d;padding:17px 40px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;display:inline-block;transition:transform .18s,background .18s" class="dchv7 dcbtn">Analyse a brief ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= PRICING ================= -->
+    <div class="dc-page" data-dcpage="pricing" hidden>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div data-doodle-host style="background:#00A651;border-radius:22px;padding:90px 60px;background-image:linear-gradient(rgba(13,13,13,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,13,.16) 1px,transparent 1px);background-size:58px 58px">
+          <div class="dg-spot" data-doodle="break" data-doodle-quip="Free thinking. Paid naps. Fair deal."></div>
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;animation:rise .7s .05s both">✳ 04 — Pricing · African creative intelligence, standalone</div>
+          <h2 style="font-family:Anton;font-size:clamp(37px,7.4vw,81px);line-height:.95;text-transform:uppercase;color:#0d0d0d;animation:rise .8s .15s both;margin:0;font-weight:400">The thinking is free.<br>Pay to ship more of it.</h2>
+          <p style="font-size:18px;font-weight:500;color:#002a10;margin:24px 0 0;max-width:620px;animation:rise .8s .3s both">Free gives you the complete analysis — every reasoning layer and the full African market intelligence, three projects a month, no AI key required. Pro lifts the cap and adds production tools, project memory and your team.</p>
+        </div>
+        <div id="dcPriceGrid" class="price-grid"><div data-rv="0" class="price-card dchv17"><div class="price-card__label">Free</div><div class="price-card__price">$0<span class="price-card__price-unit"> /month</span></div><div class="price-card__desc">The full analysis engine. 3 projects/month.</div><div class="price-card__features"><div class="price-card__feature"><span class="price-card__check">✓</span>3 full projects per month</div><div class="price-card__feature"><span class="price-card__check">✓</span>Brief analysis + Creative Challenge Mode</div><div class="price-card__feature"><span class="price-card__check">✓</span>Cultural insights + opportunity gaps</div><div class="price-card__feature"><span class="price-card__check">✓</span>Learn From The Best + Why This Idea Fails</div><div class="price-card__feature"><span class="price-card__check">✓</span>Full-report PDF, copy &amp; data (CSV) exports</div></div><div class="price-card__bestfor">BEST FOR: Students · junior creatives · freelancers exploring</div><a href="#analyse" class="price-card__cta dchv5 dcbtn" data-dc-click="goAnalyse">Start Free</a></div><div data-rv="0" class="price-card price-card--pro dchv18"><div class="price-card__badge">Most popular</div><div class="price-card__label">Pro</div><div class="price-card__price">$20<span class="price-card__price-unit"> /month</span></div><div class="price-card__desc">For individual professionals.</div><div class="price-card__features"><div class="price-card__feature"><span class="price-card__check">✓</span>Unlimited projects + project memory</div><div class="price-card__feature"><span class="price-card__check">✓</span>Advanced analysis &amp; advanced exports</div><div class="price-card__feature"><span class="price-card__check">✓</span>Production planning + media strategy</div><div class="price-card__feature"><span class="price-card__check">✓</span>Premium references &amp; inspiration</div><div class="price-card__feature"><span class="price-card__check">✓</span>Full cultural engine · every output mode</div></div><div class="price-card__bestfor">BEST FOR: Freelancers · designers · strategists · CDs · producers</div><a href="#checkout" class="price-card__cta dchv19 dcbtn" data-dc-click="goCheckoutPro">Upgrade To Pro</a></div><div data-rv="0" class="price-card dchv17"><div class="price-card__label">Team</div><div class="price-card__price">$99<span class="price-card__price-unit"> /month</span></div><div class="price-card__desc">Small creative teams — up to 10 users.</div><div class="price-card__features"><div class="price-card__feature"><span class="price-card__check">✓</span>Everything in Pro</div><div class="price-card__feature"><span class="price-card__check">✓</span>Team workspaces + shared projects</div><div class="price-card__feature"><span class="price-card__check">✓</span>Shared libraries &amp; frameworks</div><div class="price-card__feature"><span class="price-card__check">✓</span>Internal reviews + collaboration</div><div class="price-card__feature"><span class="price-card__check">✓</span>Team analytics</div></div><div class="price-card__bestfor">BEST FOR: Creative · marketing · production teams</div><a href="#checkout" class="price-card__cta dchv5 dcbtn" data-dc-click="goCheckoutStudio">Start Team Plan</a></div><div data-rv="0" class="price-card dchv17"><div class="price-card__label">Agency</div><div class="price-card__price">$199<span class="price-card__price-unit"> /month</span></div><div class="price-card__desc">Agencies &amp; larger organisations.</div><div class="price-card__features"><div class="price-card__feature"><span class="price-card__check">✓</span>Everything in Team — unlimited members</div><div class="price-card__feature"><span class="price-card__check">✓</span>Admin dashboard + feature management</div><div class="price-card__feature"><span class="price-card__check">✓</span>Agency workspaces + knowledge base</div><div class="price-card__feature"><span class="price-card__check">✓</span>Private testing + advanced analytics</div><div class="price-card__feature"><span class="price-card__check">✓</span>Priority support · early access</div></div><div class="price-card__bestfor">BEST FOR: Ad &amp; branding agencies · production cos · in-house</div><a href="mailto:smwihaki1@gmail.com?subject=BriefIQ%20Agency%20plan" class="price-card__cta dchv5 dcbtn">Contact Sales</a></div><div data-rv="0" class="price-card dchv17"><div class="price-card__label">Enterprise</div><div class="price-card__price">Custom<span class="price-card__price-unit"> pricing</span></div><div class="price-card__desc">Large brands &amp; global networks.</div><div class="price-card__features"><div class="price-card__feature"><span class="price-card__check">✓</span>Everything in Agency</div><div class="price-card__feature"><span class="price-card__check">✓</span>Custom integrations + API access</div><div class="price-card__feature"><span class="price-card__check">✓</span>Custom AI workflows &amp; training</div><div class="price-card__feature"><span class="price-card__check">✓</span>Private hosting + advanced security</div><div class="price-card__feature"><span class="price-card__check">✓</span>Dedicated support</div></div><div class="price-card__bestfor">BEST FOR: Large brands · global networks · enterprise teams</div><a href="mailto:smwihaki1@gmail.com?subject=BriefIQ%20Enterprise" class="price-card__cta dchv5 dcbtn">Talk To Us</a></div></div>
+        <div data-rv="0" style="background:#0d0d0d;color:#f2efe8;border-radius:22px;padding:34px 40px;opacity:0;transform:translateY(34px)">
+          <div class="biq-apinote" style="display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center">
+            <div>
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#3DFF7E;margin-bottom:12px">✳ Optional · never required</div>
+              <h3 style="font-family:Anton;font-size:clamp(26px,3.2vw,34px);line-height:1;text-transform:uppercase;margin:0 0 12px;font-weight:400">Bring your own AI — if you want to.</h3>
+              <p style="font-size:14.5px;line-height:1.6;color:var(--color-on-dark);margin:0;max-width:640px">BriefIQ is standalone by design: the full analysis runs on its own and free on every plan, no key needed. Want AI-powered research and references on top? Add your own Claude, ChatGPT or Gemini key — you pay the provider directly, we don't mark it up, log it or keep it. Purely a bonus.</p>
+            </div>
+            <div style="background:#111;border:1.5px solid #3DFF7E;border-radius:16px;padding:20px 24px;text-align:center;flex:none"><div style="font-family:Anton;font-size:38px;line-height:1;color:#3DFF7E;font-weight:400">$0</div><div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-on-dark);margin-top:6px">KEYS NEEDED<br>TO RUN BRIEFIQ</div></div>
+          </div>
+        </div>
+        <div data-rv="0" style="background:#fff;border:1.5px solid #111;border-radius:22px;padding:30px 26px;opacity:0;transform:translateY(34px)"><div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#FF4D00;margin-bottom:14px">✳ Compare plans</div><div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table style="border-collapse:collapse;width:100%;min-width:640px"><tr><th style="text-align:left;padding:9px 12px;border-bottom:1.5px solid #111;font-family:Anton;font-size:15px;text-transform:uppercase;letter-spacing:.5px"></th><th style="text-align:center;padding:9px 12px;border-bottom:1.5px solid #111;font-family:Anton;font-size:15px;text-transform:uppercase;letter-spacing:.5px">Free</th><th style="text-align:center;padding:9px 12px;border-bottom:1.5px solid #111;font-family:Anton;font-size:15px;text-transform:uppercase;letter-spacing:.5px">Pro</th><th style="text-align:center;padding:9px 12px;border-bottom:1.5px solid #111;font-family:Anton;font-size:15px;text-transform:uppercase;letter-spacing:.5px">Team</th><th style="text-align:center;padding:9px 12px;border-bottom:1.5px solid #111;font-family:Anton;font-size:15px;text-transform:uppercase;letter-spacing:.5px">Agency</th><th style="text-align:center;padding:9px 12px;border-bottom:1.5px solid #111;font-family:Anton;font-size:15px;text-transform:uppercase;letter-spacing:.5px">Enterprise</th></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Monthly price</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">$0</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">$20</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">$99</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">$199</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Custom</td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Projects per month</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">3</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Unlimited</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Unlimited</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Unlimited</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Unlimited</td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Brief analysis + Challenge Mode</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Cultural Insight Engine</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Opportunity gaps · Learn From The Best</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Project memory</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Advanced exports (decks, briefs, media plans)</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Production planning (P·01–P·19)</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Media strategy (M·01–M·10)</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Team workspaces &amp; shared projects</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Shared libraries · reviews · team analytics</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Users</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">1</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">1</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Up to 10</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Unlimited</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Unlimited</td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Admin dashboard + feature management</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Private testing · priority support · early access</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">API · custom integrations · private hosting</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:var(--color-on-dark-warm)">—</span></td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px"><span style="color:#00A651;font-weight:700">✓</span></td></tr><tr><td style="padding:9px 12px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px;font-weight:700;white-space:nowrap">Support</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Community</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Standard</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Standard</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Priority</td><td style="text-align:center;padding:9px 10px;border-bottom:1px solid rgba(0,0,0,.08);font-size:12.5px">Dedicated</td></tr></table></div></div>
+        <div aria-hidden="true" style="background:#1b4bff;border-radius:100px;padding:13px 0;overflow:hidden">
+          <div style="display:inline-flex;width:max-content;white-space:nowrap;font-weight:700;font-size:15px;color:#3DFF7E;animation:marq 24s linear infinite">
+            <span style="margin:0 18px">No credit card to start</span>⚡<span style="margin:0 18px">Runs on its own</span>◆<span style="margin:0 18px">Your keys stay local</span>⚡<span style="margin:0 18px">Cancel anytime</span>◆<span style="margin:0 18px">No credit card to start</span>⚡<span style="margin:0 18px">Runs on its own</span>◆<span style="margin:0 18px">Your keys stay local</span>⚡<span style="margin:0 18px">Cancel anytime</span>◆
+          </div>
+        </div>
+        <div data-rv="0" style="background:#0d0d0d;border-radius:22px;padding:56px;text-align:center;opacity:0;transform:translateY(34px)">
+          <h2 style="font-family:Anton;font-size:clamp(18px,3.6vw,40px);text-transform:uppercase;color:#f2efe8;margin:0 0 26px;font-weight:400">The first three briefs are on us.</h2>
+          <a href="#analyse" data-dc-click="goAnalyse" style="background:#FF4D00;color:#0d0d0d;padding:17px 40px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;display:inline-block;transition:transform .18s,background .18s" class="dchv7 dcbtn">Analyse a brief ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ANALYSE A BRIEF (APP) ================= -->
+    <div class="dc-page" data-dcpage="analyse" hidden>
+      <div data-screen-label="Analyse a Brief" style="display:flex;flex-direction:column;gap:18px">
+        <div data-doodle-host style="background:#9B51FF;border-radius:22px;padding:70px 60px;background-image:linear-gradient(rgba(13,13,13,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,13,.16) 1px,transparent 1px);background-size:58px 58px">
+          <div class="dg-spot" data-doodle="working" data-doodle-quip="Give me the messiest brief you have."></div>
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;animation:rise .7s .05s both">✳ The App — free, 3 briefs a month</div>
+          <h2 style="font-family:Anton;font-size:clamp(37px,7.4vw,81px);line-height:.95;text-transform:uppercase;color:#0d0d0d;animation:rise .8s .15s both;margin:0;font-weight:400">Analyse<br>a Brief. <span aria-hidden="true" style="display:inline-block;font-size:clamp(22px,4.4vw,48px);color:#f2efe8;animation:spinRing 8s linear infinite;vertical-align:middle;line-height:1">✳</span></h2>
+        </div>
+        <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:18px;align-items:stretch">
+          <div style="background:#fff;border-radius:22px;padding:38px;display:flex;flex-direction:column;gap:18px">
+            <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px"><span style="color:#FF4D00">✳</span> YOUR BRIEF</div>
+            <button type="button" onclick="Wizard.open()" style="background:#1b4bff;color:#fff;border:none;border-radius:14px;padding:14px 16px;font-weight:700;font-size:15px;cursor:pointer;text-align:left;font-family:'Space Grotesk',system-ui,sans-serif;width:100%"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.18em;margin-right:.3em"><path d="M11.8 3.4C12.5 8 13.4 9 18 9.8 13.4 10.6 12.5 11.6 11.8 16.2 11.1 11.6 10.2 10.6 5.6 9.8 10.2 9 11.1 8 11.8 3.4Z"/><path d="M18 14.6c.2 1.7.5 2 2.2 2.3-1.7.3-2 .6-2.2 2.3-.2-1.7-.5-2-2.2-2.3 1.7-.3 2-.6 2.2-2.3Z"/></svg>Start a guided project — pick a type, add materials, get tailored results →</button>
+            <button type="button" onclick="CreativePlayground.open()" style="background:#9B51FF;color:#0d0d0d;border:none;border-radius:14px;padding:13px 16px;font-weight:700;font-size:14.5px;cursor:pointer;text-align:left;font-family:'Space Grotesk',system-ui,sans-serif;width:100%">✳ Creative Playground — explore the problem &amp; think out loud with BriefIQ →</button>
+            <textarea id="dcBrief" placeholder="Paste your client brief here — the messier the better…" style="min-height:240px;border:1.5px solid #111;border-radius:16px;padding:20px;font-size:15px;line-height:1.6;font-family:'Space Grotesk',system-ui,sans-serif;color:#111;background:#fff;resize:vertical;outline:none;width:100%;box-sizing:border-box"></textarea>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-muted)">MARKET</div>
+                <select id="dcMarket" style="border:1.5px solid #111;border-radius:12px;padding:13px 14px;font-size:14px;font-weight:700;font-family:'Space Grotesk',sans-serif;background:#fff;cursor:pointer">
+                  <option value="Global / Multi-market">🌍 Global</option><option value="Kenya">🇰🇪 Kenya</option><option value="Nigeria">🇳🇬 Nigeria</option><option value="United Kingdom">🇬🇧 UK</option><option value="United States">🇺🇸 USA</option><option value="Brazil">🇧🇷 Brazil</option><option value="India">🇮🇳 India</option><option value="Japan">🇯🇵 Japan</option><option value="South Africa">🇿🇦 South Africa</option><option value="Ghana">🇬🇭 Ghana</option><option value="Egypt">🇪🇬 Egypt</option><option value="United Arab Emirates">🇦🇪 UAE</option><option value="Indonesia">🇮🇩 Indonesia</option><option value="Mexico">🇲🇽 Mexico</option><option value="Germany">🇩🇪 Germany</option>
+                </select>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-muted)">MODEL</div>
+                <select id="dcModel" style="border:1.5px solid #111;border-radius:12px;padding:13px 14px;font-size:14px;font-weight:700;font-family:'Space Grotesk',sans-serif;background:#fff;cursor:pointer">
+                  <optgroup label="BriefIQ — no setup">
+                    <option value="local">BriefIQ AI · free, no key needed</option>
+                    <option value="briefiq-ai">BriefIQ AI · managed (Pro)</option>
+                    <option value="laptop">On my laptop · private, one-time download</option>
+                  </optgroup>
+                  <optgroup label="Your own API key (BYOK)">
+                    <option value="anthropic">Claude · your key</option>
+                    <option value="openai">ChatGPT · your key</option>
+                    <option value="gemini">Gemini · your key</option>
+                    <option value="all">Compare — every connected model</option>
+                  </optgroup>
+                  <optgroup label="Any AI, manually">
+                    <option value="manual">Manual Mode · copy prompt</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-muted)">OUTPUT</div>
+                <select id="dcOutput" style="border:1.5px solid #111;border-radius:12px;padding:13px 14px;font-size:14px;font-weight:700;font-family:'Space Grotesk',sans-serif;background:#fff;cursor:pointer">
+                  <option value="full">Full analysis (28 sections)</option><option value="insights">Insight generator</option><option value="campaigns">Campaign ideas</option><option value="brand">Brand strategy</option><option value="identity">Brand identity</option><option value="packaging">Packaging</option><option value="social">Social strategy</option><option value="influencer">Influencer strategy</option><option value="pitch">Pitch deck outline</option><option value="budget">Budget &amp; team</option><option value="cases">Case study finder</option><option value="uxui">UX/UI Design</option><option value="hcd">Human-Centred Design</option>
+                </select>
+              </div>
+            </div>
+            <div id="dcModelNote" style="background:#f0eee9;border-radius:12px;padding:12px 14px;font-size:12.5px;line-height:1.55;color:var(--color-text-muted);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+              <span id="dcModelNoteText">Works out of the box — the self-powered engine needs no key. Prefer your own model? Connect a key.</span>
+              <button type="button" data-dc-click="uiKeys" class="dcbtn" style="border:1.5px solid #111;border-radius:100px;padding:7px 14px;font-weight:700;font-size:12px;cursor:pointer;background:#fff;white-space:nowrap">＋ AI keys</button>
+            </div>
+            <label style="display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:500;cursor:pointer">
+              <input type="checkbox" id="dcAgent" style="width:18px;height:18px;accent-color:#1b4bff">
+              Multi-Agent Mode — 10 specialists review it independently
+            </label>
+            <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+              <button type="button" data-dc-click="runAnalysis" style="background:#FF4D00;color:#0d0d0d;padding:16px 34px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;transition:transform .18s,background .18s;display:inline-block" class="dchv7 dcbtn">Run analysis ↗</button>
+              <button type="button" data-dc-click="loadSample" style="border:1.5px solid #111;padding:15px 30px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;transition:background .18s,color .18s;display:inline-block" class="dchv5 dcbtn">Load a sample messy brief</button>
+            </div>
+            <div style="display:flex;gap:18px;flex-wrap:wrap;font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-muted-lt)"><button type="button" data-dc-click="uiPrompt" class="dcbtn" style="cursor:pointer;text-decoration:underline">⧉ MASTER PROMPT</button><button type="button" data-dc-click="uiProjects" class="dcbtn" style="cursor:pointer;text-decoration:underline">PROJECTS</button><button type="button" data-dc-click="uiKeys" class="dcbtn" style="cursor:pointer;text-decoration:underline">AI KEYS</button><button type="button" data-dc-click="uiExport" class="dcbtn" style="cursor:pointer;text-decoration:underline">EXPORT</button><button type="button" data-dc-click="uiPdf" class="dcbtn" style="cursor:pointer;text-decoration:underline">⬇ PDF</button></div>
+          </div>
+          <div style="background:#0d0d0d;border-radius:22px;padding:38px;color:#fff;display:flex;flex-direction:column">
+            <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;color:#3DFF7E;margin-bottom:18px">WHAT COMES BACK — 30 SECONDS LATER</div>
+            <div style="display:flex;flex-direction:column;flex:1">
+              <div style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14px;color:var(--color-on-dark)"><span style="color:#FF4D00;font-weight:700;margin-right:10px">01</span>Brief quality score + red flags</div>
+              <div style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14px;color:var(--color-on-dark)"><span style="color:#FF4D00;font-weight:700;margin-right:10px">02</span>Solution diagnosis — 21 categories</div>
+              <div style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14px;color:var(--color-on-dark)"><span style="color:#FF4D00;font-weight:700;margin-right:10px">03</span>Insights with evidence links</div>
+              <div style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14px;color:var(--color-on-dark)"><span style="color:#FF4D00;font-weight:700;margin-right:10px">04</span>5 strategic territories</div>
+              <div style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14px;color:var(--color-on-dark)"><span style="color:#FF4D00;font-weight:700;margin-right:10px">05</span>10 scored campaign ideas</div>
+              <div style="padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14px;color:var(--color-on-dark)"><span style="color:#FF4D00;font-weight:700;margin-right:10px">06</span>Identity, social &amp; influencer routes</div>
+              <div style="padding:11px 0;font-size:14px;color:var(--color-on-dark)"><span style="color:#FF4D00;font-weight:700;margin-right:10px">07</span>Cannes / WARC / IPA references</div>
+            </div>
+            <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-faint);margin-top:20px">NO KEYS NEEDED · SELF-POWERED</div>
+          </div>
+        </div>
+        <div id="dcTeaser" hidden>
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div id="dcTiles" style="display:none;grid-template-columns:1fr 1.2fr 1.2fr;gap:18px">
+              <div style="background:#1b4bff;border-radius:22px;padding:34px;color:#fff;text-align:center;animation:rise .6s both">
+                <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#b9c2ff;margin-bottom:14px">BRIEF QUALITY SCORE</div>
+                <div style="font-family:Anton;font-size:clamp(40px,8.0vw,88px);line-height:1"><span id="dcScore">0</span><span style="font-size:22px;color:#b9c2ff">/100</span></div>
+                <div id="dcGrade" style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:#3DFF7E;margin-top:10px">NEEDS A CALL BEFORE WORK STARTS</div>
+              </div>
+              <div style="background:#fff;border:1.5px solid #111;border-radius:22px;padding:34px;animation:rise .6s .12s both">
+                <div id="dcFlagsKicker" style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:#E8262B;margin-bottom:16px">7 RED FLAGS</div>
+                <div id="dcFlagsList" style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--color-ink-2)">
+                  <div>⚑ "Make it go viral"</div>
+                  <div>⚑ Targeting "everyone 18–65"</div>
+                  <div>⚑ Panic timeline — 3 weeks</div>
+                  <div>⚑ Objective stacking (4 goals, 1 budget)</div>
+                  <div>⚑ "Premium like Apple but fun like Duolingo"</div>
+                  <div>⚑ Budget vs ambition gap</div>
+                  <div>⚑ No success metric defined</div>
+                </div>
+              </div>
+              <div style="background:#FF4D00;border-radius:22px;padding:34px;color:#0d0d0d;animation:rise .6s .24s both">
+                <div id="dcDiagKicker" style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;margin-bottom:16px">SOLUTION DIAGNOSIS</div>
+                <h3 id="dcDiagTitle" style="font-family:Anton;font-size:34px;line-height:1.05;text-transform:uppercase;margin:0 0 12px;font-weight:400">Rebrand › Campaign</h3>
+                <p id="dcDiagBody" style="font-size:14px;line-height:1.6;color:#0d0d0d;margin:0">This brief asked for advertising, but the strongest signal is Brand Positioning (96). A campaign on a weak foundation rents attention the brand can't keep.</p>
+              </div>
+            </div>
+            <div id="dcUpsell" style="background:#0d0d0d;border-radius:22px;padding:44px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;animation:rise .6s .36s both">
+              <h3 style="font-family:Anton;font-size:34px;text-transform:uppercase;color:#f2efe8;margin:0;font-weight:400">That was the check. Pro turns it into the full battle plan.</h3>
+              <a href="#checkout" data-dc-click="goCheckoutPro" style="background:#FF4D00;color:#0d0d0d;padding:17px 42px;border-radius:100px;font-weight:700;font-size:16px;cursor:pointer;flex:none;transition:transform .18s,background .18s;display:inline-block" class="dchv7 dcbtn">Go Pro — $20/month ↗</a>
+            </div>
+            <div id="a11yStatus" aria-live="polite" aria-atomic="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"></div>
+            <div id="results" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= LOGIN ================= -->
+    <div class="dc-page" data-dcpage="login" hidden>
+      <div data-screen-label="Login" style="background:#1b4bff;border-radius:22px;padding:80px 40px;min-height:calc(100vh - 50px);box-sizing:border-box;display:flex;align-items:center;justify-content:center;background-image:linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px);background-size:58px 58px">
+        <div style="background:#fff;border-radius:26px;padding:46px 44px;width:440px;max-width:100%;animation:rise .7s .1s both">
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;margin-bottom:12px"><span style="color:#FF4D00">✳</span> ACCOUNT</div>
+          <h2 style="font-family:Anton;font-size:clamp(18px,3.6vw,40px);text-transform:uppercase;color:var(--color-ink-2);margin:0 0 10px;font-weight:400">Welcome back.</h2>
+          <p style="font-size:14.5px;line-height:1.55;color:var(--color-text-muted);margin:0 0 28px">Your projects, keys and market packs — wherever you sign in.</p>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <button type="button" data-dc-click="login-google" style="display:flex;align-items:center;justify-content:center;gap:12px;border:1.5px solid #111;border-radius:100px;padding:14px 0;font-weight:700;font-size:15px;cursor:pointer;transition:transform .15s,box-shadow .15s;background:#fff;width:100%" class="dchv20 dcbtn">
+              <svg aria-hidden="true" focusable="false" width="19" height="19" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.7 2.4 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.8 6.1C12.3 13.4 17.7 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"></path><path fill="#FBBC05" d="M10.4 28.7c-.5-1.5-.8-3-.8-4.7s.3-3.2.8-4.7l-7.8-6.1C.9 16.5 0 20.1 0 24s.9 7.5 2.6 10.8l7.8-6.1z"></path><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2.1 1.4-4.7 2.2-7.7 2.2-6.3 0-11.7-3.9-13.6-9.3l-7.8 6.1C6.5 42.6 14.6 48 24 48z"></path></svg>
+              Continue with Google
+            </button>
+            <button type="button" data-dc-click="login-apple" style="display:flex;align-items:center;justify-content:center;gap:12px;background:#0d0d0d;color:#fff;border-radius:100px;padding:15.5px 0;font-weight:700;font-size:15px;cursor:pointer;transition:transform .15s,box-shadow .15s;width:100%" class="dchv21 dcbtn">
+              <svg aria-hidden="true" focusable="false" width="17" height="19" viewBox="0 0 384 512"><path fill="#fff" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path></svg>
+              Continue with Apple
+            </button>
+            <button type="button" data-dc-click="login-sso" style="display:flex;align-items:center;justify-content:center;gap:12px;border:1.5px solid #111;border-radius:100px;padding:14px 0;font-weight:700;font-size:15px;cursor:pointer;transition:transform .15s,box-shadow .15s;background:#fff;width:100%" class="dchv20 dcbtn">
+              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg>
+              Continue with work account (SSO)
+            </button>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;margin:24px 0">
+            <div style="flex:1;height:1.5px;background:rgba(0,0,0,.12)"></div>
+            <div style="font-family:'Space Mono';font-size:12px;letter-spacing:2px;color:var(--color-text-muted-lt)">OR</div>
+            <div style="flex:1;height:1.5px;background:rgba(0,0,0,.12)"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <input type="email" id="dcLoginEmail" placeholder="you@agency.com" style="border:1.5px solid #111;border-radius:100px;padding:15px 22px;font-size:15px;font-family:'Space Grotesk',sans-serif;outline:none;width:100%;box-sizing:border-box">
+            <button type="button" data-dc-click="login-email" style="background:#FF4D00;color:#0d0d0d;border-radius:100px;padding:15px 0;font-weight:700;font-size:15px;text-align:center;cursor:pointer;transition:transform .15s,background .18s;width:100%" class="dchv22 dcbtn">Continue with email ↗</button>
+          </div>
+          <p style="font-size:13px;color:var(--color-text-muted-lt);text-align:center;margin:22px 0 0">No account? <a href="#analyse" data-dc-click="goAnalyse" style="font-weight:700;color:#111;text-decoration:underline;cursor:pointer" class="dcbtn">Start free</a> — 3 analyses a month, no card.</p>
+          <p style="font-size:11px;color:var(--color-text-faint);text-align:center;margin:12px 0 0">By continuing you agree to our <a href="terms.html" style="color:#1b4bff">Terms</a> &amp; <a href="privacy.html" style="color:#1b4bff">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CHECKOUT ================= -->
+    <div class="dc-page" data-dcpage="checkout" hidden>
+      <div data-screen-label="Checkout" style="display:flex;flex-direction:column;gap:18px">
+        <div data-doodle-host style="background:#0d0d0d;border-radius:22px;padding:64px 60px;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:58px 58px">
+          <div class="dg-spot" data-doodle="laptop" data-doodle-eyes data-doodle-quip="Almost there — I can smell the insight."></div>
+          <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;color:#3DFF7E;animation:rise .7s .05s both">✳ Checkout — secure</div>
+          <h2 style="font-family:Anton;font-size:clamp(32px,6.4vw,70px);line-height:.98;text-transform:uppercase;color:#f2efe8;animation:rise .8s .15s both;margin:0;font-weight:400">You're one step<br>from the truth.</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:18px;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <button type="button" data-dc-click="pickPro" data-dcring="plan-pro" aria-pressed="true" style="background:#1b4bff;border-radius:22px;padding:30px;color:#fff;cursor:pointer;position:relative;transition:transform .18s;box-shadow:none;width:100%;box-sizing:border-box" class="dchv23 dcbtn">
+              <span style="display:block;position:absolute;top:-12px;right:22px;background:#FFB800;color:#111;font-family:'Space Mono';font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:100px;font-weight:700">Most popular</span>
+              <span style="display:flex;justify-content:space-between;align-items:baseline">
+                <span style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;color:#b9c2ff">PRO</span>
+                <span style="font-family:Anton;font-size:40px">$20<span style="font-size:14px;font-family:'Space Grotesk';color:#b9c2ff">/month</span></span>
+              </span>
+              <span style="display:block;font-size:13.5px;line-height:1.55;color:#dbe4ff;margin:12px 0 0;text-align:left">Unlimited projects · project memory · advanced exports (decks, briefs, media plans) · production tools · premium references · your own AI keys.</span>
+            </button>
+            <button type="button" data-dc-click="pickStudio" data-dcring="plan-studio" aria-pressed="false" style="background:#fff;border:1.5px solid #111;border-radius:22px;padding:30px;cursor:pointer;transition:transform .18s;box-shadow:none;width:100%;box-sizing:border-box" class="dchv23 dcbtn">
+              <span style="display:flex;justify-content:space-between;align-items:baseline">
+                <span style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;color:var(--color-text-muted)">TEAM</span>
+                <span style="font-family:Anton;font-size:40px">$99<span style="font-size:14px;font-family:'Space Grotesk';color:var(--color-text-muted)">/month</span></span>
+              </span>
+              <span style="display:block;font-size:13.5px;line-height:1.55;color:var(--color-text-muted);margin:12px 0 0;text-align:left">Everything in Pro · up to 10 users · team workspaces &amp; shared projects · shared libraries &amp; frameworks · internal reviews · team analytics. Agency $199 &amp; Enterprise: contact sales.</span>
+            </button>
+          <button type="button" data-dc-click="pickAgency" data-dcring="plan-agency" aria-pressed="false" style="background:#fff;border:1.5px solid #111;border-radius:22px;padding:26px 32px;cursor:pointer;transition:box-shadow .15s;width:100%;box-sizing:border-box" class="dcbtn">
+            <span style="display:flex;justify-content:space-between;align-items:baseline">
+              <span style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--color-text-muted)">Agency</span>
+              <span style="font-family:Anton;font-size:40px">$199<span style="font-size:14px;font-family:'Space Grotesk';color:var(--color-text-muted)">/month</span></span>
+            </span>
+            <span style="display:block;font-size:13.5px;line-height:1.55;color:var(--color-text-muted);margin:12px 0 0;text-align:left">Everything in Team · unlimited members · admin dashboard &amp; feature management · agency workspaces &amp; knowledge base · private testing · priority support · early access.</span>
+          </button>
+          <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-muted-lt);text-transform:uppercase">Enterprise — custom pricing, integrations, API, private hosting · <a href="mailto:smwihaki1@gmail.com?subject=BriefIQ%20Enterprise" style="color:#1b4bff">talk to us</a></div>
+            <div style="background:#FFB800;border-radius:16px;padding:20px 24px;font-weight:500;font-size:14px;line-height:1.5">✳ One saved half-day of strategy work covers a year of Pro. That's the maths.</div>
+          </div>
+          <div style="background:#fff;border-radius:22px;padding:38px;display:flex;flex-direction:column;gap:14px">
+            <div style="font-family:'Space Mono';font-size:11px;letter-spacing:2px;margin-bottom:6px"><span style="color:#FF4D00">✳</span> <span id="dcPlanName">PRO</span> — BILLING NOT LIVE YET</div>
+            <p style="font-size:13.5px;line-height:1.55;color:var(--color-text-muted);margin:0">Paid plans aren't connected to billing yet — nothing to pay, nothing to enter. Start on Free right now, or leave your email and we'll tell you the day paid plans go live.</p>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-muted)">EMAIL</div>
+              <input type="email" id="dcPayEmail" placeholder="you@agency.com" style="border:1.5px solid #111;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Space Grotesk',sans-serif;outline:none;width:100%;box-sizing:border-box">
+            </div>
+            <button type="button" data-dc-click="joinWaitlist" style="background:#111;color:#fff;border:none;border-radius:100px;padding:15px 0;font-weight:700;font-size:14px;text-align:center;cursor:pointer;transition:transform .18s,background .18s;font-family:inherit" class="dchv7">Get notified when it launches</button>
+            <button type="button" data-dc-click="goAnalyse" style="background:#FF4D00;color:#0d0d0d;border:none;border-radius:100px;padding:17px 0;font-weight:700;font-size:16px;text-align:center;cursor:pointer;transition:transform .18s,background .18s;font-family:inherit" class="dchv7">Start free — no card needed ↗</button>
+            <div style="font-family:'Space Mono';font-size:12px;letter-spacing:1.5px;color:var(--color-text-muted-lt);text-align:center">FREE PLAN LIVE NOW · YOUR KEYS STAY LOCAL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- ============================================================
+     COMPATIBILITY LAYER — hidden. The full Studio input set that
+     app.js + the engine stack read/write. The visible design page
+     copies its fields here, then triggers btnAnalyse. Nothing in
+     this block ever paints (display:none via design-page.css).
+     ============================================================ -->
+<div id="compatLayer" aria-hidden="true">
+  <div class="topbtns">
+    <button class="btn" id="btnProjects">Projects</button>
+    <button class="btn" id="btnSettings">AI Settings</button>
+    <button class="btn" id="btnBrand">Brand</button>
+    <button class="btn primary" id="btnNew">New Brief</button>
+  </div>
+  <!-- INPUT PANEL -->
+    <div class="panel" id="inputPanel">
+      <div class="panel-head"><h2>The Brief</h2><p>Paste it exactly as the client sent it. Mess and all.</p></div>
+      <div class="panel-body">
+        <div class="fld"><label for="briefText">Client brief *</label>
+          <textarea id="briefText" placeholder="Paste the client brief here…"></textarea>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <label for="briefFile" style="cursor:pointer;color:var(--lime-dim);margin:0;text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.12em;margin-right:.25em"><path d="M12 15.5V4.8"/><path d="M7.6 9.2 12 4.8l4.4 4.4"/><path d="M5 19.4h14"/></svg>Upload briefs, decks, research, logos, packaging, screenshots — BriefIQ reads them all</label>
+            <input type="file" id="briefFile" accept=".pdf,.docx,.txt,.md,.doc,.pptx,.ppt,.xlsx,.csv,.png,.jpg,.jpeg,.webp,.gif,.svg,.avif,.bmp,.psd,.ai,.eps,.zip" multiple style="display:none">
+            <span id="fileName" style="font-family:var(--mono);font-size:12px;color:var(--mute)"></span>
+          </div>
+          <div class="upload-key" style="font-size:11px;color:var(--mute);line-height:1.55;margin-top:5px">Reads <b>PDF · Word · PowerPoint · Excel · CSV · TXT</b> and <b>images</b> (PNG, JPG, WEBP, SVG, PSD, AI, EPS) · <b>ZIP</b> project folders. Paste a <b>website, Figma or video link</b> into the brief and BriefIQ reads that too.</div>
+          <div id="piChips"></div>
+        </div>
+        <div class="fld"><label>What is your role on this project?</label>
+          <select id="fRole">
+            <option value="">Not specified — general analysis</option>
+            <option>Creative Director</option><option>Art Director</option><option>Designer</option>
+            <option>Strategist</option><option>Account Manager</option><option>Copywriter</option>
+            <option>Social Media Manager</option><option>Community Manager</option>
+            <option>Influencer Marketing Manager</option><option>PR Manager</option>
+            <option>Photographer</option><option>Videographer</option><option>Motion Designer</option>
+            <option>Packaging Designer</option><option>Brand Designer</option><option>UX/UI Designer</option>
+            <option>Experiential Designer</option><option>Production Manager</option>
+            <option>Client Service Lead</option><option>Marketing Manager</option>
+            <option>Founder / Business Owner</option><option>Other (custom role)</option>
+          </select>
+          <input type="text" id="fRoleCustom" placeholder="Type your role, e.g. Cultural Consultant" style="display:none;margin-top:8px">
+        </div>
+        <div class="two">
+          <div class="fld"><label>Output type</label>
+            <select id="fMode">
+              <option value="full">Full Creative Analysis</option><option value="insights">Insight Generator</option>
+              <option value="campaigns">Campaign Idea Generator</option><option value="brand">Brand Strategy</option>
+              <option value="identity">Brand Identity Direction</option><option value="packaging">Packaging Direction</option>
+              <option value="social">Social Media Strategy</option><option value="influencer">Influencer Strategy</option>
+              <option value="pitch">Pitch Deck Outline</option><option value="budget">Budget &amp; Team Estimate</option>
+              <option value="cases">Case Study Finder</option>
+            </select>
+          </div>
+          <div class="fld"><label>AI model</label>
+            <select id="fModel">
+              <option value="local">BriefIQ AI (free)</option>
+              <option value="briefiq-ai">BriefIQ AI (managed)</option>
+              <option value="laptop">On my laptop (opt-in)</option>
+              <option value="openai">ChatGPT (OpenAI)</option>
+              <option value="anthropic">Claude (Anthropic)</option>
+              <option value="gemini">Gemini (Google)</option>
+              <option value="manual">Manual Mode (copy prompt)</option>
+              <option value="compare">⇄ Compare configured models</option>
+              <option value="all">⚡ Run all models</option>
+            </select>
+          </div>
+        </div>
+        <label style="display:flex;align-items:center;gap:9px;cursor:pointer;margin:2px 2px 14px;text-transform:none;letter-spacing:0;font-family:var(--sans);font-size:13px;color:var(--bone-dim)">
+          <input type="checkbox" id="agentMode" style="accent-color:var(--lime);width:15px;height:15px;flex-shrink:0">
+          Multi-Agent Mode — 10 specialists review the brief (agency room)
+        </label>
+        <div class="two">
+          <div class="fld"><label>Client name</label><input type="text" id="fClient" placeholder="e.g. Safari Bank"></div>
+          <div class="fld"><label>Brand / product</label><input type="text" id="fBrand" placeholder="e.g. Chapaa App"></div>
+        </div>
+        <div class="two">
+          <div class="fld"><label>Industry</label>
+            <select id="fIndustry"><option value="">Auto-detect</option>
+              <option>Fintech / Banking</option><option>Telco / Tech</option><option>FMCG / Food &amp; Beverage</option>
+              <option>Alcohol</option><option>Fashion / Beauty</option><option>Health / Pharma</option>
+              <option>NGO / Public sector</option><option>Betting / Gaming</option><option>Retail / E-commerce</option>
+              <option>Automotive / Mobility</option><option>Agriculture</option><option>Education</option>
+              <option>Media / Entertainment</option><option>Real Estate</option><option>Energy</option><option>Other</option>
+            </select>
+          </div>
+          <div class="fld"><label>Country / market</label>
+            <select id="fCountry">
+              <option>Global / Multi-market</option>
+              <option>Kenya</option><option>Nigeria</option><option>South Africa</option><option>Ghana</option><option>Egypt</option>
+              <option>United Arab Emirates</option><option>India</option><option>Indonesia</option>
+              <option>Brazil</option><option>Mexico</option><option>United States</option>
+              <option>United Kingdom</option><option>Germany</option><option>Japan</option>
+              <option value="Other">Other (use region below)</option>
+            </select>
+          </div>
+        </div>
+        <div class="two">
+          <div class="fld"><label>Region</label>
+            <select id="fRegion">
+              <option>Global</option><option>Africa</option><option>Middle East</option><option>South Asia</option>
+              <option>Southeast Asia</option><option>East Asia</option><option>Europe</option>
+              <option>North America</option><option>Latin America</option><option>Oceania</option>
+            </select>
+          </div>
+          <div class="fld"><label>Custom market name</label><input type="text" id="fMarketCustom" placeholder="If Other — e.g. Morocco"></div>
+        </div>
+        <div class="optional-toggle" id="optToggle"><span class="chev">▶</span> More fields — audience, budget, deadline, channels…</div>
+        <div class="optional-fields" id="optFields">
+          <div class="fld"><label>Target audience</label><input type="text" id="fAudience" placeholder="e.g. Urban Gen Z, 18–25, Nairobi"></div>
+          <div class="fld"><label>Campaign objective</label>
+            <select id="fObjective"><option value="">Auto-detect</option>
+              <option>Launch — new product / brand</option><option>Awareness — get known</option>
+              <option>Sales / conversion — move product</option><option>Repositioning — change perception</option>
+              <option>Engagement / community</option><option>Retention / loyalty</option>
+              <option>Behaviour change / social impact</option><option>Recruitment / acquisition</option>
+            </select>
+          </div>
+          <div class="two">
+            <div class="fld"><label>Budget level</label>
+              <select id="fBudget"><option value="">Not specified</option>
+                <option value="micro">Micro — scrappy / organic-led</option>
+                <option value="small">Small — single channel done well</option>
+                <option value="medium">Medium — full campaign</option>
+                <option value="large">Large — multi-channel + production</option>
+                <option value="major">Major — flagship / national</option>
+              </select>
+            </div>
+            <div class="fld"><label>Deadline</label><input type="date" id="fDeadline"></div>
+          </div>
+          <div class="two">
+            <div class="fld"><label>Brand maturity</label>
+              <select id="fMaturity"><option value="">Not specified</option>
+                <option>New / pre-launch</option><option>Challenger</option><option>Established</option><option>Category leader</option>
+              </select>
+            </div>
+            <div class="fld"><label>Audience type</label>
+              <select id="fAudType"><option value="">Not specified</option>
+                <option>Mass consumer</option><option>Youth / Gen Z</option><option>Premium / affluent</option>
+                <option>Parents / family</option><option>B2B / professional</option><option>SME owners</option>
+                <option>Public / community</option>
+              </select>
+            </div>
+          </div>
+          <div class="two">
+            <div class="fld"><label>Preferred language</label><input type="text" id="fLanguage" placeholder="e.g. English + Swahili, Spanish…"></div>
+            <div class="fld"><label>Cultural context</label><input type="text" id="fCulture" placeholder="Anything we must respect or reflect"></div>
+          </div>
+          <div class="fld"><label>Deliverables required</label><input type="text" id="fDeliverables" placeholder="e.g. TVC, social, OOH, radio, activation"></div>
+          <div class="fld"><label>Existing brand assets <span style="text-transform:none;letter-spacing:0;color:var(--mute);font-weight:400">(optional — if the brand already has an identity)</span></label>
+            <textarea id="fAssets" rows="3" placeholder="Paste what you already have — hex colours (#1b4bff, #FF4D00), fonts (Archivo Black, Space Grotesk), logo type (wordmark / monogram), tagline. BriefIQ audits these instead of proposing a new look."></textarea></div>
+          <div class="two">
+            <div class="fld"><label>Tone of campaign</label>
+              <select id="fTone"><option value="">Open</option>
+                <option>Bold / provocative</option><option>Witty / humorous</option><option>Warm / human</option>
+                <option>Premium / aspirational</option><option>Youthful / street</option><option>Serious / trustworthy</option>
+              </select>
+            </div>
+            <div class="fld"><label>Media channels</label><input type="text" id="fChannels" placeholder="e.g. TikTok, radio, OOH, WhatsApp"></div>
+          </div>
+        </div>
+        <button class="analyse-btn" id="btnAnalyse">Analyse Brief</button>
+        <button class="btn" id="btnCopyPrompt" style="width:100%;margin-top:10px;border-radius:12px;padding:12px">⧉ Copy Prompt — use in any AI tool</button>
+        <span class="sample-link" id="btnSample">No brief handy? Load a sample messy brief</span>
+        <div class="ai-note" id="aiNote"></div>
+      </div>
+    </div>
+
+    
+  <div class="empty-state" id="emptyState">
+        <div class="dg-empty" data-doodle="break" data-doodle-quip="No brief yet? Perfect. Coffee break."></div>
+        <div class="big">Your strategic breakdown lands here.</div>
+        Paste a brief, hit <b>Analyse</b>, and get a full strategic breakdown — solution diagnosis, branding, identity, packaging, social, influencer tiers, award-ready ideas, plus <b>References, Inspiration &amp; Learning</b>: what's been done before, what worked, the opportunity gap, and the case studies to learn from.
+      </div>
+</div>
+
+<!-- modals -->
+<div class="modal-bg" id="projModal"><div class="modal">
+  <h3>Saved projects</h3><div class="sub">Stored locally in this browser only — never uploaded. Click one to reopen.</div>
+  <div id="projList"></div>
+  <div style="margin-top:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button class="btn small" type="button" onclick="clearAllData()" style="color:#b3261e;border-color:#b3261e" title="Erase every BriefIQ project, key and setting from this browser">Delete all my data</button>
+    <span style="flex:1"></span>
+    <button class="btn small" onclick="closeModals()">Close</button>
+  </div>
+</div></div>
+
+<div class="modal-bg" id="setModal"><div class="modal">
+  <h3>AI Settings — how BriefIQ thinks</h3>
+  <div class="sub">BriefIQ works immediately with no key at all. Choose how the analysis is generated:</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+    <div style="border:1.5px solid var(--line,#e0dccf);border-radius:12px;padding:13px 14px">
+      <div style="font-weight:700;font-size:13.5px;margin-bottom:5px">Use BriefIQ AI</div>
+      <div style="font-size:12px;line-height:1.5;color:var(--mute,var(--color-text-faint))">Included in your subscription · no setup · managed by BriefIQ. (The self-powered engine is free and always on.)</div>
+    </div>
+    <div style="border:1.5px solid var(--line,#e0dccf);border-radius:12px;padding:13px 14px">
+      <div style="font-weight:700;font-size:13.5px;margin-bottom:5px">Connect your own key <span style="font-family:var(--mono);font-size:12px;color:var(--orange,#c47a00)">· ADVANCED</span></div>
+      <div style="font-size:12px;line-height:1.5;color:var(--mute,var(--color-text-faint))">Uses your provider account &amp; billing · your preferred model · may allow larger analyses. Optional.</div>
+    </div>
+  </div>
+  <div class="sub" style="margin-bottom:10px">Your keys (add, replace or remove any time):</div>
+  <div class="fld"><label id="lblAnthropic">Anthropic — Claude <span class="keyStatus" data-p="anthropic"></span></label>
+    <div style="display:flex;gap:8px"><input type="password" id="keyAnthropic" placeholder="sk-ant-…  (console.anthropic.com)" style="flex:1" autocomplete="off"><button class="btn small keyRemove" data-p="anthropic" type="button">Remove</button></div></div>
+  <div class="fld"><label id="lblOpenai">OpenAI — ChatGPT <span class="keyStatus" data-p="openai"></span></label>
+    <div style="display:flex;gap:8px"><input type="password" id="keyOpenai" placeholder="sk-…  (platform.openai.com/api-keys)" style="flex:1" autocomplete="off"><button class="btn small keyRemove" data-p="openai" type="button">Remove</button></div></div>
+  <div class="fld"><label id="lblGemini">Google — Gemini <span class="keyStatus" data-p="gemini"></span></label>
+    <div style="display:flex;gap:8px"><input type="password" id="keyGemini" placeholder="AIza…  (aistudio.google.com/apikey)" style="flex:1" autocomplete="off"><button class="btn small keyRemove" data-p="gemini" type="button">Remove</button></div></div>
+  <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.5px;color:#8a6200;margin-top:10px;line-height:1.5"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.13em;margin-right:.3em"><rect x="5.5" y="10.5" width="13" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>Keys are stored only in this browser (localStorage), used only to call that provider directly, and never sent to a BriefIQ server or logged. Remove wipes a key from this browser immediately. Don't save keys on a shared or public machine.</div>
+  <div style="display:flex;gap:10px;align-items:center;margin-top:14px">
+    <button class="btn small" type="button" onclick="clearAllKeys()" style="color:#b3261e;border-color:#b3261e" title="Wipe all saved AI keys from this browser">Remove all keys</button>
+    <span style="flex:1"></span>
+    <button class="btn small" onclick="closeModals()">Cancel</button>
+    <button class="btn small primary" id="btnSaveKey">Save keys</button>
+  </div>
+</div></div>
+
+<div class="modal-bg" id="promptModal"><div class="modal" style="max-width:720px">
+  <h3>Master Prompt — Manual Mode</h3>
+  <div class="sub">Copy this into ChatGPT, Claude, Gemini, Perplexity or any AI tool. Then paste the model's JSON response below to render it as cards.</div>
+  <textarea id="promptText" style="min-height:220px;font-family:var(--mono);font-size:11.5px" readonly></textarea>
+  <div style="display:flex;gap:10px;margin:10px 0 18px">
+    <button class="btn small primary" id="btnCopyPromptModal">⧉ Copy Prompt</button>
+    <span style="font-family:var(--mono);font-size:12px;color:var(--mute);align-self:center" id="promptMeta"></span>
+  </div>
+  <div class="fld"><label>Paste the AI's response here (JSON)</label>
+    <textarea id="pasteBack" style="min-height:120px;font-family:var(--mono);font-size:11.5px" placeholder='{"diagnosis":{…}, …}'></textarea>
+  </div>
+  <div style="display:flex;gap:10px;justify-content:flex-end">
+    <button class="btn small" onclick="closeModals()">Close</button>
+    <button class="btn small primary" id="btnRenderPaste">Render response →</button>
+  </div>
+</div></div>
+
+<div class="modal-bg" id="brandModal"><div class="modal" style="max-width:640px">
+  <h3>Brand Settings</h3>
+  <div class="sub">White-label the whole app — name, look and copy. Nothing is hard-coded; defaults live in <b>js/brand-config.js</b>, your edits here override them (stored in this browser).</div>
+  <div class="fld"><label>Try a positioning (fills name + tagline)</label><select id="bPick"><option value="">— pick from 20 options —</option></select></div>
+  <div class="two">
+    <div class="fld"><label>App name</label><input type="text" id="bName"></div>
+    <div class="fld"><label>Logo text (| = accent split)</label><input type="text" id="bLogo"></div>
+  </div>
+  <div class="fld"><label>Tagline</label><input type="text" id="bTagline"></div>
+  <div class="two">
+    <div class="fld"><label>Brand accent colour</label><input type="color" id="bAccent" style="height:44px;padding:4px"></div>
+    <div class="fld"><label>Button colour (light mode)</label><input type="color" id="bButton" style="height:44px;padding:4px"></div>
+  </div>
+  <div class="fld"><label>Font style</label>
+    <select id="bFont"><option value="poster">Poster (Anton + Space Grotesk) — website design</option><option value="editorial">Editorial (Fraunces + Space Grotesk)</option><option value="modern">Modern (all Space Grotesk)</option><option value="classic">Classic (Georgia + system)</option></select>
+  </div>
+  <div class="fld"><label>Homepage headline (| = accented second line)</label><input type="text" id="bHero"></div>
+  <div class="fld"><label>Homepage subtitle</label><textarea id="bHeroSub" style="min-height:70px"></textarea></div>
+  <div class="fld"><label>Pricing copy</label><input type="text" id="bPricing"></div>
+  <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:14px">
+    <button class="btn small" id="btnBrandReset">Reset to defaults</button>
+    <button class="btn small" onclick="closeModals()">Cancel</button>
+    <button class="btn small primary" id="btnBrandSave">Save</button>
+  </div>
+</div></div>
+
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Done</div>
+
+
+<script src="js/backend.js?v=20260712"></script>
+<script src="js/supabase-auth.js?v=20260712"></script>
+<script src="js/doodle-trail.js?v=20260712"></script>
+<script src="js/owner.js?v=20260712"></script>
+<script src="js/brand-config.js?v=20260828a"></script>
+<script src="js/logo-initialization.js?v=20260826"></script>
+<script src="js/markets.js?v=20260712"></script>
+<script src="js/brief-fit.js?v=20261003a"></script>
+<script src="js/briefiq-ai.js?v=20261003ai"></script>
+<script src="js/briefiq-brain.js?v=20261003j"></script>
+<script src="js/intel.js?v=20260712"></script>
+<script src="js/roles.js?v=20260712"></script>
+<script src="js/frameworks.js?v=20261003a"></script>
+<!-- reasoning-layer sections on the landing report (no interstitials — workflow unchanged) -->
+<script src="js/evidence-checker.js?v=20261003a"></script>
+<script src="js/assumption-auditor.js?v=20261003a"></script>
+<script src="js/devils-advocate.js?v=20260809c"></script>
+<script src="js/preproduction-auditor.js?v=20261003a"></script>
+<script src="js/followup-engine.js"></script>
+<script src="js/refine-engine.js"></script>
+<script src="js/interrogator.js?v=20261003a"></script>
+<script src="js/variance-engine.js"></script>
+<script src="js/engine-local.js?v=20261003a"></script>
+<script src="js/creative-insight-engine.js?v=20260825c"></script>
+<script src="js/creative-playground.js?v=20261115c"></script>
+<script src="js/inspiration.js?v=20261001e"></script>
+<script src="js/prompt-builder.js?v=20260911b"></script>
+<script src="js/ai/connector-openai.js?v=20261003ai"></script>
+<script src="js/ai/connector-anthropic.js?v=20261003ai"></script>
+<script src="js/ai/connector-gemini.js?v=20261003ai"></script>
+<script src="js/ai/router.js?v=20260712"></script>
+<script src="js/agents.js?v=20261014b"></script>
+<script src="js/production.js?v=20260712"></script>
+<script src="js/sparring.js?v=20261115b"></script>
+<script src="js/cultural.js?v=20260712"></script>
+<script src="js/universal.js?v=20260809f"></script>
+<script src="js/media.js?v=20260809f"></script>
+<script src="js/exporter.js?v=20261115c"></script>
+<script src="js/usage-engine.js?v=20260809"></script>
+<script src="js/project-types.js?v=20261001h"></script>
+<script src="js/visual-summary.js?v=20260809b"></script>
+<script src="js/research-feed.js?v=20261002b"></script>
+<script src="js/work-media.js?v=20261003a"></script>
+<script src="js/work-images.js?v=20261001f"></script>
+<script src="js/visual-inspiration.js?v=20261115c"></script>
+<script src="js/insight-evidence.js?v=20261115c"></script>
+<script src="js/live-research.js?v=20261002c"></script>
+<script src="js/inspiration-gallery.js?v=20261002c"></script>
+<script src="js/cd-review.js?v=20260809b"></script>
+<script src="js/thinking-tools.js?v=20261014b"></script>
+<script src="js/creator-intelligence.js?v=20260911b"></script>
+<script src="js/production-auditor.js?v=20260911b"></script>
+<script src="js/editorial-planner.js?v=20261001a"></script>
+<script src="js/production-schedule.js?v=20260915g"></script>
+<script src="js/project-dashboard.js?v=20260915e"></script>
+<script src="js/ui-guidance.js?v=20260828a"></script>
+<script src="js/clarify-chat.js?v=20261014b"></script>
+<script src="js/creative-growth.js?v=20261014b"></script>
+<script src="js/focus-mode.js?v=20261115c"></script>
+<script src="js/vision.js?v=20260813a"></script>
+<script src="js/project-understanding.js?v=20260813c"></script>
+<script src="js/wizard.js?v=20261001a"></script>
+<script src="js/case-board.js?v=20261002d"></script>
+<script src="js/moodboard.js?v=20261014b"></script>
+<script src="js/results-tabs.js?v=20261014b"></script>
+<script src="js/app.js?v=20261115d"></script>
+<script src="js/quality-checker.js?v=20261115a"></script>
+<script src="js/visual-curator.js?v=20261116a"></script>
+<script src="js/ai-enhance.js?v=20261116a"></script>
+<script src="js/brief-reader.js?v=20261115c"></script>
+<script src="js/discipline-gate.js?v=20261002a"></script>
+<script src="js/live-platform.js?v=20261002a"></script>
+<script src="js/doodle-girl.js?v=20261002e"></script>
+<script src="js/explore.js?v=20261014b"></script>
+<script src="js/founder-lab.js?v=20260712"></script>
+<script src="js/site-runtime.js?v=20261115d"></script>
+<script src="js/beta-config.js?v=20260826b"></script>
+<script src="js/feedback.js?v=20260915e"></script>
+<script src="js/beta-gate.js?v=20260828c"></script>
+<script src="js/scrape-helper.js?v=20261014b"></script>
+<script src="js/research-pipeline.js?v=20261116a"></script>
+<script src="js/demo.js?v=20261014b"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "briefiq",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BriefIQ — African-built creative intelligence. Static browser app (no build step); serverless functions optional.",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/xss-url.test.mjs && node tests/brain-diagnose.test.mjs && node tests/report-resume.test.mjs && node tests/quality-checker.test.mjs && node tests/visual-curator.test.mjs && node tests/api-router.test.mjs"
+  }
+}
